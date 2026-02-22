@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Darafa - Artisan Metal Jewelry
+
+Darafa is an ultra-modern, luxury web portfolio built for a handcrafted jewelry brand based in Curitiba, Brazil. The platform embraces an underground aesthetic, utilizing high-contrast minimalism, subtle noise textures, and refined typography.
+
+## Architecture & Technology Stack
+
+This application is built with performance, scalability, and developer experience in mind, adhering to modern web development standards.
+
+* **Framework:** Next.js 15 (App Router)
+* **Language:** TypeScript (Strict Mode)
+* **Styling:** Tailwind CSS
+* **Animations:** Framer Motion
+* **Deployment:** Vercel (Recommended)
+
+## Project Structure
+
+The codebase is organized into highly cohesive and loosely coupled modules:
+
+* `/app`: Contains the routing logic, global layouts, and SEO metadata.
+* `/components/layout`: Global architectural components (Navigation, Footer).
+* `/components/sections`: Distinct page sections (Hero, Manifesto, Showcase) acting as compositional blocks.
+* `/components/ui`: Highly reusable, atomic UI elements (Buttons, Overlays).
+* `/lib`: Shared utility functions and constants.
+
+## Design System
+
+* **Primary Palette:** Custom Black (`#050505`, `#0a0a0a`), Silver (`#e5e7eb`), Muted Gray (`#525252`).
+* **Typography:** Playfair Display (Serif, Headings), Inter (Sans-serif, Body).
+* **Visual Effects:** CSS-based SVG noise overlay, `mix-blend-difference` navigation, asymmetric masonry grids.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* Node.js 18.17 or later.
+* npm, yarn, or pnpm.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd darafa-web
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   darafa-web/
+├── app/
+│   ├── fonts/                  # Arquivos de fonte otimizados (Inter, Playfair)
+│   ├── favicon.ico             # Ícone da aba
+│   ├── globals.css             # Diretivas do Tailwind e variáveis CSS base (ruído, scrollbar)
+│   ├── layout.tsx              # RootLayout: Injeção de fontes, metadata SEO e NoiseOverlay
+│   └── page.tsx                # Server Component principal: Orquestra as seções
+├── components/
+│   ├── layout/                 # Estruturas globais de página
+│   │   ├── Navigation.tsx      # Navbar com mix-blend-difference
+│   │   └── Footer.tsx          # Rodapé
+│   ├── sections/               # Blocos de conteúdo da página principal
+│   │   ├── Hero.tsx            # Header com parallax e título principal
+│   │   ├── Manifesto.tsx       # Texto de manifesto
+│   │   ├── Showcase.tsx        # Grid assimétrico de produtos (Masonry)
+│   │   └── InstagramCTA.tsx    # Seção de conversão final
+│   └── ui/                     # Componentes burros/reutilizáveis
+│       ├── NoiseOverlay.tsx    # O div de textura de ruído isolado
+│       └── GlowButton.tsx      # Botão reutilizável com o efeito de glow
+├── lib/                        
+│   └── utils.ts                # Funções utilitárias (ex: cn() para concatenar classes Tailwind)
+├── public/                     # Assets estáticos (imagens reais, quando houver)
+├── tailwind.config.ts          # Configuração migrada do seu script na tag <head>
+├── tsconfig.json               # Configuração estrita do TypeScript
+└── package.json                # Dependências (Next, React, Tailwind, Framer Motion)
