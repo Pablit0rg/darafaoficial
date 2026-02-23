@@ -12,11 +12,12 @@
 - [x] **Hero - Layout:** Reduzir escala da fonte para garantir visibilidade total sem cortes.
 
 ## Fase 3: Ajustes Manuais Espaciais (Instagram CTA)
-- [ ] **Posicionamento:** Deslocar `@DARAFA_CWB` para a direita em relação ao texto "Artisan".
-- [ ] **Posicionamento:** Ajustar botão "Seguir no Instagram" para baixo e para a lateral (fine-tuning de layout).
+- [x] **Posicionamento:** Deslocar `@DARAFA_CWB` para a esquerda (`ml-[-5%] md:ml-[-25%]`) para aproximar do texto "Artisan" de forma assimétrica.
+- [x] **Posicionamento:** Ajustar altura (`mt-[-15px] md:mt-[-30px]`) para evitar a sobreposição direta com o caractere "T" do fundo decorativo.
+- [x] **Posicionamento:** Ajustar botão "Seguir no Instagram" para baixo e para a lateral.
 
 ## Fase 4: Atualização de Manifesto
-- [ ] Substituir o texto atual do manifesto por novo copywriting (Aguardando definição).
+- [x] Substituir o texto atual do manifesto pelo novo copywriting focado em identidade moldada à mão e essência artesanal.
 
 ## Fase 5: Integração Final de Mídia (Vitrine)
 - [ ] Substituir placeholders por imagens reais dos produtos no `Showcase.tsx`.
