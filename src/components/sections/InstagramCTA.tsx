@@ -1,0 +1,46 @@
+// src/components/sections/InstagramCTA.tsx
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+export default function InstagramCTA() {
+  return (
+    <section id="instagram" className="min-h-[70vh] flex flex-col justify-center items-center bg-brand-dark relative px-6 border-t border-white/5 overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-center z-10 space-y-8"
+      >
+        <h2 className="font-serif text-4xl md:text-6xl lg:text-8xl text-white">
+          @DARAFA_CWB
+        </h2>
+        <p className="text-gray-400 font-light max-w-md mx-auto">
+          Novos drops, processos de criação e atendimento exclusivo via Direct.
+        </p>
+        
+        <div className="pt-8">
+          <Link 
+            href="https://instagram.com/darafa_cwb" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group relative inline-flex items-center gap-3 text-lg tracking-widest uppercase hover:text-white/70 transition-colors"
+          >
+            <span>Seguir no Instagram</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-2 transition-transform duration-300">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </Link>
+        </div>
+      </motion.div>
+
+      {/* Big Background Text (Decoration) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-[0.03] select-none">
+        <span className="font-serif text-[20vw] italic leading-none">Artisan</span>
+      </div>
+    </section>
+  );
+}
