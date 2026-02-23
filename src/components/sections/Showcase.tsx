@@ -8,7 +8,7 @@ const showcaseItems = [
   { id: 2, title: "Colar Elos", desc: "Close-up Textura", spanClasses: "", image: null },
   { id: 3, title: "Brinco Minimal", desc: "Detalhe Acabamento", spanClasses: "", image: "/assets/images/Brincos.jpg" }, // Imagem integrada aqui
   { id: 4, title: "Coleção 'Sombra'", desc: "Editorial / Modelo", spanClasses: "md:col-span-2 lg:col-span-1 lg:row-span-2", image: null },
-  { id: 5, title: "Pulseira Trama", desc: "Pulseira Prata", spanClasses: "", image: null },
+  { id: 5, title: "Pulseira Trama", desc: "Pulseira Prata", spanClasses: "", image: "/assets/images/BraceletesComPingente&Miçangas.jpg" },
 ];
 
 export default function Showcase() {
