@@ -16,9 +16,10 @@ export default function Manifesto() {
           Manifesto
         </h2>
         <p className="font-sans text-lg md:text-xl font-light leading-relaxed text-gray-400">
-          A <span className="text-white font-normal">Darafa</span> não é sobre produção em massa. É sobre a imperfeição calculada. 
-          Cada peça carrega as marcas do processo, a força do martelo e a alma do underground. 
-          Joias para quem vê beleza na sombra e elegância no caos.
+          A <span className="text-white font-normal">Darafa</span> é identidade moldada à mão. 
+          Aqui, a beleza brilha do seu jeito, em peças feitas com intenção e alma. 
+          Somos uma colmeia que pulsa arte, transformando metais em autoestima. 
+          Joias para quem celebra a própria essência do trabalho artesanal.
         </p>
         <div className="pt-4 flex justify-center">
           <span className="inline-block w-2 h-2 rounded-full bg-white/20"></span>
