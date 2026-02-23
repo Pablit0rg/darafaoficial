@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const showcaseItems = [
   { id: 1, title: "Anel Bruto .01", desc: "Imagem Vertical", spanClasses: "row-span-1 md:row-span-2", image: null },
-  { id: 2, title: "Colar Elos", desc: "Close-up Textura", spanClasses: "", image: null },
-  { id: 3, title: "Brinco Minimal", desc: "Detalhe Acabamento", spanClasses: "", image: "/assets/images/Brincos.jpg" }, // Imagem integrada aqui
+  { id: 2, title: "Colar Elos", desc: "Close-up Textura", spanClasses: "", image: "/assets/images/colar.jpg" }, // Imagem integrada aqui
+  { id: 3, title: "Brinco Minimal", desc: "Detalhe Acabamento", spanClasses: "", image: "/assets/images/Brincos.jpg" },
   { id: 4, title: "Coleção 'Sombra'", desc: "Editorial / Modelo", spanClasses: "md:col-span-2 lg:col-span-1 lg:row-span-2", image: null },
   { id: 5, title: "Pulseira Trama", desc: "Pulseira Prata", spanClasses: "", image: "/assets/images/BraceletesComPingente&Miçangas.jpg" },
 ];
