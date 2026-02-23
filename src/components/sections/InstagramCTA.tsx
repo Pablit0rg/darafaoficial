@@ -14,14 +14,17 @@ export default function InstagramCTA() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center z-10 space-y-8"
       >
-        <h2 className="font-serif text-4xl md:text-6xl lg:text-8xl text-white">
-          @DARAFA_CWB
-        </h2>
+        {/* Ajuste Manual: Deslocado para a direita com ml-8 ou md:ml-16 */}
+        <h2 className="font-serif text-4xl md:text-6xl lg:text-8xl text-white ml-[-5%] md:ml-[-26%] mt-[-15px] md:mt-[-60px] tracking-tighter">
+  @DARAFA_CWB
+</h2>
+        
         <p className="text-gray-400 font-light max-w-md mx-auto">
           Novos drops, processos de criação e atendimento exclusivo via Direct.
         </p>
         
-        <div className="pt-8">
+        {/* Ajuste Manual: Botão deslocado para baixo (pt-12) e levemente para o lado (md:translate-x-10) */}
+        <div className="pt-12 md:translate-x-12">
           <Link 
             href="https://instagram.com/darafa_cwb" 
             target="_blank" 
