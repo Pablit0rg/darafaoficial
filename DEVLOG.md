@@ -36,3 +36,11 @@ Para elevar a autenticidade e a experiência do usuário (UX) do portfólio, as 
 
 - **Design System (Global):**
   - **Theming & Color Palette:** Reestruturar as variáveis de cor (Tailwind/CSS) na etapa final do projeto. A paleta definitiva será extraída da identidade visual oficial (logo) e do padrão cromático do Instagram profissional da marca, mantendo a base 'Preto de Luxo' como fundação.
+
+  - **Elementos de UI (Divisórias e Bordas):**
+  - **Acabamentos Metálicos:** Substituir as linhas sólidas padrão (borders e `<hr>`) por gradientes dinâmicos que simulem metais nobres. Testar variações de textura (ouro pálido, prata envelhecida e ródio escuro) para refletir a materialidade das joias artesanais.
+
+- **Seção Footer (`Footer.tsx`):**
+  - **Integração de Mapa (Localização):** Incorporar um mapa de localização com estética minimalista (estilo dark mode/monocromático). Avaliar testes A/B de posicionamento: 
+    1. Centralizado na estrutura do rodapé.
+    2. Substituindo a coluna atual do link do Instagram, otimizando o espaço para direcionar o tráfego físico ao ateliê em Curitiba.
