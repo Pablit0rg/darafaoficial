@@ -20,7 +20,20 @@ export default function Hero() {
           ONDE A ARTE <br /> <span className="italic font-light text-gray-400">ENCONTRA</span> OS METAIS
         </motion.h1>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="pt-4">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="pt-4 flex flex-col items-center">
+          
+          {/* Seta Minimalista Animada */}
+          <motion.div 
+            animate={{ y: [0, 8, 0] }} 
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2 opacity-60 mb-8"
+          >
+            <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-white"></div>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+              <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+          </motion.div>
+
           <Link
             href="https://instagram.com/darafa_cwb"
             target="_blank"
