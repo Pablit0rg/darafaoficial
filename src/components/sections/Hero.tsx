@@ -2,15 +2,39 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <header className="min-h-screen flex flex-col justify-center items-center relative px-4 text-center overflow-hidden">
+    <header className="min-h-screen flex flex-col justify-center items-center relative px-4 text-center overflow-hidden bg-brand-black">
+      
+      {/* Background Image: Estilo Editorial (Ancorada à Esquerda) */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        {/* Container da imagem ocupando a metade esquerda no desktop, e um pouco mais no mobile */}
+        <div className="absolute top-0 left-0 w-full md:w-2/3 h-full opacity-50">
+          <Image 
+            src="/assets/images/rafaela-destaque-1.jpg"
+            alt="DaRafa Joias"
+            fill
+            className="object-cover object-left md:object-center grayscale mix-blend-lighten"
+            priority
+          />
+          {/* Fade horizontal: funde a borda direita da imagem com o fundo preto */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-black/70 to-brand-black"></div>
+          {/* Fade vertical: garante a transição suave para a próxima seção (Manifesto) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent"></div>
+        </div>
+        
+        {/* Máscara global suave para garantir leitura perfeita do texto por cima da imagem */}
+        <div className="absolute inset-0 bg-brand-black/20"></div>
+      </div>
+
+      {/* Conteúdo Textual - Centralizado */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ staggerChildren: 0.15, delayChildren: 0.2 }}
-        className="space-y-6 z-10 max-w-4xl mx-auto"
+        className="space-y-6 z-10 max-w-4xl mx-auto relative mt-20 md:mt-0"
       >
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-brand-muted uppercase tracking-[0.3em] text-[10px] md:text-sm">
           Curitiba &bull; Joias artesanais
@@ -44,6 +68,7 @@ export default function Hero() {
           </Link>
         </motion.div>
       </motion.div>
+
     </header>
   );
 }
