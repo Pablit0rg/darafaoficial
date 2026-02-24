@@ -38,3 +38,18 @@
     background: #555;
   }
 }
+
+@layer utilities {
+  /* Texturas Metálicas para Divisórias (Bordas) */
+  .bg-metal-gold {
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.6) 50%, transparent 100%);
+  }
+  
+  .bg-metal-silver {
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  }
+  
+  .bg-metal-rhodium {
+    background: linear-gradient(90deg, transparent 0%, rgba(82, 82, 91, 0.8) 50%, transparent 100%);
+  }
+}
