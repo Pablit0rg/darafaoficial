@@ -1,46 +1,24 @@
-# Devlog: Otimizações e Refinamento de UI/UX (v1.1)
+# 📜 DEVLOG - Portfólio DaRafa Joias
 
-## Fase 1: Core Architecture & SEO
-- [x] Implementar metadados avançados (OpenGraph, Twitter Cards, Keywords) no `layout.tsx` para maximizar a indexação em motores de busca.
-- [x] Refatorar a lógica do botão "Início" no `Footer.tsx` para garantir um *smooth scroll* fluído até o topo da página.
-- [x] Separar lógica de Client Components (Footer) de Server Components (Layout/Metadata) para conformidade com Next.js 15.
+Documentação viva das decisões arquiteturais, evolução do layout e roadmap do projeto.
 
-## Fase 2: Header & Hero (Refinamento de Luxo)
-- [x] **Navegação:** Adicionar separador visual (linha border-b) e implementar efeito *Glassmorphism* (backdrop-blur) no `Navigation.tsx`.
-- [x] **Navegação:** Atualizar link de "Contato" para Direct do Instagram com mensagem personalizada.
-- [x] **Hero - Copywriting:** Alterar textos para "Joias artesanais", "ONDE A ARTE ENCONTRA OS METAIS" e "Coleção completa".
-- [x] **Hero - Layout:** Reduzir escala da fonte para garantir visibilidade total sem cortes.
+---
 
-## Fase 3: Ajustes Manuais Espaciais (Instagram CTA)
-- [x] **Posicionamento:** Deslocar `@DARAFA_CWB` para a esquerda (`ml-[-5%] md:ml-[-25%]`) para aproximar do texto "Artisan" de forma assimétrica.
-- [x] **Posicionamento:** Ajustar altura (`mt-[-15px] md:mt-[-30px]`) para evitar a sobreposição direta com o caractere "T" do fundo decorativo.
-- [x] **Posicionamento:** Ajustar botão "Seguir no Instagram" para baixo e para a lateral.
+## 📅 [2026-02-23] - Sprint Atual: Integração de Assets e Micro-interações
 
-## Fase 4: Atualização de Manifesto
-- [x] Substituir o texto atual do manifesto pelo novo copywriting focado em identidade moldada à mão e essência artesanal.
+### ✅ Implementações Concluídas
+- [x] **Showcase (Imagens):** Integração das imagens reais no grid (`PontoDeLuz.jpg`, `Colar.jpg`, `Brincos.jpg`, `Lilás&Azul.jpg`, `BraceletesComPingente&Miçangas.jpg`).
+- [x] **Showcase (Correção):** Resolução do bug de renderização ajustando o *path* das imagens para a regra *case-sensitive* do ambiente Linux.
+- [x] **Boas Práticas de Engenharia:** Documentação da regra para nomenclatura de assets estáticos (evitar caracteres especiais/acentos, usar *kebab-case* em minúsculo).
+- [x] **Hero (Indicador Visual):** Implementação de seta minimalista animada com Framer Motion indicando scroll direto para o botão CTA.
+- [x] **Manifesto (Marca D'água):** Adição do símbolo da marca (`logo-abelha.png`) ao fundo utilizando Z-Index hierarchy e filtros CSS (`mix-blend-screen`, `grayscale`, `opacity-5`).
 
-## Fase 5: Integração Final de Mídia (Vitrine)
-- [x] Substituir placeholders por imagens reais dos produtos no `Showcase.tsx`.
+---
 
-## [2026-02-23] - Roadmap de Refinamento de UI/UX (Backlog)
+## 🎯 Roadmap de UI/UX (Backlog)
 
-### Planejamento Arquitetural de Layout e Interações
-Para elevar a autenticidade e a experiência do usuário (UX) do portfólio, as seguintes implementações foram mapeadas para os próximos *sprints*:
-
-- **Seção Hero (`Hero.tsx`):**
-  - **Indicador de Scroll:** Adicionar uma seta minimalista animada (Framer Motion) apontando para baixo, guiando a atenção do usuário diretamente para o botão "Coleção completa".
-  - **Composição Visual (Hero Image):** Integrar uma imagem autêntica (da cliente ou de um acessório destaque) no lado direito da seção. A imagem deve preencher o espaço negativo sem sobrepor ou prejudicar a legibilidade do conteúdo textual à esquerda.
-
-- **Seção Manifesto (`Manifesto.tsx`):**
-  - **Watermark/Background:** Incorporar o símbolo da marca DaRafa (abelha rainha minimalista) como marca d'água ao fundo do manifesto. O *asset* será aplicado sem cor (monocromático/baixa opacidade) para preservar a estética *clean* e o design de luxo.
-
-- **Design System (Global):**
-  - **Theming & Color Palette:** Reestruturar as variáveis de cor (Tailwind/CSS) na etapa final do projeto. A paleta definitiva será extraída da identidade visual oficial (logo) e do padrão cromático do Instagram profissional da marca, mantendo a base 'Preto de Luxo' como fundação.
-
-  - **Elementos de UI (Divisórias e Bordas):**
-  - **Acabamentos Metálicos:** Substituir as linhas sólidas padrão (borders e `<hr>`) por gradientes dinâmicos que simulem metais nobres. Testar variações de textura (ouro pálido, prata envelhecida e ródio escuro) para refletir a materialidade das joias artesanais.
-
-- **Seção Footer (`Footer.tsx`):**
-  - **Integração de Mapa (Localização):** Incorporar um mapa de localização com estética minimalista (estilo dark mode/monocromático). Avaliar testes A/B de posicionamento: 
-    1. Centralizado na estrutura do rodapé.
-    2. Substituindo a coluna atual do link do Instagram, otimizando o espaço para direcionar o tráfego físico ao ateliê em Curitiba.
+### ⏳ A Fazer (Pendências)
+- [ ] **Hero - Composição de Imagem:** Integrar imagem autêntica lateral (Rafaela usando acessório ou peça destaque) sem sobrepor o conteúdo textual à esquerda.
+- [ ] **UI Global - Linhas Divisórias:** Substituir as bordas sólidas padrão do projeto por gradientes dinâmicos que simulem texturas metálicas (ouro pálido, prata envelhecida, ródio escuro).
+- [ ] **Footer - Mapa de Localização:** Incorporar mapa embutido de Curitiba com estética *dark mode* minimalista (testar centralizado vs. substituindo o link do Instagram).
+- [ ] **Design System - Paleta de Cores Definitiva:** Atualizar as variáveis de cor no Tailwind com base na identidade visual oficial da logo e na padronização do Instagram profissional.
