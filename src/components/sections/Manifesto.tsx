@@ -5,8 +5,11 @@ import Image from "next/image";
 
 export default function Manifesto() {
   return (
-    <section className="py-24 md:py-32 px-6 bg-brand-dark relative border-t border-white/5 overflow-hidden flex items-center justify-center">
+    <section className="py-24 md:py-32 px-6 bg-brand-dark relative overflow-hidden flex items-center justify-center">
       
+      {/* Fio Metálico (Prata) no topo da seção */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-metal-silver z-20"></div>
+
       {/* Background / Marca d'água */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center select-none">
         <div className="relative w-[150%] h-[150%] md:w-full md:h-full max-w-3xl opacity-5 grayscale mix-blend-screen">
