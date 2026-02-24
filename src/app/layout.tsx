@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import NoiseOverlay from "@/components/ui/NoiseOverlay";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,7 +47,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
       <body className="font-sans relative bg-brand-black text-brand-silver">
-        <NoiseOverlay />
         {children}
       </body>
     </html>
