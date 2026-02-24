@@ -1,4 +1,4 @@
-# DEVLOG - Portfólio DaRafa Joias
+# 📜 DEVLOG - Portfólio DaRafa Joias
 
 Documentação viva das decisões arquiteturais, evolução do layout e roadmap do projeto.
 
@@ -12,6 +12,11 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 - [ ] **Tratamento de Asset (Deep Etching):** Recortar o fundo cinza da foto da Rafaela para criar uma silhueta limpa e sem bordas duras (aguardando edição e upload da nova imagem).
 - [ ] **Composição "Capa de Revista" (Editorial):** Manter a imagem no *background* (atrás do texto), porém deslocada e ancorada em uma das laterais, criando uma assimetria elegante típica de editoriais de moda.
 - [ ] **Testes de Sombras e Overlays:** Testar diferentes configurações de gradientes escuros sobre a imagem recortada para garantir contraste perfeito com a tipografia sem poluir a estética minimalista.
+  - [ ] **Teste 1: Vignette Clássica ("Cartier")** - Foco radial no centro, extremidades em preto absoluto.
+  - [ ] **Teste 2: Fade Cinematográfico ("Chão de Veludo")** - Gradiente linear vertical, base escura para leitura de CTA e topo iluminado.
+  - [ ] **Teste 3: Sombra Âmbar Monocromática ("Ouro Escuro")** - Overlay quente (`mix-blend-multiply`) simulando iluminação de joalheria.
+  - [ ] **Teste 4: Split Diagonal ("Editorial")** - Corte brutalista em diagonal, luz transversal na modelo.
+  - [ ] **Teste 5: Contraste Supremo ("Vogue")** - Filtros CSS agressivos (`contrast`, `brightness`) para high-key/low-key.
 
 ---
 
