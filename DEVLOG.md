@@ -13,17 +13,21 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 - [ ] **Efeito de Cor Seletiva (Asset Fotográfico):** Editar a foto no Photoshop aplicando P&B, porém isolando e preservando o brilho original Prata e Dourado estritamente nas unhas e no piercing (ver *Diretrizes Técnicas* abaixo).
 - [ ] **Tipografia Metálica (UI):** Aplicar gradientes metálicos independentes no título principal para criar simetria com a fotografia. A palavra "ARTE" deve brilhar em Prata (`bg-metal-silver`), e a palavra "METAIS" deve brilhar em Ouro (`bg-metal-gold`).
 - [ ] **Refinamento de Espaçamento Tipográfico:** Ajustar o deslocamento do container de texto no desktop para a direita, liberando a área de respiro visual em torno do rosto da modelo (ver *Diretrizes Técnicas* abaixo).
+- [ ] **Textura "Glitter" / Ruído Visual:** Reintroduzir o componente de ruído (`NoiseOverlay`) no Hero, adaptando a opacidade e o blend mode para simular a textura premium presente no projeto legado 'BLACK 02'.
 
 > **Diretrizes Técnicas de Implementação (Hero):**
 > * **Integração de Cor Seletiva (Selective Color):** O design atual utiliza a classe utilitária `grayscale` do Tailwind para forçar o P&B via motor de renderização. Assim que o asset fotográfico editado (com as unhas e piercing coloridos) for upado, a classe `grayscale` **deve ser obrigatoriamente removida** da tag `<Image />`. Caso contrário, o CSS anulará o tratamento nativo do arquivo.
 > * **Posicionamento Defensivo (Desktop):** Para realizar o deslocamento horizontal da tipografia sem quebrar a grade mobile, o ajuste deve ser isolado por breakpoint. Localize o `<motion.div>` principal que agrupa os textos (aprox. linha 32) e aplique utilitários com o prefixo `md:` (ex: `md:translate-x-16`, `md:translate-x-24` ou `md:pl-20`). Teste os incrementos até que o alinhamento esquerdo do texto libere perfeitamente a silhueta da modelo.
 
-#### 2. Revisão Final
+#### 2. Seção Showcase (`Showcase.tsx`)
+- [ ] **Layout de Grid em Mosaico (Zero-Gap):** Refatorar a estrutura dos cards de joias para adotar um espaçamento quase nulo (ex: `gap-px`) e bordas finas translúcidas (`border-white/5`). Inspirar-se na arquitetura de grid do projeto legado 'BLACK 02' para criar um aspecto de galeria de arte contínua.
+
+#### 3. Revisão Final
 - [ ] **Seção Instagram CTA:** Revisar a seção `InstagramCTA.tsx` para garantir que ela converse visualmente com o novo "Preto de Luxo" e com os fios metálicos do restante do site (versão atual mantida estável com alinhamentos manuais).
 
 ---
 
-## 📅 Histórico de Sprints (Changelog)
+## Histórico de Sprints (Changelog)
 
 ### [2026-02-24] - Integração de Assets Oficiais e Tratamento
 - [x] **Tratamento de Asset (Deep Etching):** Recorte do fundo da foto principal da Rafaela finalizado, removendo bordas duras e criando uma silhueta limpa com arquivo transparente/HD.
