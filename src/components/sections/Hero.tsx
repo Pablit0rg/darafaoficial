@@ -13,7 +13,7 @@ export default function Hero() {
         {/* Container da imagem ocupando a metade esquerda no desktop, e um pouco mais no mobile */}
         <div className="absolute top-0 left-0 w-full md:w-2/3 h-full opacity-50">
           <Image 
-            src="/assets/images/rafaela-destaque-hd.jpg"
+            src="/assets/images/rafaela-destaqueHeroOficial-hd.jpg"
             alt="DaRafa Joias"
             fill
             className="object-cover object-left md:object-center grayscale mix-blend-lighten"
