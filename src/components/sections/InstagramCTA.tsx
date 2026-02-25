@@ -15,9 +15,9 @@ export default function InstagramCTA() {
         className="text-center z-10 space-y-8"
       >
         {/* Ajuste Manual: Deslocado para a direita com ml-8 ou md:ml-16 */}
-        <h2 className="font-serif text-4xl md:text-6xl lg:text-8xl text-white ml-[-5%] md:ml-[-26%] mt-[-15px] md:mt-[-60px] tracking-tighter">
-  @DARAFA_CWB
-</h2>
+        <h2 className="font-serif text-4xl md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 ml-[-5%] md:ml-[-26%] mt-[-15px] md:mt-[-60px] tracking-tighter">
+          @DARAFA_CWB
+        </h2>
         
         <p className="text-gray-400 font-light max-w-md mx-auto">
           Novos drops, processos de criação e atendimento exclusivo via Direct.

@@ -79,9 +79,14 @@ export default function Hero() {
       >
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-brand-muted uppercase tracking-[0.3em] text-[10px] md:text-sm">
-
-          Curitiba &bull; Joias artesanais
-
+          <Link 
+            href="https://maps.google.com/?q=Curitiba,+PR" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            Curitiba
+          </Link> &bull; Joias artesanais
         </motion.p>
 
        

@@ -13,13 +13,20 @@ export default function Navigation() {
       transition={{ duration: 0.8, ease: [0.5, 0, 0, 1] }}
       className="fixed top-0 w-full z-40 px-6 py-6 flex justify-between items-center border-b border-white/10 backdrop-blur-md bg-black/20 mix-blend-difference text-white"
     >
-      <Link href="/" className="font-serif text-xl tracking-widest font-bold uppercase">
-        Darafa.
+      {/* Logo com hitbox expandida e feedback tátil */}
+      <Link href="/" className="relative group p-2 -m-2">
+        <motion.span 
+          whileTap={{ scale: 0.95 }}
+          className="font-serif text-xl tracking-widest font-bold uppercase block"
+        >
+          Darafa.
+        </motion.span>
       </Link>
+
       <Link 
         href={contactLink}
         target="_blank"
-        className="text-xs uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
+        className="text-xs uppercase tracking-[0.2em] hover:opacity-70 transition-opacity p-2 -m-2"
       >
         Contato
       </Link>
