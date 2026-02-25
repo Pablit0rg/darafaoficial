@@ -9,7 +9,6 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 ### ⏳ A Fazer (Pendências de Design e Engenharia)
 
 #### 1. Seção Hero (`Hero.tsx`)
-- [ ] **UX/Conversão (Link Local):** Transformar a string "Curitiba" no subtítulo ("Curitiba • Joias artesanais") em um link externo apontando para o Google Maps (`target="_blank"`), espelhando o comportamento do Footer para maximizar a retenção de tráfego local logo na primeira dobra.
 - [ ] **Responsividade da Imagem (Art Direction):** Ajustar manualmente o enquadramento, posicionamento e zoom (`object-position`) da foto principal na versão mobile para garantir que a silhueta da modelo fique perfeitamente centralizada em viewports estreitos.
 - [ ] **Efeito de Cor Seletiva (Asset Fotográfico):** Editar a foto no Photoshop aplicando P&B, porém isolando e preservando o brilho original Prata e Dourado estritamente nas unhas e no piercing (ver *Diretrizes Técnicas* abaixo).
 - [ ] **Tipografia Metálica (UI):** Aplicar gradientes metálicos independentes no título principal para criar simetria com a fotografia. A palavra "ARTE" deve brilhar em Prata (`bg-metal-silver`), e a palavra "METAIS" deve brilhar em Ouro/Bronze (`bg-metal-gold`). (Aguardando asset final para validar contraste).
@@ -24,7 +23,6 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 - [ ] **Engenharia de Prompt (Asset da Abelha):** A marca d'água atual (`logo-abelha.png`) está perdendo legibilidade. Criar um prompt de IA otimizado para gerar uma nova versão da abelha em tons de ouro/âmbar envelhecido, garantindo contraste sutil com o fundo "Preto de Luxo".
 
 #### 3. Seção Instagram CTA (`InstagramCTA.tsx`)
-- [ ] **Tipografia Metálica:** Aplicar efeito de brilho prata (gradiente metálico com `bg-clip-text`) no título monumental `@DARAFA_CWB`.
 - [ ] **Refinamento de Layout Assistido:** Mapeamento de linhas e ajuste fino manual de coordenadas (`margin`, `translate`) para o texto de apoio e o botão de "Seguir". (Requer acompanhamento linha-a-linha no código fonte).
 
 ---
@@ -32,6 +30,8 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 ## 📅 Histórico de Sprints (Changelog)
 
 ### ✅ [2026-02-25] - Refinamentos de UX e Micro-interações
+- [x] **Hero (Conversão):** Transformação do subtítulo "Curitiba" em link de mapa externo para retenção local e fluxo contínuo.
+- [x] **Instagram CTA (UI):** Aplicação de tipografia metálica prata no título principal monumental.
 - [x] **Showcase (Layout):** Validação e fixação da estrutura de alvenaria (`masonry-like`) com espaçamento clássico, preservando a hierarquia visual original.
 - [x] **Footer (Micro-interação):** Implementação de animação no ícone do Instagram, revelando o gradiente oficial da marca apenas no estado de `:hover`.
 - [x] **Navegação Global (Acessibilidade):** Expansão do *hitbox* (área de clique) invisível da logo principal e elevação do `z-index` para garantir sensibilidade e resposta imediata ao toque em dispositivos móveis.
