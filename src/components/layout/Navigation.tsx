@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { siteConfig } from "@/config/site"; // Importando a lógica centralizada
 
 export default function Navigation() {
-  const contactLink = "https://ig.me/m/darafa_cwb?text=Vi%20seu%20site%20e%20gostaria%20de%20ver%20os%20drops%20disponíveis";
+  // Agora a URL de contato vem da nossa fonte da verdade centralizada
+  const contactLink = siteConfig.links.whatsappContact; 
 
   return (
     <motion.nav

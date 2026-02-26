@@ -35,6 +35,8 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 - [x] **Segurança (Config):** Implementação de Security Headers no `next.config.ts` (XSS, Clickjacking e No-Sniff).
 - [x] **Arquitetura (Tipos):** Centralização de interfaces e contratos de dados em `src/types`.
 - [x] **Helpers (Lógica):** Implementação de utilitários de formatação e geração de slugs em `src/lib`.
+- [x] **Arquitetura (Config):** Centralização de constantes de negócio e links globais em `src/config/site.ts`.
+- [x] **Refatoração (Lógica):** Desacoplamento de links estáticos nos componentes de navegação.
 
 ### ✅ [2026-02-25] - Refinamentos de UX e Micro-interações
 - [x] **Hero (Conversão):** Transformação do subtítulo "Curitiba" em link de mapa externo para retenção local.
