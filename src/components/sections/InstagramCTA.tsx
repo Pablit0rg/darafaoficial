@@ -42,7 +42,7 @@ export default function InstagramCTA() {
 
       {/* Big Background Text (Decoration) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-[0.03] select-none">
-        <span className="font-serif text-[20vw] italic leading-none">Artisan</span>
+        <span className="font-serif text-[20vw] italic leading-none">Autoral</span>
       </div>
     </section>
   );
