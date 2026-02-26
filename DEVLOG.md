@@ -20,7 +20,8 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 > * **Posicionamento Defensivo (Desktop):** Para realizar o deslocamento horizontal da tipografia sem quebrar a grade mobile, o ajuste deve ser isolado por breakpoint. Localize o `<motion.div>` principal que agrupa os textos (aprox. linha 32) e aplique utilitários com o prefixo `md:` (ex: `md:translate-x-16`, `md:translate-x-24` ou `md:pl-20`). Teste os incrementos até que o alinhamento esquerdo do texto libere perfeitamente a silhueta da modelo.
 
 #### 2. Seção Manifesto (`Manifesto.tsx`)
-- [ ] **Engenharia de Prompt (Asset da Abelha):** A marca d'água atual (`logo-abelha.png`) está perdendo legibilidade. Criar um prompt de IA otimizado para gerar uma nova versão da abelha em tons de ouro/âmbar envelhecido, garantindo contraste sutil com o fundo "Preto de Luxo".
+- [ ] **Tratamento de Asset (Deep Etching):** Remover o fundo preto absoluto dos arquivos de rascunho (`logo-abelha-raw-*.jpg`) gerados por IA, convertendo-os para PNGs transparentes (`logo-abelha-gold-*-hd.png`).
+- [ ] **Integração e A/B Testing:** Aplicar os novos assets no componente `Manifesto.tsx` e testar individualmente a legibilidade, contraste e blend mode contra o fundo "Preto de Luxo".
 
 #### 3. Seção Instagram CTA (`InstagramCTA.tsx`)
 - [ ] **Refinamento de Layout Assistido:** Mapeamento de linhas e ajuste fino manual de coordenadas (`margin`, `translate`) para o texto de apoio e o botão de "Seguir". (Requer acompanhamento linha-a-linha no código fonte).
@@ -29,7 +30,8 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 
 ## 📅 Histórico de Sprints (Changelog)
 
-### ✅ [2026-02-26] - Infraestrutura e Utilitários de Lógica
+### ✅ [2026-02-26] - Engenharia de Dados e Assets
+- [x] **Prompt Engineering (Asset da Abelha):** Geração de múltiplos assets em IA utilizando engenharia de prompt restrita a texturas em ouro/âmbar envelhecido sobre fundo preto absoluto. Lote de imagens salvo em diretório de rascunho.
 - [x] **Logger (Engenharia):** Implementação de utilitário centralizado para gestão de logs em ambiente de desenvolvimento.
 - [x] **Hooks (Lógica de UI):** Criação do hook `useScrollLock` para gerenciamento de estados de overlay/modais sem quebra de layout.
 - [x] **Segurança (Config):** Implementação de Security Headers no `next.config.ts` (XSS, Clickjacking e No-Sniff).
