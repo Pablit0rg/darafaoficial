@@ -13,7 +13,7 @@ const showcaseItems = [
 
 export default function Showcase() {
   return (
-    <section className="py-20 px-4 md:px-12 bg-black">
+    <section id="showcase" className="py-20 px-4 md:px-12 bg-black">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
