@@ -33,6 +33,8 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 - [x] **Logger (Engenharia):** Implementação de utilitário centralizado para gestão de logs em ambiente de desenvolvimento.
 - [x] **Hooks (Lógica de UI):** Criação do hook `useScrollLock` para gerenciamento de estados de overlay/modais sem quebra de layout.
 - [x] **Segurança (Config):** Implementação de Security Headers no `next.config.ts` (XSS, Clickjacking e No-Sniff).
+- [x] **Arquitetura (Tipos):** Centralização de interfaces e contratos de dados em `src/types`.
+- [x] **Helpers (Lógica):** Implementação de utilitários de formatação e geração de slugs em `src/lib`.
 
 ### ✅ [2026-02-25] - Refinamentos de UX e Micro-interações
 - [x] **Hero (Conversão):** Transformação do subtítulo "Curitiba" em link de mapa externo para retenção local.
