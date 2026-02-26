@@ -1,12 +1,12 @@
-# 📜 DEVLOG - Portfolio DaRafa Joias
+# DEVLOG - Portfolio DaRafa Joias
 
 Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do projeto.
 
 ---
 
-## 🎯 Roadmap de UI/UX (Backlog Master)
+## Roadmap de UI/UX (Backlog Master)
 
-### ⏳ A Fazer (Pendencias de Design e Engenharia)
+### A Fazer (Pendencias de Design e Engenharia)
 
 #### 1. Secao Hero (Hero.tsx)
 - [ ] **Responsividade da Imagem (Art Direction):** Replanejar enquadramento mobile sem afetar filtros P&B. (Postergado para evitar quebra de estetica editorial).
@@ -31,7 +31,6 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 - [ ] **Hierarquia Metalica (Ouro/Bronze):** Alterar o gradiente do titulo monumental @DARAFA_CWB de Prata para Ouro/Bronze.
 - [ ] **Destaque de Conversao:** Replicar este mesmo gradiente Ouro/Bronze no botao de acao "Seguir no Instagram ->", maximizando o apelo visual para o clique.
 - [ ] **Hierarquia Metalica (Prata):** Aplicar o gradiente Prata estritamente no texto de apoio ("Novos drops, processos de criacao e atendimento exclusivo via Direct.").
-- [ ] **Curadoria de Copy (Watermark):** Substituir a marca d'agua de fundo "ARTISAN" por um termo equivalente em portugues (ex: "Artesanal", "Ourivesaria", "Essencia"), preservando intactas as propriedades de opacidade, tamanho monumental e posicionamento absoluto no eixo Z (fundo).
 - [ ] **Refinamento de Layout Assistido:** Mapeamento de linhas e ajuste fino manual de coordenadas (margin, translate) para o texto de apoio e o botao de "Seguir".
 
 #### 5. QA (Quality Assurance) e Deploy
@@ -41,12 +40,13 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 
 ---
 
-## 📅 Historico de Sprints (Changelog)
+## Historico de Sprints (Changelog)
 
-### ✅ [2026-02-27] - Navegacao e Experiencia do Usuario (UX)
-- [x] **Hero (Ancoragem de Fluxo):** Concluida a implementacao da ancora de rolagem suave (scroll-smooth). O clique no subtitulo "Joias artesanais" agora direciona o usuario fluidamente para a secao "Ultimas Criacoes" (Showcase), melhorando a navegacao e o funil de conversao.
+### [2026-02-27] - Curadoria de Assets e Copy
+- [x] **Instagram CTA (Copy):** Substituicao da watermark de fundo de "ARTISAN" para "AUTORAL", preservando intacta a estrutura tipografica e o design original no componente.
+- [x] **Hero (Ancoragem de Fluxo):** Concluida a implementacao da ancora de rolagem suave (scroll-smooth). O clique no subtitulo "Joias artesanais" agora direciona o usuario fluidamente para a secao "Ultimas Criacoes" (Showcase).
 
-### ✅ [2026-02-26] - Engenharia de Dados e Assets
+### [2026-02-26] - Engenharia de Dados e Assets
 - [x] **Prompt Engineering (Asset da Abelha):** Geracao de multiplos assets em IA utilizando engenharia de prompt restrita a texturas em ouro/ambar envelhecido sobre fundo preto absoluto. Lote de imagens salvo em diretorio de rascunho.
 - [x] **Logger (Engenharia):** Implementacao de utilitario centralizado para gestao de logs em ambiente de desenvolvimento.
 - [x] **Hooks (Logica de UI):** Criacao do hook useScrollLock para gerenciamento de estados de overlay/modais sem quebra de layout.
@@ -58,7 +58,7 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 - [x] **Refatoracao (Logica):** Desacoplamento de dados geograficos e links sociais no Footer.tsx, agora consumindo de siteConfig. Design 100% preservado.
 - [x] **Infraestrutura (Roteamento):** Implementacao de Error Boundaries (error.tsx) e interceptador de rotas inexistentes (not-found.tsx) no App Router para garantir a resiliencia da interface.
 
-### ✅ [2026-02-25] - Refinamentos de UX e Micro-interacoes
+### [2026-02-25] - Refinamentos de UX e Micro-interacoes
 - [x] **Hero (Conversao):** Transformacao do subtitulo "Curitiba" em link de mapa externo para retencao local.
 - [x] **Instagram CTA (UI):** Aplicacao de tipografia metalica prata no titulo monumental @DARAFA_CWB.
 - [x] **Showcase (Layout):** Fixacao da estrutura estatica atual. Nota: Refatoracao para Data-Binding postergada para preservar integridade do design.
