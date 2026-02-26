@@ -129,7 +129,7 @@ export default function Hero() {
 
             href="https://instagram.com/darafa_cwb"
 
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
 
             className="relative overflow-hidden inline-block border border-white/20 px-8 py-4 text-[10px] md:text-xs uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-all duration-500 group"
 

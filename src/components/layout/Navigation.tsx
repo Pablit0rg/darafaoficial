@@ -27,7 +27,7 @@ export default function Navigation() {
 
       <Link 
         href={contactLink}
-        target="_blank"
+        target="_blank" rel="noopener noreferrer"
         className="text-xs uppercase tracking-[0.2em] hover:opacity-70 transition-opacity p-2 -m-2"
       >
         Contato
