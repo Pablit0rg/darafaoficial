@@ -9,7 +9,6 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ### ⏳ A Fazer (Pendencias de Design e Engenharia)
 
 #### 1. Secao Hero (Hero.tsx)
-- [ ] **Ancoragem de Fluxo (UX):** Transformar o fragmento de texto "Joias artesanais" (presente no subtitulo) em um link ancora de rolagem suave (scroll-smooth), direcionando o usuario diretamente para a secao "Ultimas Criacoes" (Showcase).
 - [ ] **Responsividade da Imagem (Art Direction):** Replanejar enquadramento mobile sem afetar filtros P&B. (Postergado para evitar quebra de estetica editorial).
 - [ ] **Efeito de Cor Seletiva (Asset Fotografico):** Editar a foto no Photoshop aplicando P&B, porem isolando e preservando o brilho original Prata e Dourado estritamente nas unhas e no piercing.
 - [ ] **Tipografia Metalica (UI):** Aplicar gradientes metalicos independentes no titulo principal para criar simetria com a fotografia. A palavra "ARTE" deve brilhar em Prata (bg-metal-silver), e a palavra "METAIS" deve brilhar em Ouro/Bronze (bg-metal-gold).
@@ -43,6 +42,9 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ---
 
 ## 📅 Historico de Sprints (Changelog)
+
+### ✅ [2026-02-27] - Navegacao e Experiencia do Usuario (UX)
+- [x] **Hero (Ancoragem de Fluxo):** Concluida a implementacao da ancora de rolagem suave (scroll-smooth). O clique no subtitulo "Joias artesanais" agora direciona o usuario fluidamente para a secao "Ultimas Criacoes" (Showcase), melhorando a navegacao e o funil de conversao.
 
 ### ✅ [2026-02-26] - Engenharia de Dados e Assets
 - [x] **Prompt Engineering (Asset da Abelha):** Geracao de multiplos assets em IA utilizando engenharia de prompt restrita a texturas em ouro/ambar envelhecido sobre fundo preto absoluto. Lote de imagens salvo em diretorio de rascunho.
