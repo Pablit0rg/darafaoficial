@@ -9,10 +9,10 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 ### ⏳ A Fazer (Pendências de Design e Engenharia)
 
 #### 1. Seção Hero (`Hero.tsx`)
-- [ ] **Responsividade da Imagem (Art Direction):** Ajustar manualmente o enquadramento, posicionamento e zoom (`object-position`) da foto principal na versão mobile para garantir que a silhueta da modelo fique perfeitamente centralizada em viewports estreitos.
+- [ ] **Responsividade da Imagem (Art Direction):** Replanejar enquadramento mobile sem afetar filtros P&B. (Postergado para evitar quebra de estética editorial).
 - [ ] **Efeito de Cor Seletiva (Asset Fotográfico):** Editar a foto no Photoshop aplicando P&B, porém isolando e preservando o brilho original Prata e Dourado estritamente nas unhas e no piercing (ver *Diretrizes Técnicas* abaixo).
 - [ ] **Tipografia Metálica (UI):** Aplicar gradientes metálicos independentes no título principal para criar simetria com a fotografia. A palavra "ARTE" deve brilhar em Prata (`bg-metal-silver`), e a palavra "METAIS" deve brilhar em Ouro/Bronze (`bg-metal-gold`). (Aguardando asset final para validar contraste).
-- [ ] **Refinamento de Espaçamento Tipográfico:** Ajustar o deslocamento do container de texto no desktop para a direita, liberando a área de respiro visual em torno do rosto da modelo (ver *Diretrizes Técnicas* abaixo).
+- [ ] **Refinamento de Espaçamento Tipográfico:** Replanejar deslocamento horizontal no desktop. (Postergado para garantir que a tipografia não invada a silhueta P&B da modelo).
 - [ ] **Textura "Glitter" / Ruído Visual:** Reintroduzir o componente de ruído (`NoiseOverlay`) no Hero, adaptando a opacidade e o blend mode para simular a textura premium presente no projeto legado 'BLACK 02'.
 
 > 💡 **Diretrizes Técnicas de Implementação (Hero):**
