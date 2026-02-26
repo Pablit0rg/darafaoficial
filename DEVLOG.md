@@ -37,6 +37,8 @@ Documentação viva das decisões arquiteturais, evolução do layout e roadmap 
 - [x] **Helpers (Lógica):** Implementação de utilitários de formatação e geração de slugs em `src/lib`.
 - [x] **Arquitetura (Config):** Centralização de constantes de negócio e links globais em `src/config/site.ts`.
 - [x] **Refatoração (Lógica):** Desacoplamento de links estáticos nos componentes de navegação.
+- [x] **Refatoração (Lógica):** Desacoplamento de dados geográficos e links sociais no `Footer.tsx`, agora consumindo de `siteConfig`. Design 100% preservado.
+- [x] **Infraestrutura (Roteamento):** Implementação de Error Boundaries (`error.tsx`) e interceptador de rotas inexistentes (`not-found.tsx`) no App Router para garantir a resiliência da interface.
 
 ### ✅ [2026-02-25] - Refinamentos de UX e Micro-interações
 - [x] **Hero (Conversão):** Transformação do subtítulo "Curitiba" em link de mapa externo para retenção local.
