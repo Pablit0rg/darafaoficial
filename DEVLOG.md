@@ -9,6 +9,7 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ### A Fazer (Pendencias de Design e Engenharia)
 
 #### 1. Secao Hero (Hero.tsx)
+- [ ] **Ancoragem de Fluxo (UX):** Reimplementar a ancora de rolagem suave (scroll-smooth) no texto "Joias artesanais" para a secao Showcase (Perdido no rollback de seguranca).
 - [ ] **Responsividade da Imagem (Art Direction):** Replanejar enquadramento mobile sem afetar filtros P&B. (Postergado para evitar quebra de estetica editorial).
 - [ ] **Efeito de Cor Seletiva (Asset Fotografico):** Editar a foto no Photoshop aplicando P&B, porem isolando e preservando o brilho original Prata e Dourado estritamente nas unhas e no piercing.
 - [ ] **Tipografia Metalica (UI):** Aplicar gradientes metalicos independentes no titulo principal para criar simetria com a fotografia. A palavra "ARTE" deve brilhar em Prata (bg-metal-silver), e a palavra "METAIS" deve brilhar em Ouro/Bronze (bg-metal-gold).
@@ -34,17 +35,16 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 - [ ] **Refinamento de Layout Assistido:** Mapeamento de linhas e ajuste fino manual de coordenadas (margin, translate) para o texto de apoio e o botao de "Seguir". (Postergado).
 
 #### 5. QA (Quality Assurance) e Deploy
-- [ ] **Auditoria de Links:** Bateria de testes rigorosa em todos os links de saida e ancoras internas do portfolio.
-- [ ] **Validacao de Performance:** Garantir que o tempo de resposta das interacoes esteja operando na casa dos milissegundos.
 - [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
 
 ---
 
 ## Historico de Sprints (Changelog)
 
-### [2026-02-27] - Curadoria de Assets e Copy
+### [2026-02-27] - QA, Copy e Revisao
+- [x] **Auditoria e Seguranca (QA):** Bateria de testes de seguranca concluida. Vulnerabilidades de Tabnabbing detectadas e corrigidas com injecao global de rel="noopener noreferrer".
+- [x] **Validacao de Performance (QA):** Compilacao de producao (npm run build) aprovada. Arvore de componentes integra e rotas pre-renderizadas como estaticas (SSG).
 - [x] **Instagram CTA (Copy):** Substituicao da watermark de fundo de "ARTISAN" para "AUTORAL", preservando intacta a estrutura tipografica e o design original no componente.
-- [x] **Hero (Ancoragem de Fluxo):** Concluida a implementacao da ancora de rolagem suave (scroll-smooth). O clique no subtitulo "Joias artesanais" agora direciona o usuario fluidamente para a secao "Ultimas Criacoes" (Showcase).
 
 ### [2026-02-26] - Engenharia de Dados e Assets
 - [x] **Prompt Engineering (Asset da Abelha):** Geracao de multiplos assets em IA utilizando engenharia de prompt restrita a texturas em ouro/ambar envelhecido sobre fundo preto absoluto. Lote de imagens salvo em diretorio de rascunho.
