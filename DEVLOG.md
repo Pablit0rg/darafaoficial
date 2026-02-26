@@ -24,8 +24,8 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 - [ ] **Integracao e A/B Testing:** Aplicar os novos assets no componente Manifesto.tsx e testar individualmente a legibilidade, contraste e blend mode contra o fundo Preto de Luxo.
 
 #### 3. Secao Showcase (Showcase.tsx)
-- [ ] **Logica de Layout (Body-Mapping):** Reestruturar o grid de alvenaria (masonry) para refletir a anatomia humana de cima para baixo. Topo: Cards de Brincos (Orelhas). Laterais (Paredes): Cards de Piercings (Nariz). Centro: Card de Colar (Pescoco). Base: Card de Bracelete (Pulso).
-- [ ] **Deep Linking (Conversao Direta):** Mapear e inserir a URL completa e exata do feed do Instagram da Rafaela em cada card respectivo, garantindo que o clique leve o usuario diretamente ao produto visualizado.
+- [ ] **Logica de Layout (Body-Mapping):** Reestruturar o grid de alvenaria. (Adiado para revisao final de arquitetura).
+- [ ] **Deep Linking (Conversao Direta):** Mapear e inserir URLs diretas do Instagram. (Adiado para revisao final de arquitetura).
 
 #### 4. Secao Instagram CTA (InstagramCTA.tsx)
 - [ ] **Hierarquia Metalica (Ouro/Bronze):** Alterar o gradiente do titulo monumental @DARAFA_CWB de Prata para Ouro/Bronze.
