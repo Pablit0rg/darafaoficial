@@ -28,10 +28,10 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 - [ ] **Deep Linking (Conversao Direta):** Mapear e inserir URLs diretas do Instagram. (Adiado para revisao final de arquitetura).
 
 #### 4. Secao Instagram CTA (InstagramCTA.tsx)
-- [ ] **Hierarquia Metalica (Ouro/Bronze):** Alterar o gradiente do titulo monumental @DARAFA_CWB de Prata para Ouro/Bronze.
-- [ ] **Destaque de Conversao:** Replicar este mesmo gradiente Ouro/Bronze no botao de acao "Seguir no Instagram ->", maximizando o apelo visual para o clique.
-- [ ] **Hierarquia Metalica (Prata):** Aplicar o gradiente Prata estritamente no texto de apoio ("Novos drops, processos de criacao e atendimento exclusivo via Direct.").
-- [ ] **Refinamento de Layout Assistido:** Mapeamento de linhas e ajuste fino manual de coordenadas (margin, translate) para o texto de apoio e o botao de "Seguir".
+- [ ] **Hierarquia Metalica (Ouro/Bronze):** Alterar o gradiente do titulo monumental @DARAFA_CWB de Prata para Ouro/Bronze. (Postergado).
+- [ ] **Destaque de Conversao:** Replicar este mesmo gradiente Ouro/Bronze no botao de acao "Seguir no Instagram ->", maximizando o apelo visual para o clique. (Postergado).
+- [ ] **Hierarquia Metalica (Prata):** Aplicar o gradiente Prata estritamente no texto de apoio ("Novos drops, processos de criacao e atendimento exclusivo via Direct."). (Postergado).
+- [ ] **Refinamento de Layout Assistido:** Mapeamento de linhas e ajuste fino manual de coordenadas (margin, translate) para o texto de apoio e o botao de "Seguir". (Postergado).
 
 #### 5. QA (Quality Assurance) e Deploy
 - [ ] **Auditoria de Links:** Bateria de testes rigorosa em todos os links de saida e ancoras internas do portfolio.
