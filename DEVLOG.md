@@ -10,8 +10,6 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 
 #### 1. SEO Tecnico e Semantico
 - [ ] **Structured Data (JSON-LD):** Injetar esquema de LocalBusiness/JewelryStore na raiz do projeto para dominancia em buscas locais (Curitiba).
-- [ ] **Sitemap Nativo (sitemap.ts):** Implementar arvore de roteamento automatica via API do Next.js para indexacao imediata no Google.
-- [ ] **Controle de Rastreamento (robots.ts):** Definir diretivas de varredura para o Googlebot e bloqueio defensivo contra scrapers maliciosos.
 - [ ] **Open Graph e Twitter Cards:** Expandir metadados no layout.tsx para pre-visualizacao de links ricos (imagem da Rafaela em HD, titulo e descricao) no WhatsApp e Instagram.
 
 #### 2. Seguranca Avancada e Performance
@@ -59,6 +57,7 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ## Historico de Sprints (Changelog)
 
 ### [2026-02-27] - QA, Copy e Revisao
+- [x] **SEO Tecnico:** Implementacao nativa de rastreamento com sitemap.xml e regras em robots.txt via Next.js API.
 - [x] **Hero (UX):** Reimplementada a ancora de rolagem suave no link "Joias artesanais" direcionando para a secao Showcase.
 - [x] **Geolocalizacao (Infra):** Atualizacao global da URL de apontamento do Google Maps (loja fisica) no siteConfig, Footer e Hero.
 - [x] **Instagram CTA (UI):** Correcao de conflito de renderizacao entre bg-clip-text e framer-motion na seta animada, garantindo o gradiente prata nativo.
