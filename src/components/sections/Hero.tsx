@@ -74,7 +74,7 @@ export default function Hero() {
 
         transition={{ staggerChildren: 0.15, delayChildren: 0.2 }}
 
-        className="space-y-6 z-10 max-w-4xl mx-auto relative mt-20 md:mt-0"
+        className="space-y-6 z-10 max-w-4xl mx-auto relative mt-20 md:mt-0 md:translate-x-24 lg:translate-x-25"
 
       >
 
