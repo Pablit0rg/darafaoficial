@@ -29,6 +29,7 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 - [ ] **Deep Linking (Conversao Direta):** Mapear e inserir URLs diretas do Instagram. (Adiado para revisao final de arquitetura).
 
 #### 4. Secao Instagram CTA (InstagramCTA.tsx)
+- [ ] **Desacoplamento de Layout (UI):** Refatorar o componente para separar estruturalmente o botao "Seguir no Instagram" do bloco de texto superior. O botao deve operar de forma isolada para permitir micro-ajustes verticais sem empurrar o titulo monumental @DARAFA_CWB.
 - [ ] **Hierarquia Metalica (Ouro/Bronze):** Alterar o gradiente do titulo monumental @DARAFA_CWB de Prata para Ouro/Bronze. (Postergado).
 - [ ] **Destaque de Conversao:** Replicar este mesmo gradiente Ouro/Bronze no botao de acao "Seguir no Instagram ->", maximizando o apelo visual para o clique. (Postergado).
 - [ ] **Hierarquia Metalica (Prata):** Aplicar o gradiente Prata estritamente no texto de apoio ("Novos drops, processos de criacao e atendimento exclusivo via Direct."). (Postergado).
