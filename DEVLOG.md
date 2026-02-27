@@ -9,12 +9,10 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ### A Fazer (Pendencias de Logica - Invisivel na UI)
 
 #### 1. SEO Tecnico e Semantico
-- [ ] **Structured Data (JSON-LD):** Injetar esquema de LocalBusiness/JewelryStore na raiz do projeto para dominancia em buscas locais (Curitiba).
-- [ ] **Open Graph e Twitter Cards:** Expandir metadados no layout.tsx para pre-visualizacao de links ricos (imagem da Rafaela em HD, titulo e descricao) no WhatsApp e Instagram.
+*(Todas as pendencias arquiteturais de SEO foram concluidas)*
 
 #### 2. Seguranca Avancada e Performance
 - [ ] **Content Security Policy (CSP) Estrita:** Implementar diretivas rigorosas de seguranca para bloqueio absoluto de XSS e injecao de scripts nao autorizados.
-- [ ] **Gestao de Pre-connect:** Inserir tags de pre-conexao no layout para resolucao antecipada de DNS (Google Maps, Instagram), otimizando a performance e o tempo de carregamento.
 - [ ] **Ofuscacao de Metricas Sensiveis:** Preparar wrapper logico estrutural para futura injecao de Analytics em background, sem causar gargalo no DOM principal.
 
 ---
@@ -57,6 +55,9 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ## Historico de Sprints (Changelog)
 
 ### [2026-02-27] - QA, Copy e Revisao
+- [x] **SEO Local (Infra):** Injecao de Structured Data (JSON-LD schema: JewelryStore) no layout global para dominancia em buscas na regiao de Curitiba.
+- [x] **Social Media (Infra):** Expansao de metadados com Open Graph e Twitter Cards para renderizacao de Rich Links no WhatsApp e Instagram.
+- [x] **Performance (Rede):** Implementacao de tags de pre-connect no header para antecipacao de resolucao de DNS (Google Maps e Instagram).
 - [x] **SEO Tecnico:** Implementacao nativa de rastreamento com sitemap.xml e regras em robots.txt via Next.js API.
 - [x] **Hero (UX):** Reimplementada a ancora de rolagem suave no link "Joias artesanais" direcionando para a secao Showcase.
 - [x] **Geolocalizacao (Infra):** Atualizacao global da URL de apontamento do Google Maps (loja fisica) no siteConfig, Footer e Hero.
