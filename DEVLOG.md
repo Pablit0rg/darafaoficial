@@ -4,6 +4,23 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 
 ---
 
+## Roadmap de Engenharia (SEO, Seguranca e Infraestrutura)
+
+### A Fazer (Pendencias de Logica - Invisivel na UI)
+
+#### 1. SEO Tecnico e Semantico
+- [ ] **Structured Data (JSON-LD):** Injetar esquema de LocalBusiness/JewelryStore na raiz do projeto para dominancia em buscas locais (Curitiba).
+- [ ] **Sitemap Nativo (sitemap.ts):** Implementar arvore de roteamento automatica via API do Next.js para indexacao imediata no Google.
+- [ ] **Controle de Rastreamento (robots.ts):** Definir diretivas de varredura para o Googlebot e bloqueio defensivo contra scrapers maliciosos.
+- [ ] **Open Graph e Twitter Cards:** Expandir metadados no layout.tsx para pre-visualizacao de links ricos (imagem da Rafaela em HD, titulo e descricao) no WhatsApp e Instagram.
+
+#### 2. Seguranca Avancada e Performance
+- [ ] **Content Security Policy (CSP) Estrita:** Implementar diretivas rigorosas de seguranca para bloqueio absoluto de XSS e injecao de scripts nao autorizados.
+- [ ] **Gestao de Pre-connect:** Inserir tags de pre-conexao no layout para resolucao antecipada de DNS (Google Maps, Instagram), otimizando a performance e o tempo de carregamento.
+- [ ] **Ofuscacao de Metricas Sensiveis:** Preparar wrapper logico estrutural para futura injecao de Analytics em background, sem causar gargalo no DOM principal.
+
+---
+
 ## Roadmap de UI/UX (Backlog Master)
 
 ### A Fazer (Pendencias de Design e Engenharia)
