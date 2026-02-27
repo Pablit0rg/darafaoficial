@@ -31,9 +31,9 @@ export default function Footer() {
             Início
           </button>
           
-          {/* Link de Localização (Mapa) */}
+          {/* Link de Localização (Mapa) - URL Atualizada */}
           <Link 
-            href="https://maps.google.com/?q=Curitiba,+PR" 
+            href="https://www.google.com/maps/place/Coletivo+Brecho+das+Preta/@-25.4282157,-49.2687739,17z/data=!3m1!4b1!4m6!3m5!1s0x94dce5f4c8e3b451:0x9428bd98505e541!8m2!3d-25.4282157!4d-49.2687739!16s%2Fg%2F11wg2j39_p?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="hover:text-white transition-all group flex items-center gap-1"
