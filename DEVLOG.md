@@ -12,8 +12,7 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 *(Todas as pendencias arquiteturais de SEO foram concluidas)*
 
 #### 2. Seguranca Avancada e Performance
-- [ ] **Content Security Policy (CSP) Estrita:** Implementar diretivas rigorosas de seguranca para bloqueio absoluto de XSS e injecao de scripts nao autorizados.
-- [ ] **Ofuscacao de Metricas Sensiveis:** Preparar wrapper logico estrutural para futura injecao de Analytics em background, sem causar gargalo no DOM principal.
+*(Todas as pendencias de seguranca e performance foram concluidas)*
 
 ---
 
@@ -55,6 +54,9 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ## Historico de Sprints (Changelog)
 
 ### [2026-02-27] - QA, Copy e Revisao
+- [x] **Seguranca (Infra):** Implementacao de Content Security Policy (CSP) rigorosa no next.config.ts para prevencao de ataques XSS.
+- [x] **Performance (Analytics):** Criacao de wrapper isolado (AnalyticsWrapper) com lazyOnload para ofuscacao de metricas sem bloqueio de renderizacao.
+- [x] **Arquitetura (Config):** Adicao da propriedade url global no siteConfig para resolucao de rotas canonicas e metadados.
 - [x] **SEO Local (Infra):** Injecao de Structured Data (JSON-LD schema: JewelryStore) no layout global para dominancia em buscas na regiao de Curitiba.
 - [x] **Social Media (Infra):** Expansao de metadados com Open Graph e Twitter Cards para renderizacao de Rich Links no WhatsApp e Instagram.
 - [x] **Performance (Rede):** Implementacao de tags de pre-connect no header para antecipacao de resolucao de DNS (Google Maps e Instagram).
