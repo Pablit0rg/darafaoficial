@@ -9,7 +9,6 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ### A Fazer (Pendencias de Design e Engenharia)
 
 #### 1. Secao Hero (Hero.tsx)
-- [ ] **Ancoragem de Fluxo (UX):** Reimplementar a ancora de rolagem suave (scroll-smooth) no texto "Joias artesanais" para a secao Showcase (Perdido no rollback de seguranca).
 - [ ] **Responsividade da Imagem (Art Direction):** Replanejar enquadramento mobile sem afetar filtros P&B. (Postergado para evitar quebra de estetica editorial).
 - [ ] **Efeito de Cor Seletiva (Asset Fotografico):** Editar a foto no Photoshop aplicando P&B, porem isolando e preservando o brilho original Prata e Dourado estritamente nas unhas e no piercing.
 - [ ] **Tipografia Metalica (UI):** Aplicar gradientes metalicos independentes no titulo principal para criar simetria com a fotografia. A palavra "ARTE" deve brilhar em Prata (bg-metal-silver), e a palavra "METAIS" deve brilhar em Ouro/Bronze (bg-metal-gold).
@@ -43,6 +42,10 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ## Historico de Sprints (Changelog)
 
 ### [2026-02-27] - QA, Copy e Revisao
+- [x] **Hero (UX):** Reimplementada a ancora de rolagem suave no link "Joias artesanais" direcionando para a secao Showcase.
+- [x] **Geolocalizacao (Infra):** Atualizacao global da URL de apontamento do Google Maps (loja fisica) no siteConfig, Footer e Hero.
+- [x] **Instagram CTA (UI):** Correcao de conflito de renderizacao entre bg-clip-text e framer-motion na seta animada, garantindo o gradiente prata nativo.
+- [x] **Hero (Design):** Refinamento milimetrico de coordenadas (Eixo X e Y) do bloco tipografico para balanco visual perfeito com o asset fotografico no desktop.
 - [x] **Tratamento e Curadoria de Asset:** Deep Etching validado via Remove.bg. Arquivo com coroa (logo-abelha-raw-05-removebg-preview.png) eleito como asset oficial para a secao Manifesto e renderizado com sucesso no DOM.
 - [x] **Auditoria e Seguranca (QA):** Bateria de testes de seguranca concluida. Vulnerabilidades de Tabnabbing detectadas e corrigidas com injecao global de rel="noopener noreferrer".
 - [x] **Validacao de Performance (QA):** Compilacao de producao (npm run build) aprovada. Arvore de componentes integra e rotas pre-renderizadas como estaticas (SSG).
