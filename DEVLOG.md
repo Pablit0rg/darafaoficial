@@ -21,8 +21,8 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 > * Posicionamento Defensivo (Desktop): Para realizar o deslocamento horizontal da tipografia sem quebrar a grade mobile, o ajuste deve ser isolado por breakpoint.
 
 #### 2. Secao Manifesto (Manifesto.tsx)
-- [ ] **Tratamento de Asset (Deep Etching):** Remover o fundo preto absoluto dos arquivos de rascunho (logo-abelha-raw-*.jpg) gerados por IA, convertendo-os para PNGs transparentes (logo-abelha-gold-*-hd.png).
-- [ ] **Integracao e A/B Testing:** Aplicar os novos assets no componente Manifesto.tsx e testar individualmente a legibilidade, contraste e blend mode contra o fundo Preto de Luxo.
+- [ ] **Desacoplamento de Layout (UI):** Refatorar o componente para separar estruturalmente o titulo "Manifesto" do container do paragrafo. O titulo deve operar em uma camada livre para permitir micro-ajustes de posicionamento (margin/translate) em relacao a coroa da abelha, sem empurrar o resto do conteudo.
+- [ ] **Integracao Visual (UI):** Remover classes de escala de cinza e ajustar opacity/blend-mode para integrar o brilho ouro do asset PNG com o fundo Preto de Luxo.
 
 #### 3. Secao Showcase (Showcase.tsx)
 - [ ] **Logica de Layout (Body-Mapping):** Reestruturar o grid de alvenaria. (Adiado para revisao final de arquitetura).
@@ -42,6 +42,7 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ## Historico de Sprints (Changelog)
 
 ### [2026-02-27] - QA, Copy e Revisao
+- [x] **Tratamento e Curadoria de Asset:** Deep Etching validado via Remove.bg. Arquivo com coroa (logo-abelha-raw-05-removebg-preview.png) eleito como asset oficial para a secao Manifesto e renderizado com sucesso no DOM.
 - [x] **Auditoria e Seguranca (QA):** Bateria de testes de seguranca concluida. Vulnerabilidades de Tabnabbing detectadas e corrigidas com injecao global de rel="noopener noreferrer".
 - [x] **Validacao de Performance (QA):** Compilacao de producao (npm run build) aprovada. Arvore de componentes integra e rotas pre-renderizadas como estaticas (SSG).
 - [x] **Instagram CTA (Copy):** Substituicao da watermark de fundo de "ARTISAN" para "AUTORAL", preservando intacta a estrutura tipografica e o design original no componente.
