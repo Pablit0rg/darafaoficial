@@ -1,48 +1,47 @@
-# Darafa - Artisan Metal Jewelry
+# Darafa - Joias Artesanais em Metal
 
-Darafa is an ultra-modern, luxury web portfolio built for a handcrafted jewelry brand based in Curitiba, Brazil. The platform embraces an underground aesthetic, utilizing high-contrast minimalism, subtle noise textures, and refined typography.
+Darafa é um portfólio web de luxo e ultramoderno criado para uma marca de joias artesanais baseada em Curitiba, Brasil. A plataforma adota uma estética *underground*, utilizando minimalismo de alto contraste, texturas sutis de ruído e tipografia refinada.
 
-## Architecture & Technology Stack
+## Arquitetura e Stack Tecnológica
 
-This application is built with performance, scalability, and developer experience in mind, adhering to modern web development standards.
+Esta aplicação foi construída com foco em performance, escalabilidade e experiência do desenvolvedor (DX), aderindo aos mais modernos padrões de desenvolvimento web.
 
 * **Framework:** Next.js 15 (App Router)
-* **Language:** TypeScript (Strict Mode)
-* **Styling:** Tailwind CSS
-* **Animations:** Framer Motion
-* **Deployment:** Vercel (Recommended)
+* **Linguagem:** TypeScript (Strict Mode)
+* **Estilização:** Tailwind CSS
+* **Animações:** Framer Motion
+* **Deploy:** Vercel (Recomendado)
 
-## Project Structure
+## Estrutura do Projeto
 
-The codebase is organized into highly cohesive and loosely coupled modules:
+O código-fonte está organizado em módulos altamente coesos e com baixo acoplamento:
 
-* `/app`: Contains the routing logic, global layouts, and SEO metadata.
-* `/components/layout`: Global architectural components (Navigation, Footer).
-* `/components/sections`: Distinct page sections (Hero, Manifesto, Showcase) acting as compositional blocks.
-* `/components/ui`: Highly reusable, atomic UI elements (Buttons, Overlays).
-* `/lib`: Shared utility functions and constants.
+* `/app`: Contém a lógica de roteamento, layouts globais e metadados de SEO.
+* `/components/layout`: Componentes arquiteturais globais (Navegação, Rodapé).
+* `/components/sections`: Seções distintas da página (Hero, Manifesto, Vitrine/Showcase) atuando como blocos de composição.
+* `/components/ui`: Elementos de interface (UI) atômicos e altamente reutilizáveis (Botões, Overlays).
+* `/lib`: Funções utilitárias e constantes compartilhadas.
 
 ## Design System
 
-* **Primary Palette:** Custom Black (`#050505`, `#0a0a0a`), Silver (`#e5e7eb`), Muted Gray (`#525252`).
-* **Typography:** Playfair Display (Serif, Headings), Inter (Sans-serif, Body).
-* **Visual Effects:** CSS-based SVG noise overlay, `mix-blend-difference` navigation, asymmetric masonry grids.
+* **Paleta Principal:** Preto Personalizado (`#050505`, `#0a0a0a`), Prata (`#e5e7eb`), Cinza Suave (`#525252`).
+* **Tipografia:** Playfair Display (Serifada, Títulos), Inter (Sem serifa, Corpo do texto).
+* **Efeitos Visuais:** Overlay de ruído em SVG via CSS, navegação com `mix-blend-difference`, grids de alvenaria assimétricos (*masonry grids*).
 
-## Getting Started
+## Começando
 
-### Prerequisites
+### Pré-requisitos
 
-* Node.js 18.17 or later.
-* npm, yarn, or pnpm.
+* Node.js 18.17 ou superior.
+* npm, yarn ou pnpm.
 
-### Installation
+### Instalação
 
-1. Clone the repository:
+1. Clone o repositório:
    ```bash
-   git clone <repository-url>
+   git clone <url-do-repositorio>
    cd darafa-web
-
-   darafa-web/
+darafa-web/
 ├── app/
 │   ├── fonts/                  # Arquivos de fonte otimizados (Inter, Playfair)
 │   ├── favicon.ico             # Ícone da aba

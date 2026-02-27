@@ -14,7 +14,7 @@ export default function Manifesto() {
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center select-none">
         <div className="relative w-[150%] h-[150%] md:w-full md:h-full max-w-3xl opacity-5 grayscale mix-blend-screen">
           <Image 
-            src="/assets/images/logo-abelha.png"
+            src="/assets/images/drafts/logo-abelha-raw-05-removebg-preview.png"
             alt="Marca d'água Abelha DaRafa"
             fill
             className="object-contain"
@@ -29,7 +29,7 @@ export default function Manifesto() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-2xl mx-auto text-center space-y-8 relative z-10"
+        className="max-w-2xl mx-auto text-center space-y-8 relative z-10 mt-30"
       >
         <h2 className="font-serif text-3xl md:text-4xl italic text-gray-300">
           Manifesto
