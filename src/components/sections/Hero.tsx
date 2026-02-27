@@ -1,3 +1,4 @@
+// src/components/sections/Hero.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -46,7 +47,14 @@ export default function Hero() {
             className="hover:text-white transition-colors"
           >
             Curitiba
-          </Link> • Joias artesanais
+          </Link> 
+          {" "}•{" "}
+          <Link 
+            href="#showcase" 
+            className="hover:text-white transition-colors cursor-pointer"
+          >
+            Joias artesanais
+          </Link>
         </motion.p>
         
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight font-medium text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-200 to-gray-600">
