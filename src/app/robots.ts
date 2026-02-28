@@ -1,15 +1,31 @@
-import { MetadataRoute } from "next";
+// src/app/robots.ts
+import { MetadataRoute } from 'next';
+import { siteConfig } from '@/config/site';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://darafa.com.br";
-
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      // Bloqueio preventivo de pastas de sistema e rotas de API para scrapers
-      disallow: ["/api/", "/_next/", "/private/"],
-    },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    rules: [
+      {
+        // Regra Global: Acesso livre para buscadores (Google, Bing, etc.)
+        userAgent: '*',
+        allow: '/',
+      },
+      {
+        // Blindagem de Infraestrutura e Propriedade Intelectual: 
+        // Bloqueia scrapers de IA de consumirem banda e rasparem o catálogo.
+        userAgent: [
+          'GPTBot', 
+          'ChatGPT-User', 
+          'CCBot', 
+          'anthropic-ai', 
+          'Claude-Web', 
+          'Google-Extended',
+          'OmigiliBot'
+        ],
+        disallow: ['/'],
+      }
+    ],
+    // Apontamento dinâmico para o sitemap em alta resolução que construímos
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }
