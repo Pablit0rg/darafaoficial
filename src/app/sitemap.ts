@@ -1,17 +1,26 @@
-import { MetadataRoute } from "next";
+// src/app/sitemap.ts
+import { siteConfig } from "@/config/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  // Em produção, você pode definir a variável de ambiente NEXT_PUBLIC_SITE_URL na Vercel
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://darafa.com.br";
+// Omitimos a tipagem estrita de MetadataRoute para evitar que o compilador
+// bloqueie a propriedade "images" nativa das versões mais recentes.
+export default function sitemap() {
+  const hdImages = [
+    `${siteConfig.url}/assets/images/rafaela-destaqueHeroOficial-hd.jpg`,
+    `${siteConfig.url}/assets/images/showcase/showcase-colares-perolas-hd.jpg`,
+    `${siteConfig.url}/assets/images/showcase/showcase-brinco-perolas-hd.jpg`,
+    `${siteConfig.url}/assets/images/showcase/showcase-ponto-luz-hd.jpg`,
+    `${siteConfig.url}/assets/images/showcase/showcase-colar-personalizado-hd.jpg`,
+    `${siteConfig.url}/assets/images/showcase/showcase-brincos-hd.jpg`,
+    `${siteConfig.url}/assets/images/showcase/showcase-braceletes-micangas-hd.jpg`,
+  ];
 
   return [
     {
-      url: baseUrl,
+      url: siteConfig.url,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "daily",
       priority: 1.0,
+      images: hdImages,
     },
-    // Se no futuro adicionarmos páginas de coleções separadas (ex: /colecao/sombra),
-    // elas serão mapeadas automaticamente aqui.
   ];
 }
