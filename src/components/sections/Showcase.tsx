@@ -1,4 +1,3 @@
-// src/components/sections/Showcase.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -6,17 +5,15 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site";
 
 const showcaseItems = [
-  { id: 1, title: "Colares de Pérolas", desc: "Imagem Horizontal", spanClasses: "", image: "/assets/images/showcase/showcase-colares-perolas-hd.jpg" },
-  { id: 2, title: "Brinco de Pérolas", desc: "Imagem Vertical", spanClasses: "", image: "/assets/images/showcase/showcase-brinco-perolas-hd.jpg" },
-  { id: 3, title: "Ponto de Luz", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-ponto-luz-hd.jpg" },
-  { id: 4, title: "Colar Personalizado", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-colar-personalizado-hd.jpg" },
-  { id: 5, title: "Brincos", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-brincos-hd.jpg" },
-  { id: 6, title: "Braceletes com Miçangas", desc: "Fechamento do Grid", spanClasses: "", image: "/assets/images/showcase/showcase-braceletes-micangas-hd.jpg" },
+  { id: 1, title: "Colares de Pérolas", desc: "Imagem Horizontal", spanClasses: "", image: "/assets/images/showcase/showcase-colares-perolas-hd.jpg", link: "https://instagram.com/darafa_cwb" },
+  { id: 2, title: "Brinco de Pérolas", desc: "Imagem Vertical", spanClasses: "", image: "/assets/images/showcase/showcase-brinco-perolas-hd.jpg", link: "https://instagram.com/darafa_cwb" },
+  { id: 3, title: "Ponto de Luz", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-ponto-luz-hd.jpg", link: "https://instagram.com/darafa_cwb" },
+  { id: 4, title: "Colar Personalizado", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-colar-personalizado-hd.jpg", link: "https://instagram.com/darafa_cwb" },
+  { id: 5, title: "Brincos", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-brincos-hd.jpg", link: "https://instagram.com/darafa_cwb" },
+  { id: 6, title: "Braceletes com Miçangas", desc: "Fechamento do Grid", spanClasses: "", image: "/assets/images/showcase/showcase-braceletes-micangas-hd.jpg", link: "https://instagram.com/darafa_cwb" },
 ];
 
 export default function Showcase() {
-  // Arquitetura de SEO Headless: Mapeamento de Produtos para o Google.
-  // Esta estrutura não afeta a interface, mas ensina o algoritmo a tratar as imagens como joias comerciais.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -31,14 +28,14 @@ export default function Showcase() {
         "brand": {
           "@type": "Brand",
           "name": siteConfig.name
-        }
+        },
+        "url": item.link
       }
     }))
   };
 
   return (
     <section id="showcase" className="py-20 px-4 md:px-12 bg-black relative">
-      {/* Injeção invisível do schema no DOM para leitura de rastreadores */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -53,19 +50,21 @@ export default function Showcase() {
         <h3 className="font-serif text-2xl text-white">Últimas Criações</h3>
         <span className="text-xs text-gray-500 uppercase tracking-widest">Coleção Autoral</span>
         
-        {/* Fio Metálico (Ouro) */}
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-metal-gold z-10"></div>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 md:gap-2 auto-rows-[480px]">
         {showcaseItems.map((item, index) => (
-          <motion.div
+          <motion.a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
             key={item.id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className={`group relative bg-zinc-900 border border-white/5 overflow-hidden ${item.spanClasses}`}
+            className={`group relative bg-zinc-900 border border-white/5 overflow-hidden block w-full h-full ${item.spanClasses}`}
           >
             {item.image ? (
               <Image 
@@ -83,7 +82,7 @@ export default function Showcase() {
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
               <p className="text-sm font-sans tracking-widest uppercase text-white z-10">{item.title}</p>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </section>

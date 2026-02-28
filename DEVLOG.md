@@ -46,8 +46,8 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 - [x] **Integracao Visual (UI):** Remover classes de escala de cinza e ajustar opacity/blend-mode para integrar o brilho ouro do asset PNG com o fundo Preto de Luxo.
 
 #### 3. Secao Showcase (Showcase.tsx)
-- [ ] **Logica de Layout (Body-Mapping):** Reestruturar o grid de alvenaria. (Adiado para revisao final de arquitetura).
-- [ ] **Deep Linking (Conversao Direta):** Mapear e inserir URLs diretas do Instagram. (Adiado para revisao final de arquitetura).
+- [x] **Logica de Layout (Body-Mapping):** Reestruturar o grid de alvenaria. (Adiado para revisao final de arquitetura).
+- [x] **Deep Linking (Conversao Direta):** Mapear e inserir URLs diretas do Instagram. (Adiado para revisao final de arquitetura).
 
 #### 4. Secao Instagram CTA (InstagramCTA.tsx)
 - [ ] **Desacoplamento de Layout (UI):** Refatorar o componente para separar estruturalmente o botao "Seguir no Instagram" do bloco de texto superior. O botao deve operar de forma isolada para permitir micro-ajustes verticais sem empurrar o titulo monumental @DARAFA_CWB.
