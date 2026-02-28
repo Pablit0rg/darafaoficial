@@ -8,11 +8,21 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 
 ### A Fazer (Pendencias de Logica - Invisivel na UI)
 
-#### 1. SEO Tecnico e Semantico
-*(Todas as pendencias arquiteturais de SEO foram concluidas)*
+#### 1. SEO Avancado e Descoberta Organica
+- [x] **Microdados de Produto Dinamicos (Schema.org):** Injetar JSON-LD do tipo `Product` no `Showcase.tsx` para ativar Rich Snippets no Google (visualizacao de produto na busca).
+- [x] **Sitemap Orientado a Imagens:** Expandir `sitemap.ts` para mapear explicitamente as imagens HD, capturando trafego massivo via Google Images e Pinterest.
+- [x] **Tratamento Rigoroso de Canonical URLs:** Parametrizar URLs canonicas no `layout.tsx` para forcar o dominio base e evitar punicao por conteudo duplicado.
+- [x] **Politicas Avancadas no robots.txt:** Escrever diretivas para bloquear scrapers de IA e bots de spam, otimizando o Crawl Budget do Googlebot.
 
-#### 2. Seguranca Avancada e Performance
-*(Todas as pendencias de seguranca e performance foram concluidas)*
+#### 2. Infraestrutura Edge e Performance
+- [ ] **Geracao Dinamica de Open Graph (next/og):** Implementar biblioteca para gerar imagens de compartilhamento (WhatsApp/Meta) dinamicamente no servidor Edge.
+- [ ] **Middleware Edge (Seguranca e Roteamento):** Implementar `middleware.ts` na raiz para protecao contra bots maliciosos, injecao de HSTS e fundacao para testes A/B.
+- [ ] **Prefetching Estrategico e Cache:** Auditar a aplicacao para garantir geracao estatica (SSG) maxima e Stale-While-Revalidate (SWR) na CDN.
+- [ ] **Compressao e Image Caching:** Configurar politicas agressivas no `next.config.ts` para estender o TTL do cache de imagens HD e forcar otimizacao de banda.
+
+#### 3. Escalabilidade de Dados e Integracoes (Futuro)
+- [ ] **Abstracao de Analytics (Data Layer):** Criar utilitario (`src/lib/analytics.ts`) com contratos de funcoes para engatilhar metodos de rastreamento (Pixel/GTM) nos botoes de CTA sem poluir os componentes.
+- [ ] **Estrutura Base de Webhooks para Leads:** Criar rota de API (`src/app/api/leads/route.ts`) blindada para o futuro envio de dados ao n8n e Airtable.
 
 ---
 
@@ -52,6 +62,13 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ---
 
 ## Historico de Sprints (Changelog)
+
+### [2026-02-28] - Arquitetura de SEO e Infraestrutura Invisivel
+- [x] **Seguranca (Robots):** Configuracao avancada de `robots.ts` com bloqueio explicito de web scrapers de IA para protecao de Crawl Budget e propriedade intelectual.
+- [x] **SEO (Canonical):** Parametrizacao estrita da tag canonical no `layout.tsx` para prevencao de duplicate content e consolidacao de autoridade do dominio.
+- [x] **Infraestrutura (Config):** Atualizacao do `siteConfig.ts` com o dominio oficial absoluto (`https://www.darafa.com`) e resolucao de bypass de tipagem no sitemap.
+- [x] **SEO (Visual):** Refatoracao do `sitemap.ts` para incluir mapeamento explicito de imagens HD e forcar a indexacao profunda no Google Images.
+- [x] **SEO (Microdados):** Injecao de JSON-LD (`ItemList` e `Product`) silenciosa no componente Showcase para qualificar a pagina para Rich Snippets comerciais.
 
 ### [2026-02-27] - QA, Copy e Revisao
 - [x] **Seguranca (Infra):** Implementacao de Content Security Policy (CSP) rigorosa no next.config.ts para prevencao de ataques XSS.
