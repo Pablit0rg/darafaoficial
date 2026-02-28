@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const showcaseItems = [
-  { id: 1, title: "Anel Bruto .01", desc: "Imagem Vertical", spanClasses: "row-span-1 md:row-span-2", image: "/assets/images/ponto-de-luz-hd.jpg" },
-  { id: 2, title: "Colar Elos", desc: "Close-up Textura", spanClasses: "", image: "/assets/images/colar-elos-hd.jpg" },
-  { id: 3, title: "Brinco Minimal", desc: "Detalhe Acabamento", spanClasses: "", image: "/assets/images/brinco-minimal-hd.jpg" },
-  { id: 4, title: "Coleção 'Sombra'", desc: "Editorial / Modelo", spanClasses: "md:col-span-2 lg:col-span-1 lg:row-span-2", image: "/assets/images/colecao-sombra-hd.jpg" },
-  { id: 5, title: "Pulseira Trama", desc: "Pulseira Prata", spanClasses: "", image: "/assets/images/pulseira-trama-hd.jpg" },
+  { id: 1, title: "Colares de Pérolas", desc: "Imagem Horizontal", spanClasses: "", image: "/assets/images/showcase/showcase-colares-perolas-hd.jpg" },
+  { id: 2, title: "Brinco de Pérolas", desc: "Imagem Vertical", spanClasses: "", image: "/assets/images/showcase/showcase-brinco-perolas-hd.jpg" },
+  { id: 3, title: "Ponto de Luz", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-ponto-luz-hd.jpg" },
+  { id: 4, title: "Colar Personalizado", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-colar-personalizado-hd.jpg" },
+  { id: 5, title: "Brincos", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-brincos-hd.jpg" },
+  { id: 6, title: "Braceletes com Miçangas", desc: "Fechamento do Grid", spanClasses: "", image: "/assets/images/showcase/showcase-braceletes-micangas-hd.jpg" },
 ];
 
 export default function Showcase() {
@@ -27,7 +28,8 @@ export default function Showcase() {
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-metal-gold z-10"></div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-[400px]">
+      {/* ATUALIZAÇÃO: gap-1 md:gap-2 para espaçamento minimalista e auto-rows-[480px] para cards maiores */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 md:gap-2 auto-rows-[480px]">
         {showcaseItems.map((item, index) => (
           <motion.div
             key={item.id}
