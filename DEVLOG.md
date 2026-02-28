@@ -17,12 +17,12 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 #### 2. Infraestrutura Edge e Performance
 - [x] **Geracao Dinamica de Open Graph (next/og):** Implementar biblioteca para gerar imagens de compartilhamento (WhatsApp/Meta) dinamicamente no servidor Edge.
 - [x] **Middleware Edge (Seguranca e Roteamento):** Implementar `proxy.ts` na raiz para protecao contra bots maliciosos, injecao de HSTS e fundacao para testes A/B.
-- [ ] **Prefetching Estrategico e Cache:** Auditar a aplicacao para garantir geracao estatica (SSG) maxima e Stale-While-Revalidate (SWR) na CDN.
-- [ ] **Compressao e Image Caching:** Configurar politicas agressivas no `next.config.ts` para estender o TTL do cache de imagens HD e forcar otimizacao de banda.
+- [x] **Prefetching Estrategico e Cache:** Auditar a aplicacao para garantir geracao estatica (SSG) maxima e Stale-While-Revalidate (SWR) na CDN.
+- [x] **Compressao e Image Caching:** Configurar politicas agressivas no `next.config.ts` para estender o TTL do cache de imagens HD e forcar otimizacao de banda.
 
 #### 3. Escalabilidade de Dados e Integracoes (Futuro)
-- [ ] **Abstracao de Analytics (Data Layer):** Criar utilitario (`src/lib/analytics.ts`) com contratos de funcoes para engatilhar metodos de rastreamento (Pixel/GTM) nos botoes de CTA sem poluir os componentes.
-- [ ] **Estrutura Base de Webhooks para Leads:** Criar rota de API (`src/app/api/leads/route.ts`) blindada para o futuro envio de dados ao n8n e Airtable.
+- [x] **Abstracao de Analytics (Data Layer):** Criar utilitario (`src/lib/analytics.ts`) com contratos de funcoes para engatilhar metodos de rastreamento (Pixel/GTM) nos botoes de CTA sem poluir os componentes.
+- [x] **Estrutura Base de Webhooks para Leads:** Criar rota de API (`src/app/api/leads/route.ts`) blindada para o futuro envio de dados ao n8n e Airtable.
 
 ---
 
@@ -33,9 +33,9 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 #### 1. Secao Hero (Hero.tsx)
 - [ ] **Responsividade da Imagem (Art Direction):** Replanejar enquadramento mobile sem afetar filtros P&B. (Postergado para evitar quebra de estetica editorial).
 - [ ] **Efeito de Cor Seletiva (Asset Fotografico):** Editar a foto no Photoshop aplicando P&B, porem isolando e preservando o brilho original Prata e Dourado estritamente nas unhas e no piercing.
-- [ ] **Tipografia Metalica (UI):** Aplicar gradientes metalicos independentes no titulo principal para criar simetria com a fotografia. A palavra "ARTE" deve brilhar em Prata (bg-metal-silver), e a palavra "METAIS" deve brilhar em Ouro/Bronze (bg-metal-gold).
+- [x] **Tipografia Metalica (UI):** Aplicar gradientes metalicos independentes no titulo principal para criar simetria com a fotografia. A palavra "ARTE" deve brilhar em Prata (bg-metal-silver), e a palavra "METAIS" deve brilhar em Ouro/Bronze (bg-metal-gold).
 - [ ] **Refinamento de Espacamento Tipografico:** Replanejar deslocamento horizontal no desktop. (Postergado).
-- [ ] **Textura "Glitter" / Ruido Visual:** Reintroduzir o componente de ruido (NoiseOverlay) no Hero, adaptando a opacidade e o blend mode.
+- [x] **Textura "Glitter" / Ruido Visual:** Reintroduzir o componente de ruido (NoiseOverlay) no Hero, adaptando a opacidade e o blend mode.
 
 > Diretrizes Tecnicas de Implementacao (Hero):
 > * Integracao de Cor Seletiva (Selective Color): O design atual utiliza a classe utilitaria grayscale do Tailwind para forcar o P&B. Assim que o asset fotografico editado for upado, a classe grayscale deve ser obrigatoriamente removida da tag Image.
@@ -64,6 +64,9 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 ## Historico de Sprints (Changelog)
 
 ### [2026-02-28] - Arquitetura de SEO e Infraestrutura Invisivel
+- [x] **Infra (Cache):** Configuracao de politicas de TTL para compressao de imagens e habilitacao de SWR no `page.tsx` para performance edge.
+- [x] **Dados e Integracoes:** Criacao de camada de Analytics (`src/lib/analytics.ts`) e endpoint blindado de API (`src/app/api/leads/route.ts`) para futura conexao com n8n/Airtable.
+- [x] **Hero (UI):** Aplicacao de tipografia metalica (Prata e Ouro/Bronze) separada e injecao de componente de ruido visual (NoiseOverlay) para textura premium.
 - [x] **Performance (Edge):** Criacao de rota em `api/og` integrando `next/og` para geracao dinamica de imagens estruturadas de Open Graph via query params.
 - [x] **Seguranca (Edge):** Implementacao de `proxy.ts` para interceptacao de rede, bloqueio de bad bots e injecao de HSTS na fronteira.
 - [x] **Seguranca (Robots):** Configuracao avancada de `robots.ts` com bloqueio explicito de web scrapers de IA para protecao de Crawl Budget e propriedade intelectual.
