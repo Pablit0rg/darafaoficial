@@ -57,7 +57,7 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 - [ ] **Refinamento de Layout Assistido:** Mapeamento de linhas e ajuste fino manual de coordenadas (margin, translate) para o texto de apoio e o botao de "Seguir". (Postergado).
 
 #### 5. QA (Quality Assurance) e Deploy
-- [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
+- [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE). *(Postergado para segunda-feira: prioridade atual e garantir a responsividade mobile antes de subir para producao).*
 
 ---
 
