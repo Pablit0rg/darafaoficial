@@ -1,7 +1,9 @@
+// src/components/sections/Showcase.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { siteConfig } from "@/config/site";
 
 const showcaseItems = [
   { id: 1, title: "Colares de Pérolas", desc: "Imagem Horizontal", spanClasses: "", image: "/assets/images/showcase/showcase-colares-perolas-hd.jpg" },
@@ -13,8 +15,35 @@ const showcaseItems = [
 ];
 
 export default function Showcase() {
+  // Arquitetura de SEO Headless: Mapeamento de Produtos para o Google.
+  // Esta estrutura não afeta a interface, mas ensina o algoritmo a tratar as imagens como joias comerciais.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": showcaseItems.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": item.title,
+        "image": `${siteConfig.url}${item.image}`,
+        "description": `Design autoral e exclusivo Darafa: ${item.title}.`,
+        "brand": {
+          "@type": "Brand",
+          "name": siteConfig.name
+        }
+      }
+    }))
+  };
+
   return (
-    <section id="showcase" className="py-20 px-4 md:px-12 bg-black">
+    <section id="showcase" className="py-20 px-4 md:px-12 bg-black relative">
+      {/* Injeção invisível do schema no DOM para leitura de rastreadores */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +57,6 @@ export default function Showcase() {
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-metal-gold z-10"></div>
       </motion.div>
 
-      {/* ATUALIZAÇÃO: gap-1 md:gap-2 para espaçamento minimalista e auto-rows-[480px] para cards maiores */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 md:gap-2 auto-rows-[480px]">
         {showcaseItems.map((item, index) => (
           <motion.div
@@ -44,7 +72,6 @@ export default function Showcase() {
                 src={item.image} 
                 alt={item.title}
                 fill
-                /* Animação dramática de zoom para valorizar os detalhes em HD */
                 className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-[1500ms] ease-out"
               />
             ) : (
