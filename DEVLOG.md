@@ -42,8 +42,8 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 > * Posicionamento Defensivo (Desktop): Para realizar o deslocamento horizontal da tipografia sem quebrar a grade mobile, o ajuste deve ser isolado por breakpoint.
 
 #### 2. Secao Manifesto (Manifesto.tsx)
-- [ ] **Desacoplamento de Layout (UI):** Refatorar o componente para separar estruturalmente o titulo "Manifesto" do container do paragrafo. O titulo deve operar em uma camada livre para permitir micro-ajustes de posicionamento (margin/translate) em relacao a coroa da abelha, sem empurrar o resto do conteudo.
-- [ ] **Integracao Visual (UI):** Remover classes de escala de cinza e ajustar opacity/blend-mode para integrar o brilho ouro do asset PNG com o fundo Preto de Luxo.
+- [x] **Desacoplamento de Layout (UI):** Refatorar o componente para separar estruturalmente o titulo "Manifesto" do container do paragrafo. O titulo deve operar em uma camada livre para permitir micro-ajustes de posicionamento (margin/translate) em relacao a coroa da abelha, sem empurrar o resto do conteudo.
+- [x] **Integracao Visual (UI):** Remover classes de escala de cinza e ajustar opacity/blend-mode para integrar o brilho ouro do asset PNG com o fundo Preto de Luxo.
 
 #### 3. Secao Showcase (Showcase.tsx)
 - [ ] **Logica de Layout (Body-Mapping):** Reestruturar o grid de alvenaria. (Adiado para revisao final de arquitetura).
