@@ -4,6 +4,35 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 
 ---
 
+## Foco Atual: Engenharia de Mobile UI/UX (Sprint 01/03/2026)
+
+A prioridade absoluta do desenvolvimento foi alterada para a perfeição da experiência em dispositivos móveis (Mobile-First), simulando a imersão tátil de um catálogo/folder editorial físico.
+
+### Backlog de Implementação Mobile
+
+#### 1. Secao Hero (Hero.tsx)
+- [ ] **Copywriting e Conversão:** Alterar o texto do botão principal de "coleção completa" para "coleção autoral".
+- [ ] **Limpeza Visual (Decluttering):** Remover o subtítulo "coleção completa/autoral" posicionado ao lado de "Últimas Criações", mantendo estritamente "Últimas Criações".
+
+#### 2. Secao Manifesto & Divisor Visuais
+- [ ] **Integração de Seções (Seamless Scroll):** Remover a linha dourada abaixo de "Últimas Criações" e reposicioná-la na margem superior da imagem da abelha. O objetivo é eliminar o espaçamento (gap) e criar a ilusão de que a Hero e a seção de produtos estão grudadas.
+- [ ] **Ocultação do Manifesto (Preservação de Asset):** Ocultar o texto do manifesto, deixando a imagem da abelha atuando puramente como um detalhe de borda estrutural (como marcadores de páginas de livros premium). 
+  * *Nota de Arquitetura (UX Futura): O texto original foi desativado temporariamente da interface estática. O registro do copy fica armazenado no repositório para futura implementação de micro-interação (ex: clique na abelha para expandir um modal ou card com o manifesto da marca).*
+
+#### 3. Secao Showcase (Showcase.tsx) - Experiência de Catálogo Físico
+- [ ] **Imersão Edge-to-Edge (Mobile):** Ajustar os cards de produtos para que preencham 100% da largura da tela do celular (limite a limite), removendo margens laterais. A altura e proporções atuais devem ser rigorosamente mantidas para sustentar a sensação de "scroll físico".
+- [ ] **Engenharia de Carrossel (UX):** Implementar funcionalidade de swipe lateral (carrossel) dentro de cada card individual. 
+  * Regra de Negócio: O agrupamento será restrito à tipologia da joia (Brincos com brincos, Piercings com piercings). 
+  * UI/UX: Adotar o padrão de usabilidade do Instagram (dot indicators minimalistas na base da imagem e navegação por arrasto). 3 imagens por componente.
+
+#### 4. Secao Instagram CTA / Coleção Autoral (Mobile)
+- [ ] **Escala de Impacto (Responsive Design):** Recalcular o dimensionamento tipográfico e de containers no mobile para emular o impacto visual que a seção possui em monitores grandes. O conteúdo deve ser substancialmente ampliado (escala para telas como Poco X3), sem alterar, excluir ou editar nenhuma classe estrutural pré-existente.
+
+#### 5. Layout do Footer (Footer.tsx)
+- [ ] **Hierarquia de Informação (Mobile):** Inverter a ordem dos blocos estritamente na visualização mobile. O bloco de links de navegação deve assumir o topo do rodapé, enquanto a assinatura "Todos os direitos reservados" deve ser empurrada para a extremidade inferior (base absoluta).
+
+---
+
 ## Roadmap de Engenharia (SEO, Seguranca e Infraestrutura)
 
 ### A Fazer (Pendencias de Logica - Invisivel na UI)
@@ -24,40 +53,8 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 - [x] **Abstracao de Analytics (Data Layer):** Criar utilitario (`src/lib/analytics.ts`) com contratos de funcoes para engatilhar metodos de rastreamento (Pixel/GTM) nos botoes de CTA sem poluir os componentes.
 - [x] **Estrutura Base de Webhooks para Leads:** Criar rota de API (`src/app/api/leads/route.ts`) blindada para o futuro envio de dados ao n8n e Airtable.
 
----
-
-## Roadmap de UI/UX (Backlog Master)
-
-### A Fazer (Pendencias de Design e Engenharia)
-
-#### 1. Secao Hero (Hero.tsx)
-- [ ] **Responsividade da Imagem (Art Direction):** Replanejar enquadramento mobile sem afetar filtros P&B. (Postergado para evitar quebra de estetica editorial).
-- [ ] **Efeito de Cor Seletiva (Asset Fotografico):** Editar a foto no Photoshop aplicando P&B, porem isolando e preservando o brilho original Prata e Dourado estritamente nas unhas e no piercing.
-- [x] **Tipografia Metalica (UI):** Aplicar gradientes metalicos independentes no titulo principal para criar simetria com a fotografia. A palavra "ARTE" deve brilhar em Prata (bg-metal-silver), e a palavra "METAIS" deve brilhar em Ouro/Bronze (bg-metal-gold).
-- [ ] **Refinamento de Espacamento Tipografico:** Replanejar deslocamento horizontal no desktop. (Postergado).
-- [x] **Textura "Glitter" / Ruido Visual:** Reintroduzir o componente de ruido (NoiseOverlay) no Hero, adaptando a opacidade e o blend mode.
-
-> Diretrizes Tecnicas de Implementacao (Hero):
-> * Integracao de Cor Seletiva (Selective Color): O design atual utiliza a classe utilitaria grayscale do Tailwind para forcar o P&B. Assim que o asset fotografico editado for upado, a classe grayscale deve ser obrigatoriamente removida da tag Image.
-> * Posicionamento Defensivo (Desktop): Para realizar o deslocamento horizontal da tipografia sem quebrar a grade mobile, o ajuste deve ser isolado por breakpoint.
-
-#### 2. Secao Manifesto (Manifesto.tsx)
-- [x] **Desacoplamento de Layout (UI):** Refatorar o componente para separar estruturalmente o titulo "Manifesto" do container do paragrafo. O titulo deve operar em uma camada livre para permitir micro-ajustes de posicionamento (margin/translate) em relacao a coroa da abelha, sem empurrar o resto do conteudo.
-- [x] **Integracao Visual (UI):** Remover classes de escala de cinza e ajustar opacity/blend-mode para integrar o brilho ouro do asset PNG com o fundo Preto de Luxo.
-
-#### 3. Secao Showcase (Showcase.tsx)
-- [x] **Logica de Layout (Body-Mapping):** Reestruturar o grid de alvenaria. (Adiado para revisao final de arquitetura).
-- [x] **Deep Linking (Conversao Direta):** Mapear e inserir URLs diretas do Instagram. (Adiado para revisao final de arquitetura).
-
-#### 4. Secao Instagram CTA (InstagramCTA.tsx)
-- [ ] **Desacoplamento de Layout (UI):** Refatorar o componente para separar estruturalmente o botao "Seguir no Instagram" do bloco de texto superior. O botao deve operar de forma isolada para permitir micro-ajustes verticais sem empurrar o titulo monumental @DARAFA_CWB.
-- [ ] **Hierarquia Metalica (Ouro/Bronze):** Alterar o gradiente do titulo monumental @DARAFA_CWB de Prata para Ouro/Bronze. (Postergado).
-- [ ] **Destaque de Conversao:** Replicar este mesmo gradiente Ouro/Bronze no botao de acao "Seguir no Instagram ->", maximizando o apelo visual para o clique. (Postergado).
-- [ ] **Hierarquia Metalica (Prata):** Aplicar o gradiente Prata estritamente no texto de apoio ("Novos drops, processos de criacao e atendimento exclusivo via Direct."). (Postergado).
-- [ ] **Refinamento de Layout Assistido:** Mapeamento de linhas e ajuste fino manual de coordenadas (margin, translate) para o texto de apoio e o botao de "Seguir". (Postergado).
-
-#### 5. QA (Quality Assurance) e Deploy
-- [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE). *(Postergado para segunda-feira: prioridade atual e garantir a responsividade mobile antes de subir para producao).*
+#### 4. QA (Quality Assurance) e Deploy
+- [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
 
 ---
 
