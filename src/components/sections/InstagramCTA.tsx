@@ -14,13 +14,13 @@ export default function InstagramCTA() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center z-10 space-y-8"
       >
-        {/* Ajuste Manual: Margens negativas removidas e substituídas por mt-8 e md:mt-12 para descer o título */}
-        <h2 className="font-serif text-4xl md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 ml-[-5%] md:ml-[-26%] mt-8 md:mt-12 tracking-tighter">
+        {/* Ajuste de Escala (Mobile): text-4xl -> text-7xl para impacto visual imediato. */}
+        <h2 className="font-serif text-7xl md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 ml-[-5%] md:ml-[-26%] mt-8 md:mt-12 tracking-tighter">
           @DARAFA_CWB
         </h2>
         
-        {/* Ajuste Manual: Adicionado pt-6 para empurrar o texto descritivo mais para baixo */}
-        <p className="text-gray-400 font-light max-w-md mx-auto pt-7">
+        {/* Ajuste de Escala (Mobile): pt-6 -> pt-12 para maior respiro e text-lg */}
+        <p className="text-gray-400 font-light max-w-md mx-auto pt-12 md:pt-7 text-lg md:text-base">
           Novos drops, processos de criação e atendimento exclusivo via Direct.
         </p>
         
@@ -30,10 +30,10 @@ export default function InstagramCTA() {
             href="https://instagram.com/darafa_cwb" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="group relative inline-flex items-center gap-3 text-lg tracking-widest uppercase hover:opacity-80 transition-all duration-300"
+            className="group relative inline-flex items-center gap-3 text-xl md:text-lg tracking-widest uppercase hover:opacity-80 transition-all duration-300"
           >
             {/* Gradiente aplicado diretamente no texto */}
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 font-medium">
               Seguir no Instagram
             </span>
             
@@ -41,7 +41,7 @@ export default function InstagramCTA() {
             <motion.span
               animate={{ x: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              className="inline-block text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600"
+              className="inline-block text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 font-medium"
             >
               -&gt;
             </motion.span>
@@ -50,8 +50,9 @@ export default function InstagramCTA() {
       </motion.div>
 
       {/* Big Background Text (Decoration) */}
+      {/* Ajuste de Escala (Mobile): text-[20vw] -> text-[40vw] (o dobro do tamanho em telas menores) e md:text-[20vw] para desktop */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-[0.03] select-none">
-        <span className="font-serif text-[20vw] italic leading-none">Autoral</span>
+        <span className="font-serif text-[40vw] md:text-[20vw] italic leading-none">Autoral</span>
       </div>
     </section>
   );
