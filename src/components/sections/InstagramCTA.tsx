@@ -14,17 +14,14 @@ export default function InstagramCTA() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center z-10 space-y-8"
       >
-        {/* Ajuste de Escala (Mobile): text-4xl -> text-7xl para impacto visual imediato. */}
-        <h2 className="font-serif text-7xl md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 ml-[-5%] md:ml-[-26%] mt-8 md:mt-12 tracking-tighter">
+        <h2 className="font-serif text-[13vw] md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 ml-[-5%] md:ml-[-26%] mt-8 md:mt-12 tracking-tighter">
           @DARAFA_CWB
         </h2>
         
-        {/* Ajuste de Escala (Mobile): pt-6 -> pt-12 para maior respiro e text-lg */}
         <p className="text-gray-400 font-light max-w-md mx-auto pt-12 md:pt-7 text-lg md:text-base">
           Novos drops, processos de criação e atendimento exclusivo via Direct.
         </p>
         
-        {/* Ajuste Manual: Botão deslocado para baixo (pt-12) e levemente para o lado (md:translate-x-12) */}
         <div className="pt-12 md:translate-x-12">
           <Link 
             href="https://instagram.com/darafa_cwb" 
@@ -32,12 +29,10 @@ export default function InstagramCTA() {
             rel="noopener noreferrer" 
             className="group relative inline-flex items-center gap-3 text-xl md:text-lg tracking-widest uppercase hover:opacity-80 transition-all duration-300"
           >
-            {/* Gradiente aplicado diretamente no texto */}
             <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 font-medium">
               Seguir no Instagram
             </span>
             
-            {/* Gradiente aplicado diretamente na seta animada */}
             <motion.span
               animate={{ x: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
@@ -49,10 +44,20 @@ export default function InstagramCTA() {
         </div>
       </motion.div>
 
-      {/* Big Background Text (Decoration) */}
-      {/* Ajuste de Escala (Mobile): text-[20vw] -> text-[40vw] (o dobro do tamanho em telas menores) e md:text-[20vw] para desktop */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-[0.03] select-none">
-        <span className="font-serif text-[40vw] md:text-[20vw] italic leading-none">Autoral</span>
+      {/* Marca d'água Tipográfica */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full pointer-events-none opacity-[0.03] select-none flex flex-col justify-center">
+        
+        {/* Comportamento Desktop: Palavra inteira centralizada */}
+        <span className="hidden md:block font-serif text-[20vw] italic leading-none text-center">
+          Autoral
+        </span>
+        
+        {/* Comportamento Mobile: Quebra tipográfica Brutalista (Auto / ral) */}
+        <div className="flex md:hidden flex-col font-serif italic leading-[0.75] tracking-tighter w-full">
+          <span className="text-[48vw] text-left pl-2">Auto</span>
+          <span className="text-[48vw] text-right pr-4">ral</span>
+        </div>
+
       </div>
     </section>
   );
