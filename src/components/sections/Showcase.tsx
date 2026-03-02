@@ -73,7 +73,8 @@ const MobileCarouselCard = ({ group, index }: { group: typeof mobileGroups[0], i
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="relative w-full h-[480px] bg-zinc-900 border border-white/5 overflow-hidden"
+      // Ajuste Arquitetural: w-full sem bordas laterais (border-y) garante preenchimento 100% da tela
+      className="relative w-full h-[480px] bg-zinc-900 border-y border-white/5 md:border overflow-hidden"
     >
       <div 
         ref={scrollRef}
@@ -128,7 +129,8 @@ export default function Showcase() {
   };
 
   return (
-    <section id="showcase" className="pb-20 pt-0 px-4 md:px-12 bg-black relative">
+    // Ajuste Arquitetural: px-0 remove as margens laterais no mobile. md:px-12 preserva o grid no Desktop.
+    <section id="showcase" className="pb-20 pt-0 px-0 md:px-12 bg-black relative">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -158,7 +160,7 @@ export default function Showcase() {
         ))}
       </div>
 
-      {/* MOBILE LAYOUT (6 Cards com Carrossel de 2 Itens, oculto no desktop) */}
+      {/* MOBILE LAYOUT (6 Cards Edge-to-Edge com Carrossel de 2 Itens, oculto no desktop) */}
       <div className="grid md:hidden grid-cols-1 gap-1">
         {mobileGroups.map((group, index) => (
           <MobileCarouselCard key={index} group={group} index={index} />
