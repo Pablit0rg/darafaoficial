@@ -79,7 +79,7 @@ export default function Hero() {
             target="_blank" rel="noopener noreferrer"
             className="relative overflow-hidden inline-block border border-white/20 px-8 py-4 text-[10px] md:text-xs uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-all duration-500 group"
           >
-            <span className="relative z-10">Coleção completa</span>
+            <span className="relative z-10">Coleção autoral</span>
             <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700" />
           </Link>
         </motion.div>
