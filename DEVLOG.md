@@ -4,32 +4,31 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 
 ---
 
-## Foco Atual: Engenharia de Mobile UI/UX (Sprint 01/03/2026)
+## Foco Atual: Refinamentos Manuais e Pixel Pushing (Sprint 02/03/2026)
 
-A prioridade absoluta do desenvolvimento foi alterada para a perfeição da experiência em dispositivos móveis (Mobile-First), simulando a imersão tátil de um catálogo/folder editorial físico.
+A prioridade agora é o ajuste fino de coordenadas e o balanço espacial da interface mobile, garantindo a estética Minimalista e Preto de Luxo.
 
-### Backlog de Implementação Mobile
+### Backlog de Implementação Mobile (Pendentes)
 
-#### 1. Secao Hero (Hero.tsx)
-- [x] **Copywriting e Conversão:** Alterar o texto do botão principal de "coleção completa" para "coleção autoral".
-- [ ] **Limpeza Visual (Decluttering):** Remover o subtítulo "coleção completa/autoral" posicionado ao lado de "Últimas Criações", mantendo estritamente "Últimas Criações".
+#### 1. Secao Instagram CTA
+- [ ] **Tipografia Editorial (O "Cubo"):** Transformar o texto "Novos drops..." em um bloco de texto justificado e com largura fixa, posicionado assimetricamente no espaço negativo entre as sílabas "Auto" e "ral" do background.
+- [ ] **Balanço Espacial do Título:** Reposicionar o título `@DARAFA_CWB` para cima no mobile.
+- [ ] **Bugfix Desktop:** Investigar e corrigir o corte do caractere `_` (underline) no título `@DARAFA_CWB` na versão PC.
+- [ ] **Posicionamento do CTA:** Deslocar o botão "Seguir no Instagram" no eixo Y (para baixo) e eixo X (para a lateral) para equilibrar a composição com o "cubo" de texto.
 
-#### 2. Secao Manifesto & Divisor Visuais
-- [x] **Integração de Seções (Seamless Scroll):** Remover a linha dourada abaixo de "Últimas Criações" e reposicioná-la na margem superior da imagem da abelha. O objetivo é eliminar o espaçamento (gap) e criar a ilusão de que a Hero e a seção de produtos estão grudadas.
-- [ ] **Ocultação do Manifesto (Preservação de Asset):** Ocultar o texto do manifesto, deixando a imagem da abelha atuando puramente como um detalhe de borda estrutural (como marcadores de páginas de livros premium). 
-  * *Nota de Arquitetura (UX Futura): O texto original foi desativado temporariamente da interface estática. O registro do copy fica armazenado no repositório para futura implementação de micro-interação (ex: clique na abelha para expandir um modal ou card com o manifesto da marca).*
+#### 2. Integração Edge-to-Edge (Showcase -> Instagram CTA)
+- [ ] **Seamless Scroll:** Zerar o padding inferior do Showcase e o superior da CTA do Instagram para unificar as áreas escuras.
+- [ ] **Divisor Estrutural:** Injetar a linha horizontal dourada (`bg-metal-gold`) estritamente na junção entre o final do carrossel e o início da área Autoral.
 
-#### 3. Secao Showcase (Showcase.tsx) - Experiência de Catálogo Físico
-- [x] **Imersão Edge-to-Edge (Mobile):** Ajustar os cards de produtos para que preencham 100% da largura da tela do celular (limite a limite), removendo margens laterais. A altura e proporções atuais devem ser rigorosamente mantidas para sustentar a sensação de "scroll físico".
-- [x] **Engenharia de Carrossel (UX):** Implementar funcionalidade de swipe lateral (carrossel) dentro de cada card individual. 
-  * Regra de Negócio: O agrupamento será restrito à tipologia da joia (Brincos com brincos, Piercings com piercings). 
-  * UI/UX: Adotar o padrão de usabilidade do Instagram (dot indicators minimalistas na base da imagem e navegação por arrasto). 3 imagens por componente.
+#### 3. Secao Manifesto
+- [ ] **Ocultação do Manifesto (Preservação de Asset):** Ocultar o texto do manifesto, deixando a imagem da abelha atuando puramente como um detalhe de borda estrutural.
+  * *Nota de Arquitetura (UX Futura): O texto original será desativado temporariamente. O registro do copy fica armazenado para futura implementação de micro-interação.*
 
-#### 4. Secao Instagram CTA / Coleção Autoral (Mobile)
-- [ ] **Escala de Impacto (Responsive Design):** Recalcular o dimensionamento tipográfico e de containers no mobile para emular o impacto visual que a seção possui em monitores grandes. O conteúdo deve ser substancialmente ampliado (escala para telas como Poco X3), sem alterar, excluir ou editar nenhuma classe estrutural pré-existente.
-
-#### 5. Layout do Footer (Footer.tsx)
-- [x] **Hierarquia de Informação (Mobile):** Inverter a ordem dos blocos estritamente na visualização mobile. O bloco de links de navegação deve assumir o topo do rodapé, enquanto a assinatura "Todos os direitos reservados" deve ser empurrada para a extremidade inferior (base absoluta).
+#### 4. Layout do Footer (Footer.tsx)
+- [ ] **Distribuição Panorâmica (Edge-to-Edge):** Refatorar o container principal de navegação do rodapé.
+  * "Início" ancorado na extrema margem esquerda.
+  * "Ícone do Instagram" ancorado na extrema margem direita.
+  * "Curitiba, PR" centralizado com precisão matemática absoluta no eixo X.
 
 ---
 
@@ -59,6 +58,15 @@ A prioridade absoluta do desenvolvimento foi alterada para a perfeição da expe
 ---
 
 ## Historico de Sprints (Changelog)
+
+### [2026-03-02] - Engenharia de Mobile UI/UX
+- [x] **Hero (Copywriting):** Alterado o texto do botão principal de "coleção completa" para "coleção autoral".
+- [x] **Manifesto (UX):** Reposicionamento de linha dourada e ajustes de proporção da marca d'água.
+- [x] **Showcase (Mobile-First):** Implementada imersão Edge-to-Edge sem transbordo e engenharia de carrossel de produtos com navegação por arrasto (swipe) e dot indicators.
+- [x] **Showcase (Limpeza):** Remoção do título "Últimas Criações" e zeramento do preenchimento superior para colapsar o grid na seção Manifesto.
+- [x] **Instagram CTA (Responsive Design):** Escala de impacto aplicada no mobile com Viewport Width (`vw`), garantindo proporção responsiva contínua para o título principal `@DARAFA_CWB`.
+- [x] **Instagram CTA (Brutalist Typography):** Implementada quebra estrutural assimétrica da palavra "Autoral" ("Auto/ral") no background mobile.
+- [x] **Footer (Mobile):** Inversão da hierarquia de informação, posicionando links de navegação no topo e direitos autorais na base absoluta.
 
 ### [2026-02-28] - Arquitetura de SEO e Infraestrutura Invisivel
 - [x] **Infra (Cache):** Configuracao de politicas de TTL para compressao de imagens e habilitacao de SWR no `page.tsx` para performance edge.
