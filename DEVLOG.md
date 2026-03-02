@@ -11,17 +11,17 @@ A prioridade absoluta do desenvolvimento foi alterada para a perfeição da expe
 ### Backlog de Implementação Mobile
 
 #### 1. Secao Hero (Hero.tsx)
-- [ ] **Copywriting e Conversão:** Alterar o texto do botão principal de "coleção completa" para "coleção autoral".
+- [x] **Copywriting e Conversão:** Alterar o texto do botão principal de "coleção completa" para "coleção autoral".
 - [ ] **Limpeza Visual (Decluttering):** Remover o subtítulo "coleção completa/autoral" posicionado ao lado de "Últimas Criações", mantendo estritamente "Últimas Criações".
 
 #### 2. Secao Manifesto & Divisor Visuais
-- [ ] **Integração de Seções (Seamless Scroll):** Remover a linha dourada abaixo de "Últimas Criações" e reposicioná-la na margem superior da imagem da abelha. O objetivo é eliminar o espaçamento (gap) e criar a ilusão de que a Hero e a seção de produtos estão grudadas.
+- [x] **Integração de Seções (Seamless Scroll):** Remover a linha dourada abaixo de "Últimas Criações" e reposicioná-la na margem superior da imagem da abelha. O objetivo é eliminar o espaçamento (gap) e criar a ilusão de que a Hero e a seção de produtos estão grudadas.
 - [ ] **Ocultação do Manifesto (Preservação de Asset):** Ocultar o texto do manifesto, deixando a imagem da abelha atuando puramente como um detalhe de borda estrutural (como marcadores de páginas de livros premium). 
   * *Nota de Arquitetura (UX Futura): O texto original foi desativado temporariamente da interface estática. O registro do copy fica armazenado no repositório para futura implementação de micro-interação (ex: clique na abelha para expandir um modal ou card com o manifesto da marca).*
 
 #### 3. Secao Showcase (Showcase.tsx) - Experiência de Catálogo Físico
-- [ ] **Imersão Edge-to-Edge (Mobile):** Ajustar os cards de produtos para que preencham 100% da largura da tela do celular (limite a limite), removendo margens laterais. A altura e proporções atuais devem ser rigorosamente mantidas para sustentar a sensação de "scroll físico".
-- [ ] **Engenharia de Carrossel (UX):** Implementar funcionalidade de swipe lateral (carrossel) dentro de cada card individual. 
+- [x] **Imersão Edge-to-Edge (Mobile):** Ajustar os cards de produtos para que preencham 100% da largura da tela do celular (limite a limite), removendo margens laterais. A altura e proporções atuais devem ser rigorosamente mantidas para sustentar a sensação de "scroll físico".
+- [x] **Engenharia de Carrossel (UX):** Implementar funcionalidade de swipe lateral (carrossel) dentro de cada card individual. 
   * Regra de Negócio: O agrupamento será restrito à tipologia da joia (Brincos com brincos, Piercings com piercings). 
   * UI/UX: Adotar o padrão de usabilidade do Instagram (dot indicators minimalistas na base da imagem e navegação por arrasto). 3 imagens por componente.
 
@@ -29,7 +29,7 @@ A prioridade absoluta do desenvolvimento foi alterada para a perfeição da expe
 - [ ] **Escala de Impacto (Responsive Design):** Recalcular o dimensionamento tipográfico e de containers no mobile para emular o impacto visual que a seção possui em monitores grandes. O conteúdo deve ser substancialmente ampliado (escala para telas como Poco X3), sem alterar, excluir ou editar nenhuma classe estrutural pré-existente.
 
 #### 5. Layout do Footer (Footer.tsx)
-- [ ] **Hierarquia de Informação (Mobile):** Inverter a ordem dos blocos estritamente na visualização mobile. O bloco de links de navegação deve assumir o topo do rodapé, enquanto a assinatura "Todos os direitos reservados" deve ser empurrada para a extremidade inferior (base absoluta).
+- [x] **Hierarquia de Informação (Mobile):** Inverter a ordem dos blocos estritamente na visualização mobile. O bloco de links de navegação deve assumir o topo do rodapé, enquanto a assinatura "Todos os direitos reservados" deve ser empurrada para a extremidade inferior (base absoluta).
 
 ---
 

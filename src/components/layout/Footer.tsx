@@ -1,5 +1,5 @@
-"use client";
 // src/components/layout/Footer.tsx
+"use client";
 
 import Link from "next/link";
 
@@ -15,10 +15,11 @@ export default function Footer() {
 
   return (
     <footer className="py-10 border-t border-white/10 bg-brand-black text-center md:text-left relative z-10">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest text-gray-600 gap-6 md:gap-4">
+      {/* flex-col-reverse garante que a navegação suba no mobile e os direitos reservados fiquem na base absoluta */}
+      <div className="container mx-auto px-6 flex flex-col-reverse md:flex-row justify-between items-center text-xs uppercase tracking-widest text-gray-600 gap-8 md:gap-4">
         
         {/* Copyright */}
-        <div>
+        <div className="pt-4 md:pt-0 border-t border-white/5 md:border-transparent w-full md:w-auto text-center md:text-left">
           © {currentYear} Darafa. Todos os direitos reservados.
         </div>
         
@@ -31,7 +32,6 @@ export default function Footer() {
             Início
           </button>
           
-          {/* Link de Localização (Mapa) - URL Atualizada */}
           <Link 
             href="https://www.google.com/maps/place/Coletivo+Brecho+das+Preta/@-25.4282157,-49.2687739,17z/data=!3m1!4b1!4m6!3m5!1s0x94dce5f4c8e3b451:0x9428bd98505e541!8m2!3d-25.4282157!4d-49.2687739!16s%2Fg%2F11wg2j39_p?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D" 
             target="_blank" 
@@ -44,10 +44,8 @@ export default function Footer() {
             </span>
           </Link>
 
-          {/* Divisória Sutil */}
           <div className="w-[1px] h-3 bg-white/20"></div>
 
-          {/* Ícone Minimalista do Instagram com Efeito Colorido no Hover */}
           <Link 
             href="https://instagram.com/darafa_cwb" 
             target="_blank" 
@@ -55,14 +53,12 @@ export default function Footer() {
             className="relative flex items-center justify-center w-[16px] h-[16px] hover:scale-110 transition-transform duration-300 group"
             aria-label="Instagram Oficial DaRafa"
           >
-            {/* Ícone Padrão (Soma no Hover) */}
             <svg className="absolute text-gray-500 group-hover:opacity-0 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
 
-            {/* Ícone Colorido Gradiente (Aparece no Hover) */}
             <svg className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <defs>
                 <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
