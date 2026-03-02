@@ -1,10 +1,13 @@
+// src/components/sections/Showcase.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState, useRef } from "react";
 import { siteConfig } from "@/config/site";
 
-const showcaseItems = [
+// 1. Array base (Imagens originais)
+const originalItems = [
   { id: 1, title: "Colares de Pérolas", desc: "Imagem Horizontal", spanClasses: "", image: "/assets/images/showcase/showcase-colares-perolas-hd.jpg", link: "https://instagram.com/darafa_cwb" },
   { id: 2, title: "Brinco de Pérolas", desc: "Imagem Vertical", spanClasses: "", image: "/assets/images/showcase/showcase-brinco-perolas-hd.jpg", link: "https://instagram.com/darafa_cwb" },
   { id: 3, title: "Ponto de Luz", desc: "Imagem Quadrada", spanClasses: "", image: "/assets/images/showcase/showcase-ponto-luz-hd.jpg", link: "https://instagram.com/darafa_cwb" },
@@ -13,11 +16,102 @@ const showcaseItems = [
   { id: 6, title: "Braceletes com Miçangas", desc: "Fechamento do Grid", spanClasses: "", image: "/assets/images/showcase/showcase-braceletes-micangas-hd.jpg", link: "https://instagram.com/darafa_cwb" },
 ];
 
+// 2. Geração dos 6 novos cards em branco
+const placeholderItems = originalItems.map((item) => ({
+  id: item.id + 6,
+  title: "Nova Criação",
+  desc: "Em breve",
+  spanClasses: item.spanClasses,
+  image: "",
+  link: "https://instagram.com/darafa_cwb"
+}));
+
+// 3. Estruturas para Renderização
+const desktopItems = [...originalItems, ...placeholderItems];
+const mobileGroups = originalItems.map((item, index) => [item, placeholderItems[index]]);
+
+// Componente utilitário para não duplicar marcação do conteúdo interno
+const renderCardContent = (item: any) => (
+  <>
+    {item.image ? (
+      <Image 
+        src={item.image} 
+        alt={item.title}
+        fill
+        className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-[1500ms] ease-out"
+      />
+    ) : (
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-600 transition-colors bg-zinc-950">
+        <span className="font-serif italic text-sm">{item.desc}</span>
+        <div className="w-8 h-[1px] bg-white/10 mt-4"></div>
+      </div>
+    )}
+    
+    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+      <p className="text-sm font-sans tracking-widest uppercase text-white z-10">{item.title}</p>
+    </div>
+  </>
+);
+
+// Componente do Carrossel Mobile
+const MobileCarouselCard = ({ group, index }: { group: typeof mobileGroups[0], index: number }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const scrollPosition = scrollRef.current.scrollLeft;
+      const width = scrollRef.current.clientWidth;
+      const newIndex = Math.round(scrollPosition / width);
+      setActiveIndex(newIndex);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="relative w-full h-[480px] bg-zinc-900 border border-white/5 overflow-hidden"
+    >
+      <div 
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="flex w-full h-full overflow-x-auto snap-x snap-mandatory hide-scroll"
+      >
+        {group.map((item) => (
+          <a
+            key={item.id}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            // min-w-full garante que a imagem tenha exatamente 100% da largura do container sem quebrar a tela
+            className="min-w-full w-full h-full snap-center relative block group"
+          >
+            {renderCardContent(item)}
+          </a>
+        ))}
+      </div>
+      
+      {/* Navegação por Pontos (Dots) */}
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-1.5 pointer-events-none z-20">
+        {group.map((_, dotIndex) => (
+          <div 
+            key={dotIndex}
+            className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === dotIndex ? 'w-3 bg-white' : 'w-1.5 bg-white/30'}`}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Showcase() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "itemListElement": showcaseItems.map((item, index) => ({
+    "itemListElement": originalItems.map((item, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "item": {
@@ -40,21 +134,24 @@ export default function Showcase() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      
+      <style dangerouslySetInnerHTML={{__html: `
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+      `}} />
 
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="flex justify-between items-end mb-12 pb-4 relative"
+        className="mb-12 relative"
       >
         <h3 className="font-serif text-2xl text-white">Últimas Criações</h3>
-        <span className="text-xs text-gray-500 uppercase tracking-widest">Coleção Autoral</span>
-        
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-metal-gold z-10"></div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 md:gap-2 auto-rows-[480px]">
-        {showcaseItems.map((item, index) => (
+      {/* DESKTOP LAYOUT (12 Cards Estáticos, oculto no mobile) */}
+      <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-2 auto-rows-[480px]">
+        {desktopItems.map((item, index) => (
           <motion.a
             href={item.link}
             target="_blank"
@@ -63,26 +160,18 @@ export default function Showcase() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            className={`group relative bg-zinc-900 border border-white/5 overflow-hidden block w-full h-full ${item.spanClasses}`}
+            transition={{ duration: 0.6, delay: (index % 6) * 0.1 }}
+            className={`group relative bg-zinc-900 border border-white/5 overflow-hidden block w-full h-full ${item.spanClasses || ""}`}
           >
-            {item.image ? (
-              <Image 
-                src={item.image} 
-                alt={item.title}
-                fill
-                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-[1500ms] ease-out"
-              />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center text-gray-700 group-hover:text-gray-500 transition-colors">
-                <span className="font-serif italic text-sm">{item.desc}</span>
-              </div>
-            )}
-            
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-              <p className="text-sm font-sans tracking-widest uppercase text-white z-10">{item.title}</p>
-            </div>
+            {renderCardContent(item)}
           </motion.a>
+        ))}
+      </div>
+
+      {/* MOBILE LAYOUT (6 Cards com Carrossel de 2 Itens, oculto no desktop) */}
+      <div className="grid md:hidden grid-cols-1 gap-1">
+        {mobileGroups.map((group, index) => (
+          <MobileCarouselCard key={index} group={group} index={index} />
         ))}
       </div>
     </section>
