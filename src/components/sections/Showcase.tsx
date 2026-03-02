@@ -86,7 +86,6 @@ const MobileCarouselCard = ({ group, index }: { group: typeof mobileGroups[0], i
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
-            // min-w-full garante que a imagem tenha exatamente 100% da largura do container sem quebrar a tela
             className="min-w-full w-full h-full snap-center relative block group"
           >
             {renderCardContent(item)}
@@ -129,7 +128,7 @@ export default function Showcase() {
   };
 
   return (
-    <section id="showcase" className="py-20 px-4 md:px-12 bg-black relative">
+    <section id="showcase" className="pb-20 pt-0 px-4 md:px-12 bg-black relative">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -139,15 +138,6 @@ export default function Showcase() {
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
       `}} />
-
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-12 relative"
-      >
-        <h3 className="font-serif text-2xl text-white">Últimas Criações</h3>
-      </motion.div>
 
       {/* DESKTOP LAYOUT (12 Cards Estáticos, oculto no mobile) */}
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-2 auto-rows-[480px]">
