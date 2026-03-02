@@ -1,3 +1,4 @@
+// src/components/sections/Manifesto.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -45,6 +46,9 @@ export default function Manifesto() {
         </p>
       </motion.div>
       
+      {/* Fio Metálico (Ouro) na base da seção para demarcar transição para o Showcase */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-metal-gold z-20"></div>
+
     </section>
   );
 }
