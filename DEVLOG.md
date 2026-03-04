@@ -4,37 +4,20 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 
 ---
 
-## Foco Atual: Refinamentos Manuais e Pixel Pushing (Sprint 02/03/2026)
+## Foco Atual: Preparação para Deploy de Produção
 
-A prioridade agora é o ajuste fino de coordenadas e o balanço espacial da interface mobile, garantindo a estética Minimalista e Preto de Luxo.
+A fase de refinamento UI/UX está concluída. O foco arquitetural agora transiciona para o fechamento do ambiente de desenvolvimento (QA) e a orquestração da infraestrutura na nuvem.
 
-### Backlog de Implementação Mobile (Pendentes)
+### Backlog de Implementação
 
-#### 1. Secao Instagram CTA
-- [ ] **Tipografia Editorial (O "Cubo"):** Transformar o texto "Novos drops..." em um bloco de texto justificado e com largura fixa, posicionado assimetricamente no espaço negativo entre as sílabas "Auto" e "ral" do background.
-- [ ] **Balanço Espacial do Título:** Reposicionar o título `@DARAFA_CWB` para cima no mobile.
-- [ ] **Bugfix Desktop:** Investigar e corrigir o corte do caractere `_` (underline) no título `@DARAFA_CWB` na versão PC.
-- [ ] **Posicionamento do CTA:** Deslocar o botão "Seguir no Instagram" no eixo Y (para baixo) e eixo X (para a lateral) para equilibrar a composição com o "cubo" de texto.
-
-#### 2. Integração Edge-to-Edge (Showcase -> Instagram CTA)
-- [ ] **Seamless Scroll:** Zerar o padding inferior do Showcase e o superior da CTA do Instagram para unificar as áreas escuras.
-- [ ] **Divisor Estrutural:** Injetar a linha horizontal dourada (`bg-metal-gold`) estritamente na junção entre o final do carrossel e o início da área Autoral.
-
-#### 3. Secao Manifesto
-- [ ] **Ocultação do Manifesto (Preservação de Asset):** Ocultar o texto do manifesto, deixando a imagem da abelha atuando puramente como um detalhe de borda estrutural.
-  * *Nota de Arquitetura (UX Futura): O texto original será desativado temporariamente. O registro do copy fica armazenado para futura implementação de micro-interação.*
-
-#### 4. Layout do Footer (Footer.tsx)
-- [ ] **Distribuição Panorâmica (Edge-to-Edge):** Refatorar o container principal de navegação do rodapé.
-  * "Início" ancorado na extrema margem esquerda.
-  * "Ícone do Instagram" ancorado na extrema margem direita.
-  * "Curitiba, PR" centralizado com precisão matemática absoluta no eixo X.
+#### 1. QA (Quality Assurance) e Deploy
+- [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
 
 ---
 
 ## Roadmap de Engenharia (SEO, Seguranca e Infraestrutura)
 
-### A Fazer (Pendencias de Logica - Invisivel na UI)
+### Concluídos (Logica - Invisivel na UI)
 
 #### 1. SEO Avancado e Descoberta Organica
 - [x] **Microdados de Produto Dinamicos (Schema.org):** Injetar JSON-LD do tipo `Product` no `Showcase.tsx` para ativar Rich Snippets no Google (visualizacao de produto na busca).
@@ -48,16 +31,20 @@ A prioridade agora é o ajuste fino de coordenadas e o balanço espacial da inte
 - [x] **Prefetching Estrategico e Cache:** Auditar a aplicacao para garantir geracao estatica (SSG) maxima e Stale-While-Revalidate (SWR) na CDN.
 - [x] **Compressao e Image Caching:** Configurar politicas agressivas no `next.config.ts` para estender o TTL do cache de imagens HD e forcar otimizacao de banda.
 
-#### 3. Escalabilidade de Dados e Integracoes (Futuro)
+#### 3. Escalabilidade de Dados e Integracoes
 - [x] **Abstracao de Analytics (Data Layer):** Criar utilitario (`src/lib/analytics.ts`) com contratos de funcoes para engatilhar metodos de rastreamento (Pixel/GTM) nos botoes de CTA sem poluir os componentes.
 - [x] **Estrutura Base de Webhooks para Leads:** Criar rota de API (`src/app/api/leads/route.ts`) blindada para o futuro envio de dados ao n8n e Airtable.
-
-#### 4. QA (Quality Assurance) e Deploy
-- [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
 
 ---
 
 ## Historico de Sprints (Changelog)
+
+### [2026-03-04] - Refinamentos Manuais e Pixel Pushing (Mobile)
+- [x] **Instagram CTA (Pixel Pushing):** Balanço espacial milimétrico aplicado com `translate`. Título `@DARAFA_CWB` reposicionado e "Cubo" editorial puxado assimetricamente para o espaço vazio entre a quebra tipográfica "Auto/ral".
+- [x] **Instagram CTA (Bugfix):** Trava de breakpoint implementada (`md:translate-x-0`) para garantir que o *pixel pushing* mobile não interfira ou quebre o alinhamento da versão Desktop.
+- [x] **Instagram CTA (UX):** Botão principal de conversão deslocado nos eixos X e Y de forma autônoma para harmonizar o balanço visual da seção.
+- [x] **Footer (Layout Panorâmico):** Refatoração da navegação mobile com distribuição Edge-to-Edge (`justify-between`), ancorando itens nas extremidades e centralizando "Curitiba, PR" com posicionamento absoluto.
+- [x] **Manifesto (UX e Integração):** Ocultação do bloco de texto original com a classe `invisible` para preservar milimetricamente as dimensões do container e a proporção da imagem da abelha.
 
 ### [2026-03-02] - Engenharia de Mobile UI/UX
 - [x] **Hero (Copywriting):** Alterado o texto do botão principal de "coleção completa" para "coleção autoral".
