@@ -39,7 +39,12 @@ export default function Hero() {
         transition={{ staggerChildren: 0.15, delayChildren: 0.2 }}
         className="space-y-6 z-10 max-w-4xl mx-auto relative mt-20 md:mt-30 md:translate-x-16 lg:translate-x-16"
       >
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-brand-muted uppercase tracking-[0.3em] text-[10px] md:text-sm">
+        {/* Painel de Controle Links Hero: Mova nos eixos X e Y pelo translate. A regra md: blinda a versão de PC. */}
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="translate-x-[95px] translate-y-[-110px] md:translate-x-0 md:translate-y-0 text-brand-muted uppercase tracking-[0.3em] text-[10px] md:text-sm"
+        >
           <Link 
             href="https://www.google.com/maps/place/Coletivo+Brecho+das+Preta/@-25.4282157,-49.2687739,17z/data=!3m1!4b1!4m6!3m5!1s0x94dce5f4c8e3b451:0x9428bd98505e541!8m2!3d-25.4282157!4d-49.2687739!16s%2Fg%2F11wg2j39_p?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D" 
             target="_blank" 

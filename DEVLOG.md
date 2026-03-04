@@ -13,6 +13,9 @@ A fase de refinamento UI/UX está concluída. O foco arquitetural agora transici
 #### 1. QA (Quality Assurance) e Deploy
 - [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
 
+#### 2. Secao Hero (Hero.tsx) - Postergado
+- [ ] **Pixel Pushing (Título):** Isolar e reposicionar assimetricamente o trecho "ONDE A ARTE" no ambiente mobile, exigindo refatoracao da arvore do Framer Motion para evitar colapso de renderizacao. A regra `md:translate` devera blindar a versao Desktop.
+
 ---
 
 ## Roadmap de Engenharia (SEO, Seguranca e Infraestrutura)
@@ -40,6 +43,7 @@ A fase de refinamento UI/UX está concluída. O foco arquitetural agora transici
 ## Historico de Sprints (Changelog)
 
 ### [2026-03-04] - Refinamentos Manuais e Pixel Pushing (Mobile)
+- [x] **Hero (Pixel Pushing):** Links "Curitiba" e "Joias artesanais" deslocados assimetricamente no eixo X e Y (linha de visao da fotografia) no mobile, blindando a resolucao Desktop.
 - [x] **Instagram CTA (Pixel Pushing):** Balanço espacial milimétrico aplicado com `translate`. Título `@DARAFA_CWB` reposicionado e "Cubo" editorial puxado assimetricamente para o espaço vazio entre a quebra tipográfica "Auto/ral".
 - [x] **Instagram CTA (Bugfix):** Trava de breakpoint implementada (`md:translate-x-0`) para garantir que o *pixel pushing* mobile não interfira ou quebre o alinhamento da versão Desktop.
 - [x] **Instagram CTA (UX):** Botão principal de conversão deslocado nos eixos X e Y de forma autônoma para harmonizar o balanço visual da seção.
