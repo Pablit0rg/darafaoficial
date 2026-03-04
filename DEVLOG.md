@@ -4,17 +4,33 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 
 ---
 
-## Foco Atual: Preparação para Deploy de Produção
+## Foco Atual: Sprint Definitiva de Refinamento e Conteúdo (QA Final)
 
-A fase de refinamento UI/UX está concluída. O foco arquitetural agora transiciona para o fechamento do ambiente de desenvolvimento (QA) e a orquestração da infraestrutura na nuvem.
+A arquitetura visual entra na sua última fase de ajustes de espaçamento estrutural, injeção de assets finais e calibração de componentes. O referencial estrito para validação mobile permanece sendo as dimensões do dispositivo Poco X3 Pro.
 
-### Backlog de Implementação
+### Backlog de Implementação (Tarefas Definitivas)
 
-#### 1. QA (Quality Assurance) e Deploy
+#### 1. Engenharia de Espaçamento e Margens (Global)
+- [ ] **Respiro Vertical:** Desacoplar as seções Manifesto, Showcase (Catálogo) e Autoral (Instagram CTA). Restaurar o espaçamento vertical entre elas, garantindo uma transição fluida ("breathing room") tanto no PC quanto no Mobile.
+- [ ] **Padronização de Margens Laterais (X-Axis):** Reduzir as margens laterais globais (esquerda e direita) das seções. O novo valor de *padding* deve ser matematicamente idêntico ao espaçamento interno (gap) existente entre os cards do carrossel, unificando a grelha do portfólio.
+- [ ] **Restituição de Hierarquia:** Injetar novamente o subtítulo "Algumas criações" no topo da seção Showcase (Catálogo), posicionado com o novo padrão de margem estabelecido.
+
+#### 2. Secao Manifesto (Refatoração de Componente)
+- [ ] **Carrossel de Assets:** Substituir a imagem estática da "abelha rainha" por um componente de carrossel interativo (arraste/swipe), mantendo a mesma engenharia do catálogo.
+- [ ] **Tratamento Visual:** Aplicar filtro escuro (overlay) nas imagens do novo carrossel para manter a consistência com a paleta Preto de Luxo.
+- [ ] **Restauração de Copy:** Reativar o texto original do manifesto que havia sido ocultado, avaliando a necessidade de ajuste tipográfico no letreiro/título da seção para acomodar o novo layout.
+
+#### 3. Secao Instagram CTA / Autoral
+- [ ] **Bugfix de Coordenadas (Desktop):** Realinhar manualmente as posições do título, texto e botão estritamente na visualização de PC, garantindo que a versão Mobile (Poco X3 Pro) permaneça 100% blindada e inalterada.
+- [ ] **Micro-tipografia (O "Cubo"):** Ajustar o rastreamento (tracking/word-spacing) do texto justificado "Novos drops, processos de criação e atendimento exclusivo via Direct." para eliminar espaços irregulares entre as palavras ("rios" de texto), garantindo a estética de um bloco editorial perfeito.
+
+#### 4. Injeção de Conteúdo Final (Hero e Showcase)
+- [ ] **Substituição Hero:** Trocar a imagem principal de destaque da seção Hero pela versão final aprovada.
+- [ ] **Preenchimento de Catálogo:** Popular os cards vazios do carrossel com os assets fotográficos restantes.
+- [ ] **Estratégia de Retenção (UX):** Adicionar 1 card extra ao final de cada categoria do Showcase com a etiqueta "Em breve", sinalizando atualização frequente de acervo para o utilizador.
+
+#### 5. Infraestrutura e Deploy
 - [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
-
-#### 2. Secao Hero (Hero.tsx) - Postergado
-- [ ] **Pixel Pushing (Título):** Isolar e reposicionar assimetricamente o trecho "ONDE A ARTE" no ambiente mobile, exigindo refatoracao da arvore do Framer Motion para evitar colapso de renderizacao. A regra `md:translate` devera blindar a versao Desktop.
 
 ---
 
@@ -49,6 +65,7 @@ A fase de refinamento UI/UX está concluída. O foco arquitetural agora transici
 - [x] **Instagram CTA (UX):** Botão principal de conversão deslocado nos eixos X e Y de forma autônoma para harmonizar o balanço visual da seção.
 - [x] **Footer (Layout Panorâmico):** Refatoração da navegação mobile com distribuição Edge-to-Edge (`justify-between`), ancorando itens nas extremidades e centralizando "Curitiba, PR" com posicionamento absoluto.
 - [x] **Manifesto (UX e Integração):** Ocultação do bloco de texto original com a classe `invisible` para preservar milimetricamente as dimensões do container e a proporção da imagem da abelha.
+- [x] **Hero (Arquitetura):** Postergada animação individual da string "ONDE A ARTE" devido a conflitos de renderização de árvore no Framer Motion com `inline-block`.
 
 ### [2026-03-02] - Engenharia de Mobile UI/UX
 - [x] **Hero (Copywriting):** Alterado o texto do botão principal de "coleção completa" para "coleção autoral".
