@@ -18,29 +18,18 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 * **User agent string:** (Em branco)
 * **Device type:** Mobile
 
-### Backlog de Implementação (Tarefas Definitivas)
+### Backlog de Implementação (Tarefas Pendentes)
 
-#### 1. Engenharia de Espaçamento e Margens (Global)
-- [x] **Respiro Vertical:** Desacoplar as seções Manifesto, Showcase (Catálogo) e Autoral (Instagram CTA). Restaurar o espaçamento vertical entre elas, garantindo uma transição fluida ("breathing room") tanto no PC quanto no Mobile.
-- [x] **Padronização de Margens Laterais (X-Axis):** Reduzir as margens laterais globais (esquerda e direita) das seções. O novo valor de *padding* deve ser matematicamente idêntico ao espaçamento interno (gap) existente entre os cards do carrossel, unificando a grelha do portfólio.
-- [x] **Restituição de Hierarquia:** Injetar novamente o subtítulo "Algumas criações" no topo da seção Showcase (Catálogo), posicionado com o novo padrão de margem estabelecido.
-
-#### 2. Secao Manifesto (Refatoração de Componente)
-- [x] **Carrossel de Assets:** Substituir a imagem estática da "abelha rainha" por um componente de carrossel interativo (arraste/swipe), mantendo a mesma engenharia do catálogo.
-- [x] **Tratamento Visual:** Aplicar filtro escuro (overlay) nas imagens do novo carrossel para manter a consistência com a paleta Preto de Luxo.
-- [x] **Restauração de Copy:** Reativar o texto original do manifesto que havia sido ocultado, avaliando a necessidade de ajuste tipográfico no letreiro/título da seção para acomodar o novo layout.
-
-#### 3. Secao Instagram CTA / Autoral
-- [x] **Bugfix de Coordenadas (Desktop):** Realinhar manualmente as posições do título, texto e botão estritamente na visualização de PC, garantindo que a versão Mobile (Poco X3 Pro) permaneça 100% blindada e inalterada.
-- [x] **Micro-tipografia (O "Cubo"):** Ajustar o rastreamento (tracking/word-spacing) do texto justificado "Novos drops, processos de criação e atendimento exclusivo via Direct." para eliminar espaços irregulares entre as palavras ("rios" de texto), garantindo a estética de um bloco editorial perfeito.
-- [ ] **Staircase Typography (Botão CTA) - POSTERGADO:** Transformar o botão "Seguir no Instagram" em uma escada tipográfica. O código foi testado e validado com sucesso na arquitetura, mas a aplicação definitiva foi adiada por questões de gestão de tempo e priorização da reta final.
-
-#### 4. Injeção de Conteúdo Final (Hero e Showcase)
+#### 1. Injeção de Conteúdo Final (Hero e Showcase) - AGENDADO PARA 05/03
+- [ ] **Conversão Viewport Hero:** Refatorar medidas fixas da seção Hero para `vw` garantindo consistência responsiva, seguindo o padrão aplicado no Instagram CTA.
 - [ ] **Substituição Hero:** Trocar a imagem principal de destaque da seção Hero pela versão final aprovada.
 - [ ] **Preenchimento de Catálogo:** Popular os cards vazios do carrossel com os assets fotográficos restantes.
 - [ ] **Estratégia de Retenção (UX):** Adicionar 1 card extra ao final de cada categoria do Showcase com a etiqueta "Em breve", sinalizando atualização frequente de acervo para o utilizador.
 
-#### 5. Infraestrutura e Deploy
+#### 2. Tarefas Postergadas
+- [ ] **Staircase Typography (Botão CTA):** Transformar o botão "Seguir no Instagram" em uma escada tipográfica. O código foi testado e validado com sucesso na arquitetura, mas a aplicação definitiva foi adiada por questões de gestão de tempo e priorização da reta final.
+
+#### 3. Infraestrutura e Deploy
 - [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
 
 ---
@@ -69,8 +58,11 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 
 ## Historico de Sprints (Changelog)
 
-### [2026-03-04] - Refinamentos Manuais e Pixel Pushing (Mobile)
+### [2026-03-04] - Refinamento Estrutural e Responsividade Universal
+- [x] **Instagram CTA (Responsividade Geométrica):** Conversão definitiva das coordenadas de pixels estáticos (`px`) para Viewport Width (`vw`) baseadas no modelo Poco X3 Pro, garantindo escalabilidade proporcional e travamento do layout em todos os dispositivos móveis.
 - [x] **Instagram CTA (Arquitetura):** Postergada a aplicacao estética de "Staircase Typography" (escada) no botao principal. O isolamento de blocos e coordenadas foi validado, mas a tarefa foi congelada estrategicamente para combater a fadiga visual e priorizar a injecao de conteudo final.
+- [x] **Showcase (UX & Layout):** Aplicado padrão de margem global de 8px (gap-2), recuando limites horizontais e injetando "respiro" entre a borda da tela e os cards. Subtítulo "Algumas criações" restaurado no cabeçalho da seção.
+- [x] **Manifesto (UX & Arquitetura):** Refatoração completa da seção para carrossel híbrido. Primeiro slide mantém imagem oficial da logo (ancorada e fixada geometricamente no centro via `scale`), segundo slide abriga card expansivo "Em breve". Restituída tipografia invisível para ancoragem 1:1 de dimensões.
 - [x] **Hero (Pixel Pushing):** Links "Curitiba" e "Joias artesanais" deslocados assimetricamente no eixo X e Y (linha de visao da fotografia) no mobile, blindando a resolucao Desktop.
 - [x] **Instagram CTA (Pixel Pushing):** Balanço espacial milimétrico aplicado com `translate`. Título `@DARAFA_CWB` reposicionado e "Cubo" editorial puxado assimetricamente para o espaço vazio entre a quebra tipográfica "Auto/ral".
 - [x] **Instagram CTA (Bugfix):** Trava de breakpoint implementada (`md:translate-x-0`) para garantir que o *pixel pushing* mobile não interfira ou quebre o alinhamento da versão Desktop.
