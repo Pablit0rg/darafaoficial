@@ -23,8 +23,10 @@ export default function Footer() {
           © {currentYear} Darafa. Todos os direitos reservados.
         </div>
         
-        {/* Navegação e Links */}
-        <div className="flex items-center gap-6">
+        {/* Navegação Panorâmica (Edge-to-Edge no Mobile) */}
+        {/* Usamos w-full e justify-between no mobile; md:w-auto e md:justify-end no desktop */}
+        <div className="flex items-center w-full md:w-auto justify-between md:justify-end md:gap-6 relative">
+          
           <button 
             onClick={scrollToTop}
             className="hover:text-white transition-colors cursor-pointer uppercase outline-none"
@@ -32,48 +34,54 @@ export default function Footer() {
             Início
           </button>
           
-          <Link 
-            href="https://www.google.com/maps/place/Coletivo+Brecho+das+Preta/@-25.4282157,-49.2687739,17z/data=!3m1!4b1!4m6!3m5!1s0x94dce5f4c8e3b451:0x9428bd98505e541!8m2!3d-25.4282157!4d-49.2687739!16s%2Fg%2F11wg2j39_p?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:text-white transition-all group flex items-center gap-1"
-          >
-            <span>Curitiba, PR</span>
-            <span className="text-[10px] opacity-50 group-hover:opacity-100 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform duration-300">
-              ↗
-            </span>
-          </Link>
+          {/* Centralização Matemática Absoluta no Mobile para não depender do tamanho dos itens laterais */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0">
+            <Link 
+              href="https://www.google.com/maps/place/Coletivo+Brecho+das+Preta/@-25.4282157,-49.2687739,17z/data=!3m1!4b1!4m6!3m5!1s0x94dce5f4c8e3b451:0x9428bd98505e541!8m2!3d-25.4282157!4d-49.2687739!16s%2Fg%2F11wg2j39_p?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-white transition-all group flex items-center gap-1"
+            >
+              <span>Curitiba, PR</span>
+              <span className="text-[10px] opacity-50 group-hover:opacity-100 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform duration-300">
+                ↗
+              </span>
+            </Link>
+          </div>
 
-          <div className="w-[1px] h-3 bg-white/20"></div>
+          <div className="flex items-center gap-6">
+            <div className="w-[1px] h-3 bg-white/20 hidden md:block"></div>
 
-          <Link 
-            href="https://instagram.com/darafa_cwb" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="relative flex items-center justify-center w-[16px] h-[16px] hover:scale-110 transition-transform duration-300 group"
-            aria-label="Instagram Oficial DaRafa"
-          >
-            <svg className="absolute text-gray-500 group-hover:opacity-0 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
+            <Link 
+              href="https://instagram.com/darafa_cwb" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="relative flex items-center justify-center w-[16px] h-[16px] hover:scale-110 transition-transform duration-300 group"
+              aria-label="Instagram Oficial DaRafa"
+            >
+              <svg className="absolute text-gray-500 group-hover:opacity-0 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
 
-            <svg className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <defs>
-                <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#f09433" />
-                  <stop offset="25%" stopColor="#e6683c" />
-                  <stop offset="50%" stopColor="#dc2743" />
-                  <stop offset="75%" stopColor="#cc2366" />
-                  <stop offset="100%" stopColor="#bc1888" />
-                </linearGradient>
-              </defs>
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </Link>
+              <svg className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <defs>
+                  <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#f09433" />
+                    <stop offset="25%" stopColor="#e6683c" />
+                    <stop offset="50%" stopColor="#dc2743" />
+                    <stop offset="75%" stopColor="#cc2366" />
+                    <stop offset="100%" stopColor="#bc1888" />
+                  </linearGradient>
+                </defs>
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </Link>
+          </div>
+
         </div>
 
       </div>
