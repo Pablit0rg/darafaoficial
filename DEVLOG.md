@@ -8,6 +8,16 @@ Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do pr
 
 A arquitetura visual entra na sua última fase de ajustes de espaçamento estrutural, injeção de assets finais e calibração de componentes. O referencial estrito para validação mobile permanece sendo as dimensões do dispositivo Poco X3 Pro.
 
+### Protocolo de Inicialização Diária
+**Regra de Setup (Gatilho: "bom gemini dia..."):**
+Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verificar e configurar obrigatoriamente as dimensões do modelo base no *DevTools* para simulação precisa:
+* **Device Name:** Poco X3 Pro
+* **Width (Largura):** 393
+* **Height (Altura):** 873
+* **Device pixel ratio:** 2.75
+* **User agent string:** (Em branco)
+* **Device type:** Mobile
+
 ### Backlog de Implementação (Tarefas Definitivas)
 
 #### 1. Engenharia de Espaçamento e Margens (Global)
