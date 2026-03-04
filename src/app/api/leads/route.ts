@@ -1,27 +1,38 @@
+// src/app/api/leads/route.ts
 import { NextResponse } from 'next/server';
+
+// Logica de validacao e higienizacao (Regex)
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const sanitizeText = (text: string) => text.replace(/[<>]/g, '').trim();
 
 export async function POST(request: Request) {
   try {
+    // Defesa contra payload vazio
+    if (!request.body) {
+      return NextResponse.json({ error: 'Corpo da requisicao vazio.' }, { status: 400 });
+    }
+
     const body = await request.json();
     const { name, email, phone, source } = body;
 
-    if (!email) {
+    // Validacao rigorosa de formato de email
+    if (!email || !emailRegex.test(email)) {
       return NextResponse.json(
-        { error: 'Parametro email e obrigatorio para o lead.' },
+        { error: 'Parametro email invalido ou ausente.' },
         { status: 400 }
       );
     }
 
+    // Higienizacao (Sanitization) para prevenir injeção de HTML/Scripts no Airtable/n8n
     const leadPayload = {
-      name: name || 'Nao informado',
-      email,
-      phone: phone || 'Nao informado',
-      source: source || 'darafa_organico',
+      name: name ? sanitizeText(name) : 'Nao informado',
+      email: email.toLowerCase().trim(),
+      phone: phone ? sanitizeText(phone) : 'Nao informado',
+      source: source ? sanitizeText(source) : 'darafa_organico',
       timestamp: new Date().toISOString(),
     };
 
-    // A chamada real (fetch) para o webhook do n8n ou Airtable sera acoplada aqui.
-    console.log('[Webhook Leads] Carga preparada para a esteira:', leadPayload);
+    console.log('[Webhook Leads] Carga higienizada e preparada para a esteira:', leadPayload);
 
     return NextResponse.json(
       { success: true, message: 'Dados estruturados e recebidos com sucesso.' },
