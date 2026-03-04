@@ -17,21 +17,20 @@ export default function InstagramCTA() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        // Container flexível sem alinhamento forçado (removido space-y-8) para permitir Assimetria no Mobile
         className="z-10 w-full max-w-5xl flex flex-col relative"
       >
-        {/* Painel de Controle @DARAFA_CWB: Mova nos eixos X e Y pelo translate. A regra md:translate-x-0 e md:translate-y-0 blinda a versão de PC. */}
-        <h2 className="translate-x-[-30px] translate-y-[-15px] md:translate-x-0 md:translate-y-0 font-serif text-[13vw] md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 -mt-6 md:mt-12 ml-2 md:ml-[-8%] tracking-tighter text-left md:text-center self-start md:self-center">
+        {/* TÍTULO | Conversão para Viewport (vw) garante escala perfeita em qualquer mobile. PC blindado com md: */}
+        <h2 className="translate-x-[-7.63vw] translate-y-[-3.81vw] md:translate-x-[0px] md:translate-y-[0px] font-serif text-[13vw] md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 -mt-6 md:mt-12 ml-2 md:ml-[-8%] tracking-tighter text-left md:text-center self-start md:self-center">
           @DARAFA_CWB
         </h2>
         
-        {/* O "Cubo" Editorial: Adicionado translate-x para puxar horizontalmente para o espaço branco */}
-        <p className="translate-x-[-222px] translate-y-[98px] md:translate-x-0 md:translate-y-0 text-gray-400 font-light text-justify text-[13px] leading-relaxed w-[150px] self-end mr-[20px] mt-16 md:text-base md:max-w-md md:w-auto md:text-center md:self-center md:mr-0 md:mt-8">
+        {/* O "CUBO" | Conversão para VW aplicada. */}
+        <p className="translate-x-[-49.61vw] translate-y-[22.9vw] md:translate-x-[0px] md:translate-y-[0px] text-gray-400 font-light text-justify text-[13px] leading-relaxed w-[150px] self-end mr-[20px] mt-16 md:text-base md:max-w-md md:w-auto md:text-center md:self-center md:mr-0 md:mt-8 tracking-tight [word-spacing:-1px] md:tracking-normal md:[word-spacing:0px]">
           Novos drops, processos de criação e atendimento exclusivo via Direct.
         </p>
         
-        {/* Painel de Controle Botão CTA: Mova nos eixos X e Y pelo translate. A regra md: blinda a versão de PC. */}
-        <div className="translate-x-[40px] translate-y-[45px] md:translate-x-0 md:translate-y-0 mt-28 ml-12 md:mt-12 md:ml-12 self-start md:self-center">
+        {/* BOTÃO CTA | Conversão para VW aplicada. */}
+        <div className="translate-x-[22.9vw] translate-y-[12.72vw] md:translate-x-[0px] md:translate-y-[0px] mt-28 ml-12 md:mt-12 md:ml-12 self-start md:self-center">
           <Link 
             href="https://instagram.com/darafa_cwb" 
             target="_blank" 

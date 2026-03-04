@@ -1,6 +1,19 @@
 # DEVLOG - Portfolio DaRafa Joias
 
-Documentacao viva das decisoes arquiteturais, evolucao do layout e roadmap do projeto.
+Documentação viva das decisões arquiteturais, evolução do layout e roadmap do projeto.
+
+---
+
+## Arquitetura e Stack Tecnológica
+- **Ambiente de Desenvolvimento:** Google Project IDX.
+- **Stack Front-end:** Next.js 15, TypeScript Strict, Tailwind v4.
+- **Padrão de Organização:** Metodologia Atomic Design para subpastas e componentes lógicos.
+- **Integrações de Back-end/Automação:** API para comunicação futura com n8n, Airtable e OpenAI API (Python 3.11/FastAPI protegido).
+
+## Protocolo de Versionamento e Entrega
+- **Commits:** Padronização estrita utilizando Conventional Commits em português (ex: `feat:`, `fix:`, `chore:`).
+- **Registro:** Todo código gerado e implementado deve ter seu respectivo comando Git registrado e a alteração documentada no Changelog deste DEVLOG.
+- **Integração IDX:** Entregas de código complexas devem ser divididas em duas partes, acompanhadas de instruções diretas de onde inserir o código e a ordem para a IA do IDX explicar e comentar o código em português.
 
 ---
 
