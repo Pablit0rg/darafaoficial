@@ -1,5 +1,6 @@
 // src/app/api/contact/route.ts
 import { NextResponse } from 'next/server';
+import { fetchWithRetry } from '@/lib/fetch-retry';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const sanitizeText = (text: string) => text.replace(/[<>]/g, '').trim();
@@ -23,7 +24,8 @@ export async function POST(request: Request) {
 
     const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL || 'http://localhost:5678/webhook/contact';
 
-    const response = await fetch(n8nWebhookUrl, {
+    // ARQUITETURA BLINDADA: Usando o nosso novo utilitário com até 3 tentativas
+    await fetchWithRetry(n8nWebhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,20 +38,16 @@ export async function POST(request: Request) {
         source: 'darafa_landing_page',
         timestamp: new Date().toISOString(),
       }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Falha na integracao com a esteira de automacao.');
-    }
+    }, 3, 1000); // 3 retentativas com 1000ms (1s) de intervalo
 
     return NextResponse.json(
-      { success: true, message: 'Dados higienizados e capturados com sucesso.' },
+      { success: true, message: 'Dados higienizados e entregues com garantia de resiliencia.' },
       { status: 200 }
     );
   } catch (error) {
-    console.error('[API Contato] Erro na rota:', error);
+    console.error('[API Contato] Erro critico na rota após todas as tentativas:', error);
     return NextResponse.json(
-      { error: 'Erro interno no processamento da requisicao.' },
+      { error: 'Erro interno no processamento da requisicao. O sistema tentou reestabelecer a conexao, mas falhou.' },
       { status: 500 }
     );
   }
