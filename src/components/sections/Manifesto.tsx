@@ -25,26 +25,32 @@ export default function Manifesto() {
         </div>
       </div>
 
-      {/* Título desacoplado */}
-      <h2 className="font-serif text-3xl md:text-4xl italic text-gray-300 absolute top-0 w-full text-center z-10 translate-y-[80px] md:translate-y-[89px]">
-        Manifesto
-      </h2>
+      {/* HACK DE ARQUITETURA: 
+          A classe 'invisible' oculta os elementos da interface (não são vistos), 
+          mas eles continuam ocupando o espaço físico exato na tela. 
+          Isso garante que a seção mantenha 100% das proporções originais. */}
+      <div className="invisible pointer-events-none select-none">
+        {/* Título desacoplado */}
+        <h2 className="font-serif text-3xl md:text-4xl italic text-gray-300 absolute top-0 w-full text-center z-10 translate-y-[80px] md:translate-y-[89px]">
+          Manifesto
+        </h2>
 
-      {/* Conteúdo Textual */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-2xl mx-auto text-center space-y-8 relative z-10 pt-20"
-      >
-        <p className="font-sans text-lg md:text-xl font-light leading-relaxed text-gray-400">
-          A <span className="text-white font-normal">Darafa</span> é identidade moldada à mão. 
-          Aqui, a beleza brilha do seu jeito, em peças feitas com intenção e alma. 
-          Somos uma colmeia que pulsa arte, transformando metais em autoestima. 
-          Joias para quem celebra a própria essência do trabalho artesanal.
-        </p>
-      </motion.div>
+        {/* Conteúdo Textual */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-2xl mx-auto text-center space-y-8 relative z-10 pt-20"
+        >
+          <p className="font-sans text-lg md:text-xl font-light leading-relaxed text-gray-400">
+            A <span className="text-white font-normal">Darafa</span> é identidade moldada à mão. 
+            Aqui, a beleza brilha do seu jeito, em peças feitas com intenção e alma. 
+            Somos uma colmeia que pulsa arte, transformando metais em autoestima. 
+            Joias para quem celebra a própria essência do trabalho artesanal.
+          </p>
+        </motion.div>
+      </div>
       
       {/* Fio Metálico (Ouro) na base da seção para demarcar transição para o Showcase */}
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-metal-gold z-20"></div>
