@@ -30,26 +30,45 @@ export default function InstagramCTA() {
         </p>
         
         {/* BOTÃO CTA | Conversão para VW aplicada. */}
-        <div className="translate-x-[22.9vw] translate-y-[12.72vw] md:translate-x-[0px] md:translate-y-[0px] mt-28 ml-12 md:mt-12 md:ml-12 self-start md:self-center">
-          <Link 
-            href="https://instagram.com/darafa_cwb" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="group relative inline-flex items-center gap-3 text-xl md:text-lg tracking-widest uppercase hover:opacity-80 transition-all duration-300"
-          >
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 font-medium">
-              Seguir no Instagram
-            </span>
-            
-            <motion.span
-              animate={{ x: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              className="inline-block text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 font-medium"
-            >
-              -&gt;
-            </motion.span>
-          </Link>
-        </div>
+<div className="translate-x-[22.9vw] translate-y-[12.72vw] md:translate-x-[0px] md:translate-y-[0px] mt-28 ml-12 md:mt-12 md:ml-12 self-start md:self-center">
+  <Link 
+    href="https://instagram.com/darafa_cwb" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="group relative inline-flex items-center gap-3 text-xl md:text-lg tracking-widest uppercase hover:opacity-80 transition-all duration-300"
+  >
+    {/* TEXTO INTACTO (Escada Mobile) */}
+    <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 font-medium">
+      Seguir
+      <br className="md:hidden" />
+      <span className="hidden md:inline"> </span>
+      <span className="inline-block md:inline ml-[13vw] md:ml-0">
+        no Instagram
+      </span>
+    </span>
+
+    {/* SETA DESKTOP: Original, lateral, animada no eixo X */}
+    <motion.span
+      animate={{ x: [0, 8, 0] }}
+      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+      className="hidden md:inline-block text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 font-medium"
+    >
+      -&gt;
+    </motion.span>
+    
+    {/* SETA MOBILE: Mesma arquitetura da Hero */}
+    <motion.div
+      animate={{ y: [0, 8, 0] }}
+      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+      className="md:hidden flex flex-col items-center opacity-60 ml-[2vw]"
+    >
+      <div className="w-[1px] h-[10vw] bg-gradient-to-b from-gray-400 to-transparent"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 w-[4vw] h-[4vw]">
+        <polyline points="19 14 12 21 5 14"></polyline>
+      </svg>
+    </motion.div>
+  </Link>
+</div>
       </motion.div>
 
       {/* Marca d'água Tipográfica */}

@@ -40,6 +40,7 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 - [ ] **Estratégia de Retenção (UX):** Adicionar 1 card extra ao final de cada categoria do Showcase com a etiqueta "Em breve", sinalizando atualização frequente de acervo para o utilizador.
 
 #### 2. Tarefas Postergadas
+- [ ] **Seta Mobile Longa (Instagram CTA):** Implementação de seta direcional estendida apontando para o footer. O código atual causou instabilidade no inline-block flex. Tarefa movida para branch de pesquisa/testes e temporariamente congelada na Main.
 - [ ] **Staircase Typography (Botão CTA):** Transformar o botão "Seguir no Instagram" em uma escada tipográfica. O código foi testado e validado com sucesso na arquitetura, mas a aplicação definitiva foi adiada por questões de gestão de tempo e priorização da reta final.
 
 #### 3. Infraestrutura e Deploy
@@ -71,7 +72,8 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 
 ## Historico de Sprints (Changelog)
 
-### [2026-03-05] - Injeção de Conteúdo e UX Mobile (Hero)
+### [2026-03-05] - Injeção de Conteúdo e UX Mobile (Hero & CTA)
+- [x] **Instagram CTA (Cascata Tipográfica):** Implementado efeito visual de "escada" nas palavras "Seguir" e "no Instagram" exclusivamente para mobile, preservando a linha única no Desktop. Setas originais removidas durante os testes (versão mobile congelada para pesquisa de nova seta).
 - [x] **Hero (Responsividade Geométrica):** Refatoração completa da seção para Viewport Width (`vw`), garantindo proporção e escalabilidade cravada no modelo Poco X3 Pro (393px base).
 - [x] **Hero (Cascata Tipográfica):** Implementado efeito visual de "escada" nas palavras "OS" e "METAIS" exclusivamente para mobile. 
 - [x] **Hero (Bugfix CSS):** Substituído `translate-x` por abstrações de margem negativa e positiva (`-ml` / `ml`) em blocos `inline-block` para corrigir o bug de clipping invisível causado pelo `bg-clip-text`.
