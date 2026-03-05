@@ -57,7 +57,8 @@ export default function Footer() {
               target="_blank" 
               rel="noopener noreferrer" 
               className="relative flex items-center justify-center w-[16px] h-[16px] hover:scale-110 transition-transform duration-300 group"
-              aria-label="Instagram Oficial DaRafa"
+              aria-label="Acessar o Instagram Oficial da DaRafa Joias"
+              title="Instagram DaRafa Joias"
             >
               <svg className="absolute text-gray-500 group-hover:opacity-0 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>

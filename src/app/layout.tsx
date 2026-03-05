@@ -64,26 +64,54 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "JewelryStore",
-    "name": "DaRafa Joias",
-    "url": "https://www.darafa.com",
-    "logo": "https://www.darafa.com/assets/images/logo-abelha.png",
-    "image": "https://www.darafa.com/assets/images/logo-abelha.png",
-    "description": "Joias autorais e artesanais premium.",
-    "priceRange": "$$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Curitiba",
-      "addressRegion": "PR",
-      "addressCountry": "BR"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "147"
-    },
-    "sameAs": [
-      "https://instagram.com/darafa_cwb"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.darafa.com/#website",
+        "url": "https://www.darafa.com/",
+        "name": "DaRafa Joias",
+        "description": "Joias autorais e artesanais premium.",
+        "publisher": {
+          "@id": "https://www.darafa.com/#organization"
+        }
+      },
+      {
+        "@type": ["Organization", "JewelryStore"],
+        "@id": "https://www.darafa.com/#organization",
+        "name": "DaRafa Joias",
+        "url": "https://www.darafa.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.darafa.com/assets/images/logo-abelha.png"
+        },
+        "image": "https://www.darafa.com/assets/images/logo-abelha.png",
+        "description": "Joias autorais e brutismo elegante em metais nobres.",
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Curitiba",
+          "addressRegion": "PR",
+          "addressCountry": "BR"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "147"
+        },
+        "sameAs": [
+          "https://instagram.com/darafa_cwb"
+        ],
+        "founder": {
+          "@id": "https://www.darafa.com/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.darafa.com/#person",
+        "name": "Rafaela",
+        "jobTitle": "Designer e Fundadora",
+        "url": "https://instagram.com/darafa_cwb"
+      }
     ]
   };
 

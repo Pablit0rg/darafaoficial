@@ -21,6 +21,8 @@ export default function Hero() {
             /* HACK RESPONSIVO: object-center no mobile, md:object-center no desktop */
             className="object-cover object-center md:object-center grayscale mix-blend-lighten"
             priority
+            quality={90}
+            sizes="(max-width: 768px) 100vw, 66vw"
           />
           {/* Fade horizontal */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-black/70 to-brand-black"></div>
@@ -43,7 +45,7 @@ export default function Hero() {
         <motion.p 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
-          className="translate-x-[20vw] -translate-y-[31vw] md:translate-x-0 md:translate-y-0 text-brand-muted uppercase tracking-[0.3em] text-[2.54vw] md:text-sm"
+          className="translate-x-[20vw] -translate-y-[32vw] md:translate-x-0 md:translate-y-0 text-brand-muted uppercase tracking-[0.3em] text-[2.54vw] md:text-sm"
         >
           <Link 
             href="https://www.google.com/maps/place/Coletivo+Brecho+das+Preta/@-25.4282157,-49.2687739,17z/data=!3m1!4b1!4m6!3m5!1s0x94dce5f4c8e3b451:0x9428bd98505e541!8m2!3d-25.4282157!4d-49.2687739!16s%2Fg%2F11wg2j39_p?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D" 
@@ -63,52 +65,51 @@ export default function Hero() {
         </motion.p>
         
         <motion.h1 
-  initial={{ opacity: 0, y: 20 }} 
-  animate={{ opacity: 1, y: 0 }} 
-  className="translate-x-[20vw] -translate-y-[25vw] md:translate-x-0 md:translate-y-0 font-serif text-[9.16vw] md:text-6xl lg:text-7xl leading-tight font-medium text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-200 to-gray-600"
->
-  ONDE A ARTE <br /> 
-  <span className="italic font-light text-gray-400">ENCONTRA</span>
-  
-  <br className="md:hidden" />
-  <span className="hidden md:inline"> </span>
-  
-  {/* Painel OS */}
-  <span className="inline-block md:inline -ml-[25vw] md:ml-0">OS</span>
-  
-  <br className="md:hidden" />
-  <span className="hidden md:inline"> </span>
-  
-  {/* Painel METAIS */}
-  <span className="inline-block md:inline ml-[10vw] md:ml-0">METAIS</span>
-</motion.h1>
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="translate-x-[20vw] -translate-y-[25vw] md:translate-x-0 md:translate-y-0 font-serif text-[9.16vw] md:text-6xl lg:text-7xl leading-tight font-medium text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-200 to-gray-600"
+        >
+          ONDE A ARTE <br /> 
+          <span className="italic font-light text-gray-400">ENCONTRA</span>
+          
+          <br className="md:hidden" />
+          <span className="hidden md:inline"> </span>
+          
+          {/* Painel OS */}
+          <span className="inline-block md:inline -ml-[25vw] md:ml-0">OS</span>
+          
+          <br className="md:hidden" />
+          <span className="hidden md:inline"> </span>
+          
+          {/* Painel METAIS */}
+          <span className="inline-block md:inline ml-[10vw] md:ml-0">METAIS</span>
+        </motion.h1>
 
-<motion.div 
-  initial={{ opacity: 0, y: 20 }} 
-  animate={{ opacity: 1, y: 0 }} 
-  className="translate-x-[23vw] -translate-y-[20vw] md:translate-x-0 md:translate-y-0 pt-[4.07vw] md:pt-4 flex flex-col items-center"
->
-  
-  <motion.div
-    animate={{ y: [0, 8, 0] }}
-    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-    className="flex flex-col items-center gap-[2.03vw] md:gap-2 opacity-60 mb-[8.14vw] md:mb-8"
-  >
-    <div className="w-[1px] h-[12.21vw] md:h-12 bg-gradient-to-b from-transparent to-white"></div>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white md:w-3 md:h-3 w-[3.05vw] h-[3.05vw]">
-      <path d="M12 5v14M19 12l-7 7-7-7"/>
-    </svg>
-  </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="translate-x-[0vw] -translate-y-[10vw] md:translate-x-0 md:translate-y-0 pt-[4.07vw] md:pt-4 flex flex-col items-center"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-[2.03vw] md:gap-2 opacity-60 mb-[8.14vw] md:mb-8"
+          >
+            <div className="w-[1px] h-[12.21vw] md:h-12 bg-gradient-to-b from-transparent to-white"></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white md:w-3 md:h-3 w-[3.05vw] h-[3.05vw]">
+              <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+          </motion.div>
 
-  <Link
-    href="https://instagram.com/darafa_cwb"
-    target="_blank" rel="noopener noreferrer"
-    className="relative overflow-hidden inline-block border border-white/20 px-[8.14vw] py-[4.07vw] md:px-8 md:py-4 text-[2.54vw] md:text-xs uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-all duration-500 group"
-  >
-    <span className="relative z-10">Coleção autoral</span>
-    <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700" />
-  </Link>
-</motion.div>
+          <Link
+            href="https://instagram.com/darafa_cwb"
+            target="_blank" rel="noopener noreferrer"
+            className="relative overflow-hidden inline-block border border-white/20 px-[8.14vw] py-[4.07vw] md:px-8 md:py-4 text-[2.54vw] md:text-xs uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-all duration-500 group"
+          >
+            <span className="relative z-10">Coleção autoral</span>
+            <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700" />
+          </Link>
+        </motion.div>
       </motion.div>
 
     </header>

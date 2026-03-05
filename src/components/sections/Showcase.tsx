@@ -99,6 +99,7 @@ const MobileCarouselCard = ({ group, index }: { group: typeof mobileGroups[0], i
         {group.map((_, dotIndex) => (
           <div 
             key={dotIndex}
+            aria-label={`Ir para a imagem ${dotIndex + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === dotIndex ? 'w-3 bg-white' : 'w-1.5 bg-white/30'}`}
           />
         ))}
