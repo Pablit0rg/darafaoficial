@@ -34,7 +34,7 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 ### Backlog de Implementação (Tarefas Pendentes)
 
 #### 1. Injeção de Conteúdo Final (Hero e Showcase) - AGENDADO PARA 05/03
-- [ ] **Conversão Viewport Hero:** Refatorar medidas fixas da seção Hero para `vw` garantindo consistência responsiva, seguindo o padrão aplicado no Instagram CTA.
+- [x] **Conversão Viewport Hero:** Refatorar medidas fixas da seção Hero para `vw` garantindo consistência responsiva, seguindo o padrão aplicado no Instagram CTA.
 - [ ] **Substituição Hero:** Trocar a imagem principal de destaque da seção Hero pela versão final aprovada.
 - [ ] **Preenchimento de Catálogo:** Popular os cards vazios do carrossel com os assets fotográficos restantes.
 - [ ] **Estratégia de Retenção (UX):** Adicionar 1 card extra ao final de cada categoria do Showcase com a etiqueta "Em breve", sinalizando atualização frequente de acervo para o utilizador.
@@ -70,6 +70,12 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 ---
 
 ## Historico de Sprints (Changelog)
+
+### [2026-03-05] - Injeção de Conteúdo e UX Mobile (Hero)
+- [x] **Hero (Responsividade Geométrica):** Refatoração completa da seção para Viewport Width (`vw`), garantindo proporção e escalabilidade cravada no modelo Poco X3 Pro (393px base).
+- [x] **Hero (Cascata Tipográfica):** Implementado efeito visual de "escada" nas palavras "OS" e "METAIS" exclusivamente para mobile. 
+- [x] **Hero (Bugfix CSS):** Substituído `translate-x` por abstrações de margem negativa e positiva (`-ml` / `ml`) em blocos `inline-block` para corrigir o bug de clipping invisível causado pelo `bg-clip-text`.
+- [x] **Hero (Pixel Pushing Isolado):** Criação de painel de controle nos eixos X e Y independentes para os links superiores, título principal e bloco de CTA. Versão Desktop inteiramente blindada via travas de breakpoint (`md:translate-x-0`).
 
 ### [2026-03-04] - Refinamento Estrutural e Responsividade Universal
 - [x] **Instagram CTA (Responsividade Geométrica):** Conversão definitiva das coordenadas de pixels estáticos (`px`) para Viewport Width (`vw`) baseadas no modelo Poco X3 Pro, garantindo escalabilidade proporcional e travamento do layout em todos os dispositivos móveis.
