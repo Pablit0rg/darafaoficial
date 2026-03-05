@@ -53,6 +53,8 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 ### Concluídos (Logica - Invisivel na UI)
 
 #### 1. SEO Avancado e Descoberta Organica
+- [x] **Domínio de Entidade e Prova Social (JSON-LD):** Injeção de schema `JewelryStore` no layout raiz englobando `aggregateRating` (estrelas douradas na busca), `priceRange` (qualificação de público) e `sameAs` (vinculação de autoridade com o Instagram para Knowledge Graph).
+- [x] **Captura de Cauda Longa (FAQPage):** Implementação de microdados invisíveis na página principal respondendo perguntas estratégicas de negócio para ativar Rich Snippets (As pessoas também perguntam) no Google.
 - [x] **Microdados de Produto Dinamicos (Schema.org):** Injetar JSON-LD do tipo `Product` no `Showcase.tsx` para ativar Rich Snippets no Google (visualizacao de produto na busca).
 - [x] **Sitemap Orientado a Imagens:** Expandir `sitemap.ts` para mapear explicitamente as imagens HD, capturando trafego massivo via Google Images e Pinterest.
 - [x] **Tratamento Rigoroso de Canonical URLs:** Parametrizar URLs canonicas no `layout.tsx` para forcar o dominio base e evitar punicao por conteudo duplicado.
@@ -73,6 +75,9 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 ## Historico de Sprints (Changelog)
 
 ### [2026-03-05] - Injeção de Conteúdo e UX Mobile (Hero & CTA)
+- [x] **SEO (Microdados de Entidade):** Implementação de `JewelryStore` schema no `layout.tsx` com `aggregateRating` (nota 5.0 baseada em 147 avaliações), `priceRange` ($$$) e vinculação de rede social (`sameAs`).
+- [x] **SEO (Rich Snippets):** Injeção de `FAQPage` estruturado na `page.tsx` para respostas diretas no motor de busca sem impacto na interface minimalista.
+- [x] **Manifesto (Bugfix Mobile):** Correção do vazamento de scroll vertical (cross-axis overflow) no carrossel híbrido aplicando `overflow-y-hidden` e `touch-pan-x`, garantindo a fixação das imagens durante o gesto de swipe sem afetar a versão Desktop.
 - [x] **Instagram CTA (Cascata Tipográfica):** Implementado efeito visual de "escada" nas palavras "Seguir" e "no Instagram" exclusivamente para mobile, preservando a linha única no Desktop. Setas originais removidas durante os testes (versão mobile congelada para pesquisa de nova seta).
 - [x] **Hero (Responsividade Geométrica):** Refatoração completa da seção para Viewport Width (`vw`), garantindo proporção e escalabilidade cravada no modelo Poco X3 Pro (393px base).
 - [x] **Hero (Cascata Tipográfica):** Implementado efeito visual de "escada" nas palavras "OS" e "METAIS" exclusivamente para mobile. 
@@ -138,7 +143,7 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 - [x] **Arquitetura (Tipos):** Centralizacao de interfaces e contratos de dados em src/types.
 - [x] **Helpers (Logica):** Implementacao de utilitarios de formatacao e geracao de slugs em src/lib.
 - [x] **Arquitetura (Config):** Centralizacao de constantes de negocio e links globais em src/config/site.ts.
-- [x] **Refatoracao (Logica):** Desacoplamento de links estaticos nos componentes de navegacao.
+- [x] **Refatoracao (Logica):** Desacoplamento de links estaticos nos components de navegacao.
 - [x] **Refatoracao (Logica):** Desacoplamento de dados geograficos e links sociais no Footer.tsx, agora consumindo de siteConfig. Design 100% preservado.
 - [x] **Infraestrutura (Roteamento):** Implementacao de Error Boundaries (error.tsx) e interceptador de rotas inexistentes (not-found.tsx) no App Router para garantir a resiliencia da interface.
 

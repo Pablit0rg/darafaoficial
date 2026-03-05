@@ -35,10 +35,10 @@ export default function Manifesto() {
         <div 
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex w-full h-full overflow-x-auto snap-x snap-mandatory hide-scroll"
+          className="flex w-full h-full overflow-x-auto overflow-y-hidden touch-pan-x snap-x snap-mandatory hide-scroll"
         >
           {/* SLIDE 1: Marca d'água Abelha Original (Intacta) */}
-          <div className="min-w-full w-full h-full snap-center relative flex items-center justify-center">
+          <div className="min-w-full w-full h-full snap-center relative flex items-center justify-center overflow-hidden">
             {/* Container com blend mode e opacidade para integração no fundo Preto de Luxo */}
             <div className="relative w-[150%] h-[150%] md:w-full md:h-full max-w-3xl opacity-40 mix-blend-color-dodge pointer-events-none select-none">
               <Image 
@@ -52,7 +52,7 @@ export default function Manifesto() {
           </div>
 
           {/* SLIDE 2: Card "Em breve" (Estilo catálogo) */}
-          <div className="min-w-full w-full h-full snap-center relative flex flex-col items-center justify-center bg-zinc-950 border-l border-white/5">
+          <div className="min-w-full w-full h-full snap-center relative flex flex-col items-center justify-center bg-zinc-950 border-l border-white/5 overflow-hidden">
             <div className="flex flex-col items-center justify-center text-gray-500 transition-colors">
               <span className="font-serif italic text-base md:text-lg">Em breve</span>
               <div className="w-12 h-[1px] bg-white/10 mt-4"></div>

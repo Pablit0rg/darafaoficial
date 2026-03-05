@@ -65,20 +65,25 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "JewelryStore",
-    name: "Darafa Joias",
-    image: `${siteConfig.url}/assets/images/rafaela-destaqueHeroOficial-hd.jpg`,
-    description: "Joalheria artesanal e design autoral em Curitiba.",
-    url: siteConfig.url,
-    address: {
+    "name": "DaRafa Joias",
+    "url": "https://www.darafa.com",
+    "logo": "https://www.darafa.com/assets/images/logo-abelha.png",
+    "image": "https://www.darafa.com/assets/images/logo-abelha.png",
+    "description": "Joias autorais e artesanais premium.",
+    "priceRange": "$$$",
+    "address": {
       "@type": "PostalAddress",
-      streetAddress: "R. São Francisco, 50 - loja 14 - Centro",
-      addressLocality: "Curitiba",
-      addressRegion: "PR",
-      postalCode: "80020-190",
-      addressCountry: "BR"
+      "addressLocality": "Curitiba",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
     },
-    sameAs: [
-      siteConfig.links.instagram
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "147"
+    },
+    "sameAs": [
+      "https://instagram.com/darafa_cwb"
     ]
   };
 
