@@ -47,6 +47,12 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 - [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
 - [ ] **Auditoria Cross-Device (UX Final):** Verificar a estabilidade da métrica `left-[75%]` da seta do Instagram CTA em resoluções diferentes (iPhone, Galaxy) e ajustar se necessário antes do deploy.
 
+#### 4. Homologação Visual do Manifesto (Próximos Passos)
+- [ ] **Parâmetros de Dimensão para o Grok (Desktop):** A seção Manifesto na versão PC atua como um banner panorâmico de largura total (100vw). Instruir o Grok a gerar imagens com Aspect Ratio de 21:9 (Ultra-wide) ou 16:9, com resolução de 1920x800 ou 1920x1080 pixels. Exigir enquadramento centralizado para a imagem encaixar perfeitamente como uma luva, sem vazar (clipping) pelas bordas do retângulo.
+- [ ] **Restauração da Tipografia Inicial:** Após validar e inserir as novas imagens no repositório com o padrão de nomenclatura correto, restaurar a frase/copy original que ficava sobreposta à logo da Abelha Rainha.
+- [ ] **Aplicação de Filtro P&B (Isolamento de PC):** Aplicar o filtro Preto e Branco (`grayscale`) diretamente via código Tailwind com o prefixo `md:grayscale`. Isso força o filtro exclusivamente no desktop, garantindo simetria visual com a logo da abelha rainha, sem afetar o celular.
+- [ ] **Protocolo de Validação Mobile:** A versão mobile foi validada e permanecerá estritamente intacta no formato vertical colorido atual. A possibilidade de alterar o mobile fica congelada. Reavaliações no layout mobile só serão cogitadas após o check final e absoluto nas imagens de PC.
+
 ---
 
 ## Roadmap de Engenharia (SEO, Seguranca e Infraestrutura)
@@ -78,10 +84,11 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 
 ## Historico de Sprints (Changelog)
 
-### [2026-03-06] - Refinamento Estrutural e Pixel Pushing (Desktop/Mobile)
+### [2026-03-06] - Refinamento Estrutural, Testes de Assets e Pixel Pushing
 - [x] **Instagram CTA (Posicionamento Fantasma):** Implementação cirúrgica da seta direcional (mobile). Utilizada classe `absolute` e táticas de isolamento (`top-[100%]`, `left-[75%]`, `-translate-x-1/2`) para alinhar a seta perfeitamente com o ícone do footer sem interferir no fluxo do Box Model (preservando o layout da tipografia). Métrica de `75%` validada no modelo base (Poco X3 Pro), com revisão de breakpoints pendente no QA Final.
 - [x] **Showcase (UX & Layout):** Remoção do título `Algumas criações` e recálculo milimétrico da tag `<section>`. Preenchimento superior zerado para `pt-[8px]`, encostando perfeitamente os cards na linha dourada do CTA anterior e garantindo consistência visual de grids colados (gap de 8px).
 - [x] **Manifesto (Pixel Pushing Desktop):** Aplicação de classe `md:bottom-[1.0rem]` para deslocar isoladamente os indicadores de imagem (dots) para o centro do espaço morto inferior no desktop. Coordenadas blindadas para não interferir no mobile.
+- [x] **Manifesto (Engenharia de Teste A/B):** Criação estrutural da pasta `public/assets/images/manifesto/` e injeção de 5 imagens (`.jpg`) para homologação de layout. Lógica do carrossel expandida para rodar as imagens em loop durante os testes de opacidade com o tema "Preto de Luxo".
 
 ### [2026-03-05] - Segurança Zero-Trust, LLMO e Machine Experience
 - [x] **Segurança (Zero-Trust API):** Implementação de Honeypot invisível na rota de leads (`src/app/api/leads/route.ts`) com validação estrita de CORS e descarte silencioso de bots de spam para proteção de custos de webhook (n8n).
