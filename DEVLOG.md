@@ -71,13 +71,14 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 
 #### 3. Escalabilidade de Dados e Integracoes
 - [x] **Abstracao de Analytics (Data Layer):** Criar utilitario (`src/lib/analytics.ts`) com contratos de funcoes para engatilhar metodos de rastreamento (Pixel/GTM) nos botoes de CTA sem poluir os componentes.
-- [x] **Estrutura Base de Webhooks para Leads:** Criar rota de API (`src/app/api/leads/route.ts`) blindada para o futuro envio de dados ao n8n e Airtable.
+- [x] **Zero-Trust API e Anti-Spam (Honeypot):** Refatoração da rota `/api/leads/route.ts` implementando validação estrita de CORS, checagem de payload JSON e campo invisível (`_website_url_`) para descartar bots silenciosamente e proteger a integração futura com n8n/Airtable.
 
 ---
 
 ## Historico de Sprints (Changelog)
 
-### [2026-03-05] - SEO Extremo, LLMO e Machine Experience
+### [2026-03-05] - Segurança Zero-Trust, LLMO e Machine Experience
+- [x] **Segurança (Zero-Trust API):** Implementação de Honeypot invisível na rota de leads (`src/app/api/leads/route.ts`) com validação estrita de CORS e descarte silencioso de bots de spam para proteção de custos de webhook (n8n).
 - [x] **Core Web Vitals (Hero & Showcase):** Implementação cirúrgica de propriedades LCP nativas (`priority`, `quality={90}`, `sizes`) no Next Image da seção Hero. Otimização de WebP em lote no Showcase para garantir lazy loading eficiente.
 - [x] **Machine Experience (a11y):** Injetados `aria-labels` semânticos nos `dots` do Showcase e no link do Instagram no Footer para leitura nativa de robôs (ChatGPT, Perplexity) sem alterar hierarquia de Grid/Flexbox.
 - [x] **SEO (Knowledge Graph):** Conversão do JSON-LD isolado para o formato interligado `@graph`, mapeando autoridade de domínio, loja física e pessoa fundadora (Rafaela) num único payload no `layout.tsx`.
