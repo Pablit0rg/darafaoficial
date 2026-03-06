@@ -45,6 +45,17 @@ export default function InstagramCTA() {
       <span className="inline-block md:inline ml-[13vw] md:ml-0">
         no Instagram
       </span>
+      {/* SETA ANIMADA MOBILE (Congelada no espaço absoluto para não empurrar o texto) */}
+    <motion.div
+      animate={{ y: [0, 8, 0] }}
+      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+      className="md:hidden absolute top-[100%] left-[75%] -translate-x-1/2 flex flex-col items-center opacity-60 mt-[2vw]"
+    >
+      <div className="w-[1px] h-[10vw] bg-gradient-to-b from-transparent to-gray-400"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 w-[4vw] h-[4vw]">
+        <path d="M12 5v14M19 12l-7 7-7-7"/>
+      </svg>
+    </motion.div>
     </span>
 
     {/* SETA DESKTOP: Original, lateral, animada no eixo X */}
