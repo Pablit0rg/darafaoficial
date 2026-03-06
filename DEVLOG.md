@@ -40,11 +40,12 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 - [ ] **Estratégia de Retenção (UX):** Adicionar 1 card extra ao final de cada categoria do Showcase com a etiqueta "Em breve", sinalizando atualização frequente de acervo para o utilizador.
 
 #### 2. Tarefas Postergadas
-- [ ] **Seta Mobile Longa (Instagram CTA):** Implementação de seta direcional estendida apontando para o footer. O código atual causou instabilidade no inline-block flex. Tarefa movida para branch de pesquisa/testes e temporariamente congelada na Main.
+- [x] **Seta Mobile Longa (Instagram CTA):** Implementação de seta direcional concluída com sucesso. Código estabilizado.
 - [ ] **Staircase Typography (Botão CTA):** Transformar o botão "Seguir no Instagram" em uma escada tipográfica. O código foi testado e validado com sucesso na arquitetura, mas a aplicação definitiva foi adiada por questões de gestão de tempo e priorização da reta final.
 
 #### 3. Infraestrutura e Deploy
 - [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
+- [ ] **Auditoria Cross-Device (UX Final):** Verificar a estabilidade da métrica `left-[75%]` da seta do Instagram CTA em resoluções diferentes (iPhone, Galaxy) e ajustar se necessário antes do deploy.
 
 ---
 
@@ -78,6 +79,7 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 ## Historico de Sprints (Changelog)
 
 ### [2026-03-06] - Refinamento Estrutural e Pixel Pushing (Desktop/Mobile)
+- [x] **Instagram CTA (Posicionamento Fantasma):** Implementação cirúrgica da seta direcional (mobile). Utilizada classe `absolute` e táticas de isolamento (`top-[100%]`, `left-[75%]`, `-translate-x-1/2`) para alinhar a seta perfeitamente com o ícone do footer sem interferir no fluxo do Box Model (preservando o layout da tipografia). Métrica de `75%` validada no modelo base (Poco X3 Pro), com revisão de breakpoints pendente no QA Final.
 - [x] **Showcase (UX & Layout):** Remoção do título `Algumas criações` e recálculo milimétrico da tag `<section>`. Preenchimento superior zerado para `pt-[8px]`, encostando perfeitamente os cards na linha dourada do CTA anterior e garantindo consistência visual de grids colados (gap de 8px).
 - [x] **Manifesto (Pixel Pushing Desktop):** Aplicação de classe `md:bottom-[1.0rem]` para deslocar isoladamente os indicadores de imagem (dots) para o centro do espaço morto inferior no desktop. Coordenadas blindadas para não interferir no mobile.
 
