@@ -130,8 +130,8 @@ export default function Showcase() {
   };
 
   return (
-    // UNIFICAÇÃO DA GRELHA (Mobile e PC): px-2 (margem lateral 8px) e py-2 (espaço para a linha de cima e de baixo de 8px)
-    <section id="showcase" className="px-2 py-2 bg-black relative">
+    // UNIFICAÇÃO DA GRELHA E ESPAÇAMENTO 8PX (pt-[8px])
+    <section id="showcase" className="px-2 pt-[8px] pb-2 bg-black relative">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -142,12 +142,7 @@ export default function Showcase() {
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
       `}} />
 
-      {/* SUBTÍTULO INJETADO COM "RESPIRO" */}
-      <div className="w-full flex justify-center pt-16 pb-12">
-        <h2 className="font-serif italic text-2xl md:text-3xl text-gray-400 tracking-wide">
-          Algumas criações
-        </h2>
-      </div>
+      {/* TÍTULO "ALGUMAS CRIAÇÕES" REMOVIDO DAQUI */}
 
       {/* DESKTOP LAYOUT (Grid unificado: gap-2) */}
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-2 auto-rows-[480px]">

@@ -77,6 +77,10 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 
 ## Historico de Sprints (Changelog)
 
+### [2026-03-06] - Refinamento Estrutural e Pixel Pushing (Desktop/Mobile)
+- [x] **Showcase (UX & Layout):** Remoção do título `Algumas criações` e recálculo milimétrico da tag `<section>`. Preenchimento superior zerado para `pt-[8px]`, encostando perfeitamente os cards na linha dourada do CTA anterior e garantindo consistência visual de grids colados (gap de 8px).
+- [x] **Manifesto (Pixel Pushing Desktop):** Aplicação de classe `md:bottom-[1.0rem]` para deslocar isoladamente os indicadores de imagem (dots) para o centro do espaço morto inferior no desktop. Coordenadas blindadas para não interferir no mobile.
+
 ### [2026-03-05] - Segurança Zero-Trust, LLMO e Machine Experience
 - [x] **Segurança (Zero-Trust API):** Implementação de Honeypot invisível na rota de leads (`src/app/api/leads/route.ts`) com validação estrita de CORS e descarte silencioso de bots de spam para proteção de custos de webhook (n8n).
 - [x] **Core Web Vitals (Hero & Showcase):** Implementação cirúrgica de propriedades LCP nativas (`priority`, `quality={90}`, `sizes`) no Next Image da seção Hero. Otimização de WebP em lote no Showcase para garantir lazy loading eficiente.

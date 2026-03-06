@@ -60,8 +60,8 @@ export default function Manifesto() {
           </div>
         </div>
 
-        {/* Navegação por Pontos (Dots) */}
-        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-1.5 z-20 pointer-events-none">
+        {/* Navegação por Pontos (Dots) - Ajustado milimetricamente para Desktop (md:bottom-[4.5rem]) */}
+        <div className="absolute bottom-8 md:bottom-[1.0rem] left-0 right-0 flex justify-center gap-1.5 z-20 pointer-events-none">
           {[0, 1].map((dotIndex) => (
             <div 
               key={dotIndex}
