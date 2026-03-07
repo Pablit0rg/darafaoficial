@@ -1,6 +1,7 @@
 // src/app/api/leads/route.ts
 
 import { NextResponse } from 'next/server';
+import { z } from "zod";
 
 /**
  * Lista de origens permitidas para a requisicao.
@@ -18,6 +19,18 @@ const allowedOrigins = [
  * Armazena a contagem de requisições e o timestamp do início da janela de observação.
  */
 const rateLimit = new Map();
+
+/**
+ * Schema de validação com Zod para o payload de entrada da API de leads.
+ * Garante que os dados recebidos estejam no formato correto antes do processamento.
+ */
+const leadSchema = z.object({
+  name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres." }),
+  email: z.string().email({ message: "Por favor, insira um e-mail válido." }),
+  phone: z.string().optional(), // Opcional, mas pode ter regras mais estritas se necessário
+  _website_url_: z.string().optional(), // Campo para a lógica de Honeypot
+});
+
 
 /**
  * Rota da API para captura de leads.
@@ -90,11 +103,27 @@ export async function POST(request: Request) {
     return new NextResponse('JSON Inválido', { status: 400 });
   }
 
-  // 5. LÓGICA DE HONEYPOT (Armadilha para Bots)
+  // 5. VALIDAÇÃO DO PAYLOAD COM ZOD
+  // Aplicamos o schema de validação para garantir a integridade e o formato dos dados.
+  // Se os dados não corresponderem ao schema, a requisição é rejeitada com um erro 400.
+  const validation = leadSchema.safeParse(body);
+
+  if (!validation.success) {
+    console.warn('[API Leads] Validação do Zod falhou:', validation.error.flatten().fieldErrors);
+    return NextResponse.json(
+      { error: 'Dados inválidos.', details: validation.error.flatten().fieldErrors },
+      { status: 400 } // Bad Request
+    );
+  }
+
+  // Extrai os dados validados e seguros para uso posterior.
+  const validatedData = validation.data;
+
+  // 6. LÓGICA DE HONEYPOT (Armadilha para Bots)
   // Este é um campo "invisível" no formulário do frontend. Bots de spam tendem a
   // preencher todos os campos que encontram. Se este campo tiver qualquer valor,
   // é um forte indicativo de que a submissão é automatizada.
-  if (body._website_url_ && body._website_url_.length > 0) {
+  if (validatedData._website_url_ && validatedData._website_url_.length > 0) {
     console.log('[API Leads] Honeypot acionado. Bot detectado. Abortando silenciosamente.');
     // Retornamos uma resposta de sucesso (200 OK) para enganar o bot,
     // fazendo-o pensar que o spam foi bem-sucedido, sem processar o dado.
@@ -107,8 +136,8 @@ export async function POST(request: Request) {
   // Se todas as verificações de segurança passarem, o fluxo continua aqui.
   // ... lógica para processar o lead (ex: salvar no banco de dados) ...
   console.log('[API Leads] Lead recebido com sucesso:', {
-    name: body.name,
-    email: body.email,
+    name: validatedData.name,
+    email: validatedData.email,
   });
 
   return NextResponse.json(
