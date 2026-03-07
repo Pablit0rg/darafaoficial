@@ -75,14 +75,25 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 - [x] **Middleware Edge (Seguranca e Roteamento):** Implementar `proxy.ts` na raiz para protecao contra bots maliciosos, injecao de HSTS e fundacao para testes A/B.
 - [x] **Prefetching Estrategico e Cache:** Auditar a aplicacao para garantir geracao estatica (SSG) maxima e Stale-While-Revalidate (SWR) na CDN.
 - [x] **Compressao e Image Caching:** Configurar politicas agressivas no `next.config.ts` para estender o TTL do cache de imagens HD e forcar otimizacao de banda.
+- [x] **Offload de Main Thread (Web Workers):** Integração nativa com `@builder.io/partytown` no `AnalyticsWrapper.tsx`, isolando scripts de terceiros (Analytics/Pixels) e protegendo o Total Blocking Time (TBT).
+- [x] **Telemetria Estruturada (JSON Logging):** Implementação de logger sanitizado nativamente para LGPD (mascaramento de PII), com saída em JSON para ingestão em plataformas de observabilidade, mantendo otimização de processamento via variável `isDev`.
 
 #### 3. Escalabilidade de Dados e Integracoes
 - [x] **Abstracao de Analytics (Data Layer):** Criar utilitario (`src/lib/analytics.ts`) com contratos de funcoes para engatilhar metodos de rastreamento (Pixel/GTM) nos botoes de CTA sem poluir os componentes.
 - [x] **Zero-Trust API e Anti-Spam (Honeypot):** Refatoração da rota `/api/leads/route.ts` implementando validação estrita de CORS, checagem de payload JSON e campo invisível (`_website_url_`) para descartar bots silenciosamente e proteger a integração futura com n8n/Airtable.
+- [x] **Segurança na Borda (Rate Limiting e Zod):** Blindagem do endpoint de contatos contra ataques automatizados (máx. 5 requisições/minuto via Token Bucket) e validação estrita de contratos de dados (Zod), prevenindo injeções maliciosas.
+- [x] **Resiliência de Rede (Exponential Backoff + Jitter):** Algoritmo de reconexão inteligente implementado no cliente HTTP (`fetch-retry.ts`) para garantir a entrega de payloads aos webhooks mesmo sob instabilidade de rede ou do servidor de destino (Thundering Herd).
 
 ---
 
 ## Historico de Sprints (Changelog)
+
+### [2026-03-07] - Engenharia de Infraestrutura e Resiliencia "Big Tech"
+- [x] **Performance (Web Workers):** Configurado `nextScriptWorkers: true` e injetada a biblioteca Partytown para transferir o peso de rastreadores analíticos para threads secundárias.
+- [x] **Segurança (Rate Limiting):** Implementado rastreamento de IP em memória na rota de leads para barrar flood de submissões (Erro 429).
+- [x] **Resiliência (Backoff Exponencial):** Refatorado o utilitário `fetch-retry.ts` para aplicar recuo de tempo multiplicativo e variância matemática (Jitter) em caso de falhas de comunicação com a automação.
+- [x] **Integridade de Dados (Zod):** Injetada tipagem forte e validação de schema na borda, descartando payloads corrompidos ou incompletos (Erro 400).
+- [x] **Observabilidade (JSON Logging):** Reescrevimento completo do `logger.ts` para padrão corporativo. O sistema agora cospe logs em JSON estruturado, sanitiza e-mails automaticamente por questões legais e suprime alertas desnecessários em produção.
 
 ### [2026-03-06] - Refinamento Estrutural, Testes de Assets e Pixel Pushing
 - [x] **Instagram CTA (Posicionamento Fantasma):** Implementação cirúrgica da seta direcional (mobile). Utilizada classe `absolute` e táticas de isolamento (`top-[100%]`, `left-[75%]`, `-translate-x-1/2`) para alinhar a seta perfeitamente com o ícone do footer sem interferir no fluxo do Box Model (preservando o layout da tipografia). Métrica de `75%` validada no modelo base (Poco X3 Pro), com revisão de breakpoints pendente no QA Final.
