@@ -15,6 +15,9 @@ const cspHeader = `
 `;
 
 const nextConfig: NextConfig = {
+  experimental: {
+    nextScriptWorkers: true,
+  },
   // Otimização de Imagens Core Web Vitals
   images: {
     formats: ['image/avif', 'image/webp'],
