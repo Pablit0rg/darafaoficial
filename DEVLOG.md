@@ -46,12 +46,16 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 #### 3. Infraestrutura e Deploy
 - [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
 - [ ] **Auditoria Cross-Device (UX Final):** Verificar a estabilidade da métrica `left-[75%]` da seta do Instagram CTA em resoluções diferentes (iPhone, Galaxy) e ajustar se necessário antes do deploy.
+- [ ] **QA Final de Navegacao:** Testar rigorosamente todos os links, ancoras e botoes de CTA (Instagram, WhatsApp, ancoras internas) para garantir redirecionamento impecavel e nenhuma rota 404 antes de subir para producao.
 
 #### 4. Homologação Visual do Manifesto (Próximos Passos)
 - [ ] **Parâmetros de Dimensão para o Grok (Desktop):** A seção Manifesto na versão PC atua como um banner panorâmico de largura total (100vw). Instruir o Grok a gerar imagens com Aspect Ratio de 21:9 (Ultra-wide) ou 16:9, com resolução de 1920x800 ou 1920x1080 pixels. Exigir enquadramento centralizado para a imagem encaixar perfeitamente como uma luva, sem vazar (clipping) pelas bordas do retângulo.
 - [ ] **Restauração da Tipografia Inicial:** Após validar e inserir as novas imagens no repositório com o padrão de nomenclatura correto, restaurar a frase/copy original que ficava sobreposta à logo da Abelha Rainha.
 - [ ] **Aplicação de Filtro P&B (Isolamento de PC):** Aplicar o filtro Preto e Branco (`grayscale`) diretamente via código Tailwind com o prefixo `md:grayscale`. Isso força o filtro exclusivamente no desktop, garantindo simetria visual com a logo da abelha rainha, sem afetar o celular.
 - [ ] **Protocolo de Validação Mobile:** A versão mobile foi validada e permanecerá estritamente intacta no formato vertical colorido atual. A possibilidade de alterar o mobile fica congelada. Reavaliações no layout mobile só serão cogitadas após o check final e absoluto nas imagens de PC.
+
+#### 5. Refatoracao de Estabilidade (A "Cola Invisivel")
+- [ ] **Blindagem do Box Model (Hero e Autoral):** Aplicar engenharia de contencao utilizando `h-[100dvh]`, tipografia fluida matematicamente calculada (`clamp()`) e isolamento de transbordo (`relative overflow-hidden`). O objetivo e garantir que o conteudo destas secoes permaneca intacto e responsivo nativamente em qualquer resolucao, sem vazar da tela e sem a necessidade de correcoes de pixel pushing sucessivas.
 
 ---
 
