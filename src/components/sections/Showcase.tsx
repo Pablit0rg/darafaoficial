@@ -38,6 +38,7 @@ const renderCardContent = (item: any) => (
         src={item.image} 
         alt={item.title}
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-[1500ms] ease-out"
       />
     ) : (
@@ -131,7 +132,7 @@ export default function Showcase() {
 
   return (
     // UNIFICAÇÃO DA GRELHA E ESPAÇAMENTO 8PX (pt-[8px])
-    <section id="showcase" className="px-2 pt-[8px] pb-2 bg-black relative">
+    <section id="showcase" className="px-2 pt-[8px] pb-2 bg-black relative scroll-mt-[62px]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
