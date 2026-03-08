@@ -59,6 +59,7 @@ export default function Hero() {
           <Link 
             href="#showcase" 
             className="hover:text-white transition-colors cursor-pointer"
+            onClick={(e) => { e.preventDefault(); document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' }); }}
           >
             Joias artesanais
           </Link>
