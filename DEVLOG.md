@@ -88,23 +88,37 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 - [x] **Segurança na Borda (Rate Limiting e Zod):** Blindagem do endpoint de contatos contra ataques automatizados (máx. 5 requisições/minuto via Token Bucket) e validação estrita de contratos de dados (Zod), prevenindo injeções maliciosas.
 - [x] **Resiliência de Rede (Exponential Backoff + Jitter):** Algoritmo de reconexão inteligente implementado no cliente HTTP (`fetch-retry.ts`) para garantir a entrega de payloads aos webhooks mesmo sob instabilidade de rede ou do servidor de destino (Thundering Herd).
 
-### Backlog de Escalabilidade (Arquitetura Big Tech - Futuro)
-- [ ] **Rastreamento Server-Side (CAPI / GA4):** Criar rota `/api/track` para disparo de eventos de conversão de servidor para servidor. Mitiga perda de dados por AdBlockers e iOS, melhorando a inteligência do algoritmo em campanhas pagas e otimizando o CAC.
-- [ ] **Pipeline de CI/CD com Quality Gates:** Implementar `.yml` no GitHub Actions para rodar checagens de Typescript e ESLint automaticamente a cada commit, bloqueando deploys contendo bugs e mantendo a ramificação principal impecável.
-- [ ] **Invalidação de Cache sob Demanda (On-Demand ISR):** Integrar sistema de Webhooks para escutar o Airtable e invalidar seções estáticas do catálogo apenas quando novos produtos forem cadastrados, unindo a velocidade do cache estático à atualização em tempo real.
-- [ ] **Sistema de Feature Flags:** Atrelar o disparo de injeção de funcionalidades críticas (ex: Chatbot de Atendimento) a variáveis de ambiente (Vercel Edge Config). Permite habilitar recursos em produção sob demanda sem necessidade de refatoração do código principal.
-- [ ] **Máquina de Estados para Triagem (Intent Routing):** Utilizar RegEx avançada ou LLM na rota `/api/leads` para analisar a intenção da mensagem do usuário e aplicar *Tags* invisíveis, roteando contatos urgentes e curiosos para fluxos de atendimento diferentes no n8n de forma automática.
-- [ ] **Fila de Mensagens Assíncrona (Message Queue/DLQ):** Integrar Redis ou Upstash para armazenar payloads de leads na memória em caso de falha de conexão prolongada com o n8n. Garante resiliência de nível bancário e entrega 100% dos eventos.
-- [ ] **Geofencing Dinâmico no Edge:** Interceptar o IP do usuário no `proxy.ts` para determinar o Estado/Região e injetar headers silenciósos de geolocalização. Prepara a infraestrutura para cálculos preditivos de frete nacional e personalização de anúncios locais.
-- [ ] **Criptografia de Envelope de PII:** Aplicar Key Management Service (KMS) nativo no back-end para criptografar telefone, e-mail e dados de clientes antes de enviá-los ao banco de dados, neutralizando danos em caso de vazamentos (Data Privacy Nível 3).
-- [ ] **Desafio Criptográfico Invisível (Zero-Trust Bot Detection):** Implementar Cloudflare Turnstile ou lógica de Proof-of-Work no middleware para barrar scrapers munidos de LLMs avançados, sem prejudicar a fricção de UX do cliente humano.
-- [ ] **Observabilidade Ativa de Anomalias:** Desenvolver sistema de alerta webhooks no back-end acionado exclusivamente em eventos anormais (ex: pico de tráfego de 500%, falhas em cascata da API), notificando o engenheiro via Telegram instantaneamente.
+### Backlog de Escalabilidade (Arquitetura Big Tech)
+- [x] **Rastreamento Server-Side (CAPI / GA4):** Criada rota `/api/track` para disparo de eventos de conversão de servidor para servidor. Mitiga perda de dados por AdBlockers e iOS, melhorando a inteligência do algoritmo em campanhas pagas e otimizando o CAC.
+- [x] **Pipeline de CI/CD com Quality Gates:** Implementado `.yml` no GitHub Actions para rodar checagens de Typescript e ESLint automaticamente a cada commit, bloqueando deploys contendo bugs e mantendo a ramificação principal impecável.
+- [x] **Invalidação de Cache sob Demanda (On-Demand ISR):** Integrado sistema de Webhooks para escutar o Airtable e invalidar seções estáticas do catálogo apenas quando novos produtos forem cadastrados, unindo a velocidade do cache estático à atualização em tempo real.
+- [x] **Sistema de Feature Flags:** Criado sistema para atrelar o disparo de injeção de funcionalidades críticas (ex: Chatbot de Atendimento) a variáveis de ambiente. Permite habilitar recursos em produção sob demanda sem necessidade de refatoração do código principal.
+- [x] **Máquina de Estados para Triagem (Intent Routing):** Utilizado RegEx avançada na rota `/api/leads` para analisar a intenção da mensagem do usuário e aplicar *Tags* invisíveis, roteando contatos urgentes e curiosos para fluxos de atendimento diferentes no n8n de forma automática.
+- [x] **Fila de Mensagens Assíncrona (Message Queue/DLQ):** Integrado padrão Singleton in-memory para armazenar payloads de leads em caso de falha de conexão prolongada com o n8n, preparado para integração futura com Redis/Upstash.
+- [x] **Geofencing Dinâmico no Edge:** Intercetado o IP do usuário no `proxy.ts` para determinar o Estado/Região e injetar headers silenciósos de geolocalização. Prepara a infraestrutura para cálculos preditivos de frete nacional e personalização de anúncios locais.
+- [x] **Criptografia de Envelope de PII:** Aplicado AES-256-GCM nativo no back-end para criptografar telefone, e-mail e dados de clientes antes de enviá-los, neutralizando danos em caso de vazamentos (Data Privacy Nível 3).
+- [x] **Desafio Criptográfico Invisível (Zero-Trust Bot Detection):** Implementado algoritmo de Proof-of-Work para barrar scrapers munidos de LLMs avançados, sem prejudicar a fricção de UX do cliente humano.
+- [x] **Observabilidade Ativa de Anomalias:** Desenvolvido sistema de alerta webhooks no back-end acionado exclusivamente em eventos anormais (ex: picos de tráfego, falhas em cascata da API), notificando o engenheiro via Telegram instantaneamente.
 
 ---
 
 ## Historico de Sprints (Changelog)
 
-### [2026-03-07] - Engenharia de Infraestrutura e Resiliencia "Big Tech"
+### [2026-03-07] - Engenharia de Escalabilidade e Data Privacy
+- [x] **Segurança (Criptografia PII):** Implementado `crypto.ts` (AES-256-GCM) para ofuscar dados de leads antes do trânsito na rede.
+- [x] **Infraestrutura (Geofencing Edge):** Configurado `proxy.ts` para capturar IP e expor cabeçalho `x-customer-geo`.
+- [x] **Resiliência (Dead Letter Queue):** Criado `queue.ts` com fila em memória para retenção de eventos falhados.
+- [x] **Segurança (Proof of Work):** Adicionado `pow.ts` com desafio SHA-256 para deter bots de spam.
+- [x] **Observabilidade (Alertas Webhook):** Desenvolvido `monitoring.ts` para notificação em tempo real de falhas na API.
+
+### [2026-03-07] - Engenharia de Infraestrutura Avançada (Big Tech)
+- [x] **Data Analytics (Server-Side Tracking):** Implementada rota `/api/track` e requisição assíncrona `keepalive` no lado cliente para mitigar bloqueadores.
+- [x] **CI/CD (Quality Gates):** Adicionado workflow de GitHub Actions (`quality-gate.yml`) para forçar validação de tipos (TypeScript) e regras (ESLint) em Pushes/PRs.
+- [x] **Performance (On-Demand ISR):** Criada rota `/api/revalidate` para forçar recriação pontual de cache estático via webhook do CMS.
+- [x] **Feature Management (Feature Flags):** Estabelecida arquitetura de variáveis de ambiente restritas para ativação desacoplada de módulos em produção.
+- [x] **Automação (Intent Routing):** Adicionada máquina de estados com RegEx no endpoint de leads para categorização lexical de mensagens (`_intent_tag_`).
+
+### [2026-03-07] - Engenharia de Infraestrutura e Resiliencia
 - [x] **Performance (Web Workers):** Configurado `nextScriptWorkers: true` e injetada a biblioteca Partytown para transferir o peso de rastreadores analíticos para threads secundárias.
 - [x] **Segurança (Rate Limiting):** Implementado rastreamento de IP em memória na rota de leads para barrar flood de submissões (Erro 429).
 - [x] **Resiliência (Backoff Exponencial):** Refatorado o utilitário `fetch-retry.ts` para aplicar recuo de tempo multiplicativo e variância matemática (Jitter) em caso de falhas de comunicação com a automação.
