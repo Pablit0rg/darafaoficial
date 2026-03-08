@@ -7,10 +7,10 @@ import { logger } from '@/lib/logger';
 // Garante que os dados recebidos tenham o formato esperado.
 // - eventName: uma string com no mínimo 2 caracteres.
 // - payload: um objeto opcional com chaves e valores de qualquer tipo.
-const eventSchema = z.strict({
+const eventSchema = z.object({
   eventName: z.string().min(2, { message: "O nome do evento é obrigatório." }),
   payload: z.record(z.any()).optional(),
-});
+}).strict();
 
 /**
  * Rota da API para Server-Side Tracking de eventos.
