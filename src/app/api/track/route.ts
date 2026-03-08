@@ -9,7 +9,7 @@ import { logger } from '@/lib/logger';
 // - payload: um objeto opcional com chaves e valores de qualquer tipo.
 const eventSchema = z.object({
   eventName: z.string().min(2, { message: "O nome do evento é obrigatório." }),
-  payload: z.record(z.any()).optional(),
+  payload: z.record(z.string(), z.any()).optional(),
 }).strict();
 
 /**
