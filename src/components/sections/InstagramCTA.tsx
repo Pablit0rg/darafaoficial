@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function InstagramCTA() {
   return (
     // Removido o border-t border-white/5 para zerar o gap visual.
-    <section id="instagram" className="min-h-[70vh] flex flex-col justify-center items-center bg-brand-dark relative px-6 overflow-hidden">
+    <section id="instagram" className="min-h-[70vh] lg:min-h-[45vh] flex flex-col justify-center items-center bg-brand-dark relative px-6 overflow-hidden">
       
       {/* Divisor Estrutural: Fio de Ouro fixado exatamente na junção com o Showcase */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-metal-gold z-20"></div>
