@@ -23,6 +23,8 @@ export default function Hero() {
             priority
             quality={90}
             sizes="(max-width: 768px) 100vw, 66vw"
+            fetchPriority="high"
+            decoding="sync"
           />
           {/* Fade horizontal */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-black/70 to-brand-black"></div>

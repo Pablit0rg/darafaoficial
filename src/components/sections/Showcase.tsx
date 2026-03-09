@@ -1,9 +1,9 @@
 // src/components/sections/Showcase.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useDeferredValue } from "react";
 import { siteConfig } from "@/config/site";
 
 // 1. Array base (Imagens originais)
@@ -59,6 +59,10 @@ const MobileCarouselCard = ({ group, index }: { group: typeof mobileGroups[0], i
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const deferredIsInView = useDeferredValue(isInView);
+
   const handleScroll = () => {
     if (scrollRef.current) {
       const scrollPosition = scrollRef.current.scrollLeft;
@@ -70,12 +74,10 @@ const MobileCarouselCard = ({ group, index }: { group: typeof mobileGroups[0], i
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      ref={ref}
+      animate={{ opacity: deferredIsInView ? 1 : 0, y: deferredIsInView ? 0 : 30 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      // Ajuste Arquitetural: Removida a borda para visual mais limpo na grelha unificada
-      className="relative w-full h-[480px] bg-zinc-900 overflow-hidden"
+      className="relative w-full h-[480px] bg-zinc-900 overflow-hidden aspect-[3/4]"
     >
       <div 
         ref={scrollRef}
@@ -106,6 +108,27 @@ const MobileCarouselCard = ({ group, index }: { group: typeof mobileGroups[0], i
         ))}
       </div>
     </motion.div>
+  );
+};
+
+const DesktopCard = ({ item, index }: { item: any, index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const deferredIsInView = useDeferredValue(isInView);
+
+  return (
+    <motion.a
+      ref={ref}
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      key={item.id}
+      animate={{ opacity: deferredIsInView ? 1 : 0, y: deferredIsInView ? 0 : 30 }}
+      transition={{ duration: 0.6, delay: (index % 6) * 0.1 }}
+      className={`group relative bg-zinc-900 border border-white/5 overflow-hidden block w-full h-full ${item.spanClasses || ""} aspect-square`}
+    >
+      {renderCardContent(item)}
+    </motion.a>
   );
 };
 
@@ -149,19 +172,7 @@ export default function Showcase() {
       {/* A linha abaixo foi alterada para ajustar o tamanho dos cards em desktop */}
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-6 gap-2 md:auto-rows-[480px] lg:auto-rows-[240px]">
         {desktopItems.map((item, index) => (
-          <motion.a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            key={item.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: (index % 6) * 0.1 }}
-            className={`group relative bg-zinc-900 border border-white/5 overflow-hidden block w-full h-full ${item.spanClasses || ""}`}
-          >
-            {renderCardContent(item)}
-          </motion.a>
+          <DesktopCard key={item.id} item={item} index={index} />
         ))}
       </div>
 
