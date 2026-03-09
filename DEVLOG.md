@@ -39,22 +39,30 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 - [ ] **Preenchimento de Catálogo:** Popular os cards vazios do carrossel com os assets fotográficos restantes.
 - [ ] **Estratégia de Retenção (UX):** Adicionar 1 card extra ao final de cada categoria do Showcase com a etiqueta "Em breve", sinalizando atualização frequente de acervo para o utilizador.
 
-#### 2. Tarefas Postergadas
-- [x] **Seta Mobile Longa (Instagram CTA):** Implementação de seta direcional concluída com sucesso. Código estabilizado.
-- [ ] **Staircase Typography (Botão CTA):** Transformar o botão "Seguir no Instagram" em uma escada tipográfica. O código foi testado e validado com sucesso na arquitetura, mas a aplicação definitiva foi adiada por questões de gestão de tempo e priorização da reta final.
-
-#### 3. Infraestrutura e Deploy
-- [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
-- [ ] **Auditoria Cross-Device (UX Final):** Verificar a estabilidade da métrica `left-[75%]` da seta do Instagram CTA em resoluções diferentes (iPhone, Galaxy) e ajustar se necessário antes do deploy.
-- [ ] **QA Final de Navegacao:** Testar rigorosamente todos os links, ancoras e botoes de CTA (Instagram, WhatsApp, ancoras internas) para garantir redirecionamento impecavel e nenhuma rota 404 antes de subir para producao.
-
-#### 4. Homologação Visual do Manifesto (Próximos Passos)
+#### 2. Homologação Visual do Manifesto (Próximos Passos)
 - [ ] **Parâmetros de Dimensão para o Grok (Desktop):** A seção Manifesto na versão PC atua como um banner panorâmico de largura total (100vw). Instruir o Grok a gerar imagens com Aspect Ratio de 21:9 (Ultra-wide) ou 16:9, com resolução de 1920x800 ou 1920x1080 pixels. Exigir enquadramento centralizado para a imagem encaixar perfeitamente como uma luva, sem vazar (clipping) pelas bordas do retângulo.
 - [ ] **Restauração da Tipografia Inicial:** Após validar e inserir as novas imagens no repositório com o padrão de nomenclatura correto, restaurar a frase/copy original que ficava sobreposta à logo da Abelha Rainha.
 - [ ] **Aplicação de Filtro P&B (Isolamento de PC):** Aplicar o filtro Preto e Branco (`grayscale`) diretamente via código Tailwind com o prefixo `md:grayscale`. Isso força o filtro exclusivamente no desktop, garantindo simetria visual com a logo da abelha rainha, sem afetar o celular.
 - [ ] **Protocolo de Validação Mobile:** A versão mobile foi validada e permanecerá estritamente intacta no formato vertical colorido atual. A possibilidade de alterar o mobile fica congelada. Reavaliações no layout mobile só serão cogitadas após o check final e absoluto nas imagens de PC.
 
-#### 5. Refatoracao de Estabilidade (A "Cola Invisivel")
+#### 3. Auditoria de Breakpoints Tailwind (Responsividade Cross-Device)
+- [ ] **QA sm: (640px+) — Mobile grande / Tablet pequeno:** Validar layout em dispositivos como iPhone 14 Pro Max e tablets compactos. Verificar se textos, espaçamentos e posicionamentos se comportam corretamente nesta faixa.
+- [ ] **QA md: (768px+) — Tablet / Notebook pequeno:** Validar layout em iPads e notebooks de 11"-13" (ex: MacBook Air, Chromebook). Ajustar regras `md:` que atualmente cobrem tanto tablet quanto desktop.
+- [ ] **QA lg: (1024px+) — Notebook / Desktop menor:** Validar layout em notebooks de 13"-15" e monitores compactos. Criar regras `lg:` específicas se o layout `md:` estiver inadequado nesta faixa.
+- [ ] **QA xl: (1280px+) — Desktop:** Validar layout em monitores Full HD padrão (1280px-1536px).
+- [ ] **QA 2xl: (1536px+) — Desktop grande:** Validar layout em monitores grandes e ultrawide. Garantir que elementos não fiquem excessivamente espaçados ou desproporcionais.
+- [ ] **Referencial de Dispositivos por Breakpoint:** Usar o DevTools do Chrome com os seguintes modelos representativos por faixa: `sm` → Samsung Galaxy A51/71 | `md` → iPad Air | `lg` → Surface Pro 7 | `xl` → desktop 1280px genérico | `2xl` → desktop 1920px genérico.
+
+#### 4. Tarefas Postergadas
+- [x] **Seta Mobile Longa (Instagram CTA):** Implementação de seta direcional concluída com sucesso. Código estabilizado.
+- [ ] **Staircase Typography (Botão CTA):** Transformar o botão "Seguir no Instagram" em uma escada tipográfica. O código foi testado e validado com sucesso na arquitetura, mas a aplicação definitiva foi adiada por questões de gestão de tempo e priorização da reta final.
+
+#### 5. Infraestrutura e Deploy
+- [ ] **Fluxo de Producao:** Executar o protocolo de deploy final (apontamento de DNS na Hostinger, configuracao de edge na Vercel e alteracao de visibilidade do repositorio no GitHub para PRIVATE).
+- [ ] **Auditoria Cross-Device (UX Final):** Verificar a estabilidade da métrica `left-[75%]` da seta do Instagram CTA em resoluções diferentes (iPhone, Galaxy) e ajustar se necessário antes do deploy.
+- [ ] **QA Final de Navegacao:** Testar rigorosamente todos os links, ancoras e botoes de CTA (Instagram, WhatsApp, ancoras internas) para garantir redirecionamento impecavel e nenhuma rota 404 antes de subir para producao.
+
+#### 6. Refatoracao de Estabilidade (A "Cola Invisivel")
 - [ ] **Blindagem do Box Model (Hero e Autoral):** Aplicar engenharia de contencao utilizando `h-[100dvh]`, tipografia fluida matematicamente calculada (`clamp()`) e isolamento de transbordo (`relative overflow-hidden`). O objetivo e garantir que o conteudo destas secoes permaneca intacto e responsivo nativamente em qualquer resolucao, sem vazar da tela e sem a necessidade de correcoes de pixel pushing sucessivas.
 
 ---
@@ -103,6 +111,10 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 ---
 
 ## Historico de Sprints (Changelog)
+
+### [2026-03-09] - Arquitetura Responsiva Avançada (Desktop)
+- [x] **Showcase (Refinamento de Grid):** Modificação estrutural no componente `Showcase.tsx` reduzindo o tamanho dos cards em 50% exclusivamente na versão desktop (de `lg:grid-cols-3` para `lg:grid-cols-6` e `lg:auto-rows-[240px]`), mantendo o layout mobile intacto.
+- [x] **Instagram CTA (Ajuste de Viewport):** Redução milimétrica do espaçamento vertical da seção autoral para telas grandes, sobrescrevendo a altura mínima original através da classe `lg:min-h-[45vh]`, protegendo a harmonia visual da versão de PC sem afetar a engenharia de posicionamento (`vw`) do mobile.
 
 ### [2026-03-07] - Engenharia de Escalabilidade e Data Privacy
 - [x] **Segurança (Criptografia PII):** Implementado `crypto.ts` (AES-256-GCM) para ofuscar dados de leads antes do trânsito na rede.
