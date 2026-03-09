@@ -16,7 +16,11 @@ export default function Navigation() {
       className="fixed top-0 w-full z-40 px-6 py-6 flex justify-between items-center border-b border-white/10 backdrop-blur-md bg-black/20 mix-blend-difference text-white"
     >
       {/* Logo com hitbox expandida e feedback tátil */}
-      <Link href="/" className="relative group p-2 -m-2">
+      <Link 
+        href="/" 
+        className="relative group p-2 -m-2"
+        onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+      >
         <motion.span 
           whileTap={{ scale: 0.95 }}
           className="font-serif text-xl tracking-widest font-bold uppercase block"

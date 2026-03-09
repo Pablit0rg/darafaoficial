@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <header className="h-[100dvh] flex flex-col justify-center items-center relative px-[4.07vw] md:px-4 text-center overflow-hidden bg-brand-black">
+    <header className="h-[100dvh] flex flex-col justify-center items-center relative w-full max-w-full px-[4.07vw] md:px-4 text-center overflow-hidden bg-brand-black">
       
       {/* Background Image: Estilo Editorial */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
