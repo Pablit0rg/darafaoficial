@@ -146,7 +146,8 @@ export default function Showcase() {
       {/* TÍTULO "ALGUMAS CRIAÇÕES" REMOVIDO DAQUI */}
 
       {/* DESKTOP LAYOUT (Grid unificado: gap-2) */}
-      <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-2 auto-rows-[480px]">
+      {/* A linha abaixo foi alterada para ajustar o tamanho dos cards em desktop */}
+      <div className="hidden md:grid grid-cols-2 lg:grid-cols-6 gap-2 md:auto-rows-[480px] lg:auto-rows-[240px]">
         {desktopItems.map((item, index) => (
           <motion.a
             href={item.link}
