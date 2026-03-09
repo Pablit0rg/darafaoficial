@@ -1,3 +1,7 @@
+:root {
+  --scrollbar-width: calc(100vw - 100%);
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -52,4 +56,11 @@
   .bg-metal-rhodium {
     background: linear-gradient(90deg, transparent 0%, rgba(82, 82, 91, 0.8) 50%, transparent 100%);
   }
+}
+
+@media (min-width: 1024px) {
+#showcase {
+    padding-left: calc(0.5rem + var(--scrollbar-width));
+    padding-right: 0.5rem;
+}
 }

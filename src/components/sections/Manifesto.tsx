@@ -66,7 +66,7 @@ export default function Manifesto() {
                 src={src}
                 alt={`Teste Fotográfico ${index + 1}`}
                 fill
-                className="object-cover opacity-70"
+                className="object-cover md:object-top opacity-70"
               />
               {/* Overlay escuro para garantir legibilidade de elementos sobrepostos e manter o tom Preto de Luxo */}
               <div className="absolute inset-0 bg-black/40"></div>
