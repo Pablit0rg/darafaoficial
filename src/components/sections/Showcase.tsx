@@ -25,8 +25,9 @@ const placeholderItems = originalItems.map((item) => ({
 }));
 
 // 3. Estruturas para Renderização
-const row1Items = [...originalItems];
-const row2Items = [...placeholderItems];
+const row1Items = [...originalItems, ...placeholderItems];
+const row2Items = [...placeholderItems, ...originalItems].reverse();
+const row3Items = [...originalItems, ...placeholderItems];
 const mobileGroups = originalItems.map((item, i) => [item, placeholderItems[i]]);
 
 // Componente utilitário: conteúdo interno dos cards (intacto)
@@ -178,20 +179,27 @@ export default function Showcase() {
 
       <style dangerouslySetInnerHTML={{__html: ".hide-scroll::-webkit-scrollbar { display: none; } .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }"}} />
 
-      {/* DESKTOP LAYOUT — duas fileiras com scroll horizontal ativo e independente */}
+      {/* DESKTOP LAYOUT — Scroll Nativo com Snap */}
       <div className="hidden md:flex flex-col gap-2">
 
         {/* Fileira 1: scroll horizontal — o usuário rola para a esquerda para revelar cards */}
         <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scroll gap-2">
           {row1Items.map((item, index) => (
-            <DesktopCard key={item.id} item={item} index={index} />
+            <DesktopCard key={`row1-${item.id}-${index}`} item={item} index={index} />
           ))}
         </div>
 
         {/* Fileira 2: scroll horizontal — sentido de descoberta oposto ao da fileira 1 */}
         <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scroll gap-2">
           {row2Items.map((item, index) => (
-            <DesktopCard key={item.id} item={item} index={index} />
+            <DesktopCard key={`row2-${item.id}-${index}`} item={item} index={index} />
+          ))}
+        </div>
+
+        {/* Fileira 3: nova fileira adicionada */}
+        <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scroll gap-2">
+          {row3Items.map((item, index) => (
+            <DesktopCard key={`row3-${item.id}-${index}`} item={item} index={index} />
           ))}
         </div>
 
@@ -201,7 +209,7 @@ export default function Showcase() {
       <div className="grid md:hidden grid-cols-1 gap-2">
         {mobileGroups.map((group, index) => (
           <MobileCarouselCard key={index} group={group} index={index} />
-        ))}
+        ))}\
       </div>
     </section>
   );
