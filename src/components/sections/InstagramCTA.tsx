@@ -20,7 +20,7 @@ export default function InstagramCTA() {
         className="z-10 w-full max-w-5xl flex flex-col relative"
       >
         {/* TÍTULO | Conversão para Viewport (vw) garante escala perfeita em qualquer mobile. PC blindado com md: */}
-        <h2 className="translate-x-[-7.63vw] translate-y-[-3.81vw] md:translate-x-[0px] md:translate-y-[0px] font-serif text-[13vw] md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 -mt-6 md:mt-12 ml-2 md:ml-[-8%] tracking-tighter text-left md:text-center self-start md:self-center">
+        <h2 className="translate-x-[-7.63vw] translate-y-[-3.81vw] md:translate-x-[-65px] md:translate-y-[-40px] font-serif text-[13vw] md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 -mt-6 md:mt-12 ml-2 md:ml-[-8%] tracking-tighter text-left md:text-center self-start md:self-center">
           @DARAFA_CWB
         </h2>
         
@@ -30,7 +30,7 @@ export default function InstagramCTA() {
         </p>
         
         {/* BOTÃO CTA | Conversão para VW aplicada. */}
-<div className="translate-x-[22.9vw] translate-y-[12.72vw] md:translate-x-[0px] md:translate-y-[0px] mt-28 ml-12 md:mt-12 md:ml-12 self-start md:self-center">
+<div className="translate-x-[22.9vw] translate-y-[12.72vw] md:translate-x-[450px] md:translate-y-[50px] mt-28 ml-12 md:mt-12 md:ml-12 self-start md:self-center">
   <Link 
     href="https://instagram.com/darafa_cwb" 
     target="_blank" 
