@@ -30,7 +30,6 @@ const row2Items = [...placeholderItems, ...originalItems].reverse();
 const row3Items = [...originalItems, ...placeholderItems];
 const mobileGroups = originalItems.map((item, i) => [item, placeholderItems[i]]);
 
-// Componente utilitário: conteúdo interno dos cards (intacto)
 const renderCardContent = (item: any) => (
   <>
     {item.image ? (
@@ -53,7 +52,6 @@ const renderCardContent = (item: any) => (
   </>
 );
 
-// Componente do Carrossel Mobile (intacto)
 const MobileCarouselCard = ({ group, index }: { group: typeof mobileGroups[0]; index: number }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -106,7 +104,6 @@ const MobileCarouselCard = ({ group, index }: { group: typeof mobileGroups[0]; i
   );
 };
 
-// Card Desktop: entrada animada via useInView (intacta)
 const DesktopCard = ({ item, index }: { item: any; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -120,16 +117,15 @@ const DesktopCard = ({ item, index }: { item: any; index: number }) => {
       rel="noopener noreferrer"
       animate={{ opacity: deferredIsInView ? 1 : 0, y: deferredIsInView ? 0 : 30 }}
       transition={{ duration: 0.6, delay: (index % 5) * 0.1 }}
-      // min-w-[280px]: garante que cards menores que a tela não colapsem
-      // snap-start: encaixa o card no início do container ao parar o scroll
-      className={`group relative bg-zinc-900 border border-white/5 overflow-hidden block h-[280px] min-w-[280px] w-[20vw] snap-start flex-shrink-0 ${item.spanClasses || ""}`}
+      // CORREÇÃO: removido `min-w-[280px]` — era ele que sobrescrevia o w-[20vw]
+      // em qualquer tela abaixo de 1400px, quebrando a proporcionalidade entre dispositivos
+      className={`group relative bg-zinc-900 border border-white/5 overflow-hidden block h-[280px] w-[20vw] snap-start flex-shrink-0 ${item.spanClasses || ""}`}
     >
       {renderCardContent(item)}
     </motion.a>
   );
 };
 
-// Hook de sincronização: fileira 2 segue a fileira 1 com offset de 1 card
 function useSyncedScroll(cardWidth: number) {
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
@@ -138,7 +134,6 @@ function useSyncedScroll(cardWidth: number) {
   const handleRow1Scroll = () => {
     if (!row1Ref.current || !row2Ref.current || isSyncing.current) return;
     isSyncing.current = true;
-    // Fileira 2 acompanha com offset de 1 card para o efeito de "descida"
     row2Ref.current.scrollLeft = row1Ref.current.scrollLeft + cardWidth;
     isSyncing.current = false;
   };
@@ -147,7 +142,6 @@ function useSyncedScroll(cardWidth: number) {
 }
 
 export default function Showcase() {
-  // 280px = largura do card desktop (min-w-[280px]) + gap de 8px
   const { row1Ref, row2Ref, handleRow1Scroll } = useSyncedScroll(288);
 
   const jsonLd = {
@@ -179,24 +173,27 @@ export default function Showcase() {
 
       <style dangerouslySetInnerHTML={{__html: ".hide-scroll::-webkit-scrollbar { display: none; } .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }"}} />
 
-      {/* DESKTOP LAYOUT — Scroll Nativo com Snap */}
       <div className="hidden md:flex flex-col gap-2">
 
-        {/* Fileira 1: scroll horizontal — o usuário rola para a esquerda para revelar cards */}
-        <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scroll gap-2">
+        <div
+          ref={row1Ref}
+          onScroll={handleRow1Scroll}
+          className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scroll gap-2"
+        >
           {row1Items.map((item, index) => (
             <DesktopCard key={`row1-${item.id}-${index}`} item={item} index={index} />
           ))}
         </div>
 
-        {/* Fileira 2: scroll horizontal — sentido de descoberta oposto ao da fileira 1 */}
-        <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scroll gap-2">
+        <div
+          ref={row2Ref}
+          className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scroll gap-2 pointer-events-none"
+        >
           {row2Items.map((item, index) => (
             <DesktopCard key={`row2-${item.id}-${index}`} item={item} index={index} />
           ))}
         </div>
 
-        {/* Fileira 3: nova fileira adicionada */}
         <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scroll gap-2">
           {row3Items.map((item, index) => (
             <DesktopCard key={`row3-${item.id}-${index}`} item={item} index={index} />
@@ -205,11 +202,10 @@ export default function Showcase() {
 
       </div>
 
-      {/* MOBILE LAYOUT — intacto, zero alteração */}
       <div className="grid md:hidden grid-cols-1 gap-2">
         {mobileGroups.map((group, index) => (
           <MobileCarouselCard key={index} group={group} index={index} />
-        ))}\
+        ))}
       </div>
     </section>
   );
