@@ -9,6 +9,16 @@ export default function Manifesto() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const manifestoImages = [
+    "/assets/images/manifesto/manifesto-processo-criativo-2-hd.jpg",
+    "/assets/images/manifesto/manifesto-processo-criativo-3-hd.jpg",
+    "/assets/images/manifesto/manifesto-processo-criativo-5-hd.jpg",
+    "/assets/images/manifesto/manifesto-processo-criativo-4-hd.jpg",
+    "/assets/images/manifesto/manifesto-processo-criativo-1-hd.jpg",
+  ];
+
+  const totalSlides = 1 + manifestoImages.length; // Abelha + 5 imagens
+
   const handleScroll = () => {
     if (scrollRef.current) {
       const scrollPosition = scrollRef.current.scrollLeft;
@@ -18,14 +28,17 @@ export default function Manifesto() {
     }
   };
 
-  // Array com as imagens ordenadas estritamente: 2, 3, 5, 4, 1
-  const manifestoImages = [
-    "/assets/images/manifesto/manifesto-processo-criativo-2-hd.jpg",
-    "/assets/images/manifesto/manifesto-processo-criativo-3-hd.jpg",
-    "/assets/images/manifesto/manifesto-processo-criativo-5-hd.jpg",
-    "/assets/images/manifesto/manifesto-processo-criativo-4-hd.jpg",
-    "/assets/images/manifesto/manifesto-processo-criativo-1-hd.jpg",
-  ];
+  const scrollPrev = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -scrollRef.current.clientWidth, behavior: "smooth" });
+    }
+  };
+
+  const scrollNext = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: scrollRef.current.clientWidth, behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="py-24 md:py-32 px-6 bg-brand-dark relative overflow-hidden flex items-center justify-center">
@@ -33,20 +46,19 @@ export default function Manifesto() {
       {/* Fio Metálico (Prata) no topo da secção */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-metal-silver z-20"></div>
 
-      {/* ESTILO GLOBAL PARA ESCONDER SCROLLBAR */}
       <style dangerouslySetInnerHTML={{__html: `
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
       `}} />
 
       {/* Background Carrossel */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 group">
         <div
           ref={scrollRef}
           onScroll={handleScroll}
           className="flex w-full h-full overflow-x-auto overflow-y-hidden touch-pan-x snap-x snap-mandatory hide-scroll"
         >
-          {/* SLIDE 1: Marca d'água Abelha Original (Intacta) */}
+          {/* SLIDE 1: Marca d'água Abelha Original */}
           <div className="min-w-full w-full h-full snap-center relative flex items-center justify-center overflow-hidden">
             <div className="relative w-[150%] h-[150%] md:w-full md:h-full max-w-3xl opacity-40 mix-blend-color-dodge pointer-events-none select-none">
               <Image
@@ -59,21 +71,53 @@ export default function Manifesto() {
             </div>
           </div>
 
-          {/* SLIDES 2 A 6: Imagens do Processo Criativo limpas sem efeitos */}
+          {/* SLIDES 2 A 6: Imagens do Processo Criativo */}
           {manifestoImages.map((src, index) => (
             <div key={index} className="min-w-full w-full h-full snap-center relative flex items-center justify-center bg-zinc-950 border-l border-white/5 overflow-hidden">
+              {/* Mobile: imagem original — visível apenas abaixo de md */}
               <Image
                 src={src}
                 alt={`Processo Criativo DaRafa ${index + 1}`}
                 fill
-                className="object-cover"
+                className="object-cover object-center md:hidden"
+                sizes="100vw"
+              />
+
+              {/* Desktop: mesma imagem com posicionamento calibrado — visível apenas em md e acima */}
+              <Image
+                src={src}
+                alt={`Processo Criativo DaRafa ${index + 1}`}
+                fill
+                className="object-cover object-center hidden md:block"
                 sizes="100vw"
               />
             </div>
           ))}
         </div>
 
-        {/* Navegação por Pontos (Dots) - Mapeado para 6 slides */}
+        {/* BOTÃO ESQUERDA (Estilo Instagram) */}
+        <button
+          onClick={scrollPrev}
+          className={`absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-white/90 text-black shadow-lg backdrop-blur-sm z-30 transition-opacity duration-300 hover:bg-white ${activeIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+          aria-label="Imagem anterior"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+
+        {/* BOTÃO DIREITA (Estilo Instagram) */}
+        <button
+          onClick={scrollNext}
+          className={`absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-white/90 text-black shadow-lg backdrop-blur-sm z-30 transition-opacity duration-300 hover:bg-white ${activeIndex === totalSlides - 1 ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+          aria-label="Próxima imagem"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+
+        {/* Navegação por Pontos (Dots) */}
         <div className="absolute bottom-8 md:bottom-[1.0rem] left-0 right-0 flex justify-center gap-1.5 z-20 pointer-events-none">
           {[0, 1, 2, 3, 4, 5].map((dotIndex) => (
             <div
