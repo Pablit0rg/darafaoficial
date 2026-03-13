@@ -46,15 +46,17 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 - [ ] **Protocolo de Validação Mobile:** A versão mobile foi validada e permanecerá estritamente intacta no formato vertical colorido atual. A possibilidade de alterar o mobile fica congelada. Reavaliações no layout mobile só serão cogitadas após o check final e absoluto nas imagens de PC.
 
 #### 3. Auditoria de Breakpoints Tailwind (Responsividade Cross-Device)
+- [x] **QA xl: (1280px+) — Desktop:** Validado nos prints do monitor do trabalho. Layout estável após remoção do `min-w-[280px]` no `Showcase.tsx`.
+- [x] **QA lg: (1024px+) — Notebook / Desktop menor:** Parcialmente resolvido. Showcase estável após correção do `min-w`. Hero pendente de validação no Chromebook (prints à noite).
+- [ ] **QA lg: Hero (1024px+):** Pendente de prints do Chromebook para diagnóstico e correção. Agendado para hoje à noite.
+- [ ] **QA md: (768px+) — Tablet / Notebook pequeno:** Comportamento identificado — layout muda em 1023px. Correção de tablet agendada para sessão dedicada após conclusão do desktop.
 - [ ] **QA sm: (640px+) — Mobile grande / Tablet pequeno:** Validar layout em dispositivos como iPhone 14 Pro Max e tablets compactos. Verificar se textos, espaçamentos e posicionamentos se comportam corretamente nesta faixa.
-- [ ] **QA md: (768px+) — Tablet / Notebook pequeno:** Validar layout em iPads e notebooks de 11"-13" (ex: MacBook Air, Chromebook). Ajustar regras `md:` que atualmente cobrem tanto tablet quanto desktop.
-- [ ] **QA lg: (1024px+) — Notebook / Desktop menor:** Validar layout em notebooks de 13"-15" e monitores compactos. Criar regras `lg:` específicas se o layout `md:` estiver inadequado nesta faixa.
-- [ ] **QA xl: (1280px+) — Desktop:** Validar layout em monitores Full HD padrão (1280px-1536px).
 - [ ] **QA 2xl: (1536px+) — Desktop grande:** Validar layout em monitores grandes e ultrawide. Garantir que elementos não fiquem excessivamente espaçados ou desproporcionais.
 - [ ] **Referencial de Dispositivos por Breakpoint:** Usar o DevTools do Chrome com os seguintes modelos representativos por faixa: `sm` → Samsung Galaxy A51/71 | `md` → iPad Air | `lg` → Surface Pro 7 | `xl` → desktop 1280px genérico | `2xl` → desktop 1920px genérico.
 
 #### 4. Tarefas Postergadas
 - [x] **Seta Mobile Longa (Instagram CTA):** Implementação de seta direcional concluída com sucesso. Código estabilizado.
+- [ ] **Seta Vertical Desktop (Instagram CTA):** Substituição do `->` por seta vertical animada idêntica à Hero, apontando para o ícone do Instagram no footer. Adiada — seta está dentro do fluxo `flex` do `Link`, exigindo reposicionamento em `absolute`. Sessão dedicada necessária.
 - [ ] **Staircase Typography (Botão CTA):** Transformar o botão "Seguir no Instagram" em uma escada tipográfica. O código foi testado e validado com sucesso na arquitetura, mas a aplicação definitiva foi adiada por questões de gestão de tempo e priorização da reta final.
 
 #### 5. Infraestrutura e Deploy
@@ -111,6 +113,10 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 ---
 
 ## Historico de Sprints (Changelog)
+
+### [2026-03-10] - Correção de Responsividade Desktop e Reposicionamento InstagramCTA
+- [x] **Showcase (Bugfix Responsividade Desktop):** Remoção cirúrgica do `min-w-[280px]` no `DesktopCard`. A propriedade sobrescrevia o `w-[20vw]` em qualquer tela abaixo de 1400px, fixando os cards em 280px independente da viewport e quebrando a proporcionalidade entre monitor grande e Chromebook. Correção: uma palavra removida, zero impacto no restante do layout.
+- [x] **InstagramCTA (Reposicionamento Desktop):** Ajuste manual das coordenadas `md:translate-x` e `md:translate-y` do `h2` (@DARAFA_CWB) e do bloco do botão CTA para posicionamento artístico no desktop. Mobile intacto — todos os valores sem prefixo preservados.
 
 ### [2026-03-09] - Arquitetura Responsiva Avançada (Desktop)
 - [x] **Showcase (Refinamento de Grid):** Modificação estrutural no componente `Showcase.tsx` reduzindo o tamanho dos cards em 50% exclusivamente na versão desktop (de `lg:grid-cols-3` para `lg:grid-cols-6` e `lg:auto-rows-[240px]`), mantendo o layout mobile intacto.
@@ -181,3 +187,38 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 
 ### [2026-02-25] - Refinamentos de UX e Micro-interacoes
 - [x] **UX Geral:** Aplicacao de tipografia metalica prata no @DARAFA_CWB e expansao do hitbox da logo.
+
+### [2026-03-10] - Estratégia de Assets Panorâmicos e Arquitetura Dual-Image (Manifesto)
+
+#### Diagnóstico
+- [x] **Root Cause Manifesto Desktop:** Identificado que o contêiner do carrossel é panorâmico (~4:1, aproximadamente 1456x340px), enquanto os assets originais são quase quadrados (1008x1024px). O `object-cover` exibia apenas uma fatia fina das imagens, degradando a qualidade visual percebida no desktop. Mobile intacto — problema exclusivo do breakpoint `md:`.
+
+#### Arquitetura Implementada
+- [x] **Dual-Image Pattern (Manifesto.tsx):** Substituição do `<Image>` único por dois elementos condicionais dentro do `.map()`. `md:hidden` para o asset mobile original. `hidden md:block` para o asset desktop panorâmico. Estrutura preparada e commitada — os `src` de ambos apontam temporariamente para o mesmo arquivo até os assets finais estarem prontos.
+- [x] **Calibração de `object-position`:** Adicionado `object-[center_35%]` no bloco desktop como ponto focal de partida. Valor ajustável sem alterar estrutura. Mobile usa `object-center` preservado.
+
+#### Workflow Grok Estabelecido
+- [x] **Parâmetros Definitivos para Outpainting:** Dimensão alvo definida como `1920x480px` (ratio ~4:1), correspondendo ao contêiner real medido no DevTools. Prompt de outpainting elaborado com regras estritas: preservar sujeito central, expandir apenas lateralmente, manter textura e iluminação do fundo original, sem adicionar elementos inexistentes.
+- [x] **Validação do Resultado:** Grok gerou 2 opções. Opção 2 aprovada — contém colar completo e todos os elementos da cena original. Opção 1 descartada (ausência do colar).
+- [x] **Protocolo de Entrega do Asset:** Antes de commitar, recortar as barras cinzas superior e inferior da imagem gerada, exportar em `1920x480px` JPG e salvar como `manifesto-processo-criativo-N-desktop.jpg` em `/public/assets/images/manifesto/`.
+
+#### Decisões Arquiteturais Registradas
+- [x] **Manifesto sem link de produto:** Seção Manifesto confirmada como narrativa de marca pura — sem âncoras ou CTAs de produto. Liberdade criativa total para composição das imagens desktop via Grok, sem compromisso de fidelidade com o catálogo real.
+- [x] **Backlog atualizado:** Item "Parâmetros de Dimensão para o Grok" do backlog original estava com dimensões incorretas (1920x800px / 16:9). Dimensão real corrigida para `1920x480px` / `~4:1` conforme medição real do contêiner.
+
+---
+
+### [2026-03-10] - Pendências Abertas (Hero)
+
+- [ ] **Substituição da imagem Hero (Rafa):** Imagem atual apresenta artefato de geração no osso nasal (imperceptível ao público, porém identificado). Recriar no Grok com instrução explícita de osso nasal reto, sem curvatura.
+- [ ] **Hero — Asset já em P&B:** Gerar a nova imagem da Hero diretamente em preto e branco no Grok, eliminando a necessidade do filtro `grayscale` via CSS. Motivo: em ambientes de baixa iluminação no mobile, o filtro CSS sobre imagem colorida escurece demais, tornando o sujeito quase invisível. Asset nativo em P&B resolve na raiz sem hack de CSS.
+
+---
+
+### Commit da sessão
+
+```bash
+git add src/components/sections/Manifesto.tsx
+git commit -m "feat(manifesto): arquitetura dual-image desktop/mobile com object-position calibrado"
+git push
+```

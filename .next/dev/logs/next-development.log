@@ -1,0 +1,10 @@
+[00:00:19.754] Server  LOG     ✓ Ready in 17s
+[00:09:09.097] Server  LOG     ○ Compiling / ...
+[00:09:24.411] Server  WARN    Image with src "/assets/images/rafaela-destaqueHeroOficial-hd.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:12:07.866] Server  WARN    ⚠ Cross origin request detected from 9000-firebase-darafaoficial-1771727420304.cluster-thle3dudhffpwss7zs5hxaeu2o.cloudworkstations.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:12:08.046] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:08.758] Browser WARN    Image with src "/assets/images/rafaela-destaqueHeroOficial-hd.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:12:09.180] Browser WARN    Image with src "/assets/images/drafts/logo-abelha-v2-coroa.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes

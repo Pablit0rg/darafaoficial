@@ -9,12 +9,13 @@ export default function Manifesto() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // 1. O array manifestoImages agora aponta para a imagem de produção final no primeiro índice.
   const manifestoImages = [
-    "/assets/images/manifesto/manifesto-processo-criativo-2-hd.jpg",
+    "/assets/images/manifesto/processo-criativo-final.jpg", // Imagem final do processo criativo.
     "/assets/images/manifesto/manifesto-processo-criativo-3-hd.jpg",
     "/assets/images/manifesto/manifesto-processo-criativo-5-hd.jpg",
     "/assets/images/manifesto/manifesto-processo-criativo-4-hd.jpg",
-    "/assets/images/manifesto/manifesto-processo-criativo-1-hd.jpg",
+    "/assets/images/manifesto/manifesto-processo-criativo-01-hd.jpg",
   ];
 
   const totalSlides = 1 + manifestoImages.length; // Abelha + 5 imagens
@@ -59,13 +60,13 @@ export default function Manifesto() {
           className="flex w-full h-full overflow-x-auto overflow-y-hidden touch-pan-x snap-x snap-mandatory hide-scroll"
         >
           {/* SLIDE 1: Marca d'água Abelha Original */}
-          <div className="min-w-full w-full h-full snap-center relative flex items-center justify-center overflow-hidden">
-            <div className="relative w-[150%] h-[150%] md:w-full md:h-full max-w-3xl opacity-40 mix-blend-color-dodge pointer-events-none select-none">
+          <div className="min-w-full w-full h-full snap-center relative flex items-center justify-center overflow-hidden bg-black">
+            <div className="relative w-[150%] h-[150%] md:w-full md:h-full max-w-3xl opacity-90 pointer-events-none select-none">
               <Image
-                src="/assets/images/drafts/logo-abelha-raw-05-removebg-preview.png"
+                src="/assets/images/drafts/logo-abelha-v2-coroa.jpg"
                 alt="Marca d'água Abelha DaRafa"
                 fill
-                className="object-contain grayscale"
+                className="object-contain"
                 priority={false}
               />
             </div>
@@ -74,21 +75,14 @@ export default function Manifesto() {
           {/* SLIDES 2 A 6: Imagens do Processo Criativo */}
           {manifestoImages.map((src, index) => (
             <div key={index} className="min-w-full w-full h-full snap-center relative flex items-center justify-center bg-zinc-950 border-l border-white/5 overflow-hidden">
-              {/* Mobile: imagem original — visível apenas abaixo de md */}
+              {/* Imagem única para todos os dispositivos */}
               <Image
                 src={src}
                 alt={`Processo Criativo DaRafa ${index + 1}`}
                 fill
-                className="object-cover object-center md:hidden"
-                sizes="100vw"
-              />
-
-              {/* Desktop: mesma imagem com posicionamento calibrado — visível apenas em md e acima */}
-              <Image
-                src={src}
-                alt={`Processo Criativo DaRafa ${index + 1}`}
-                fill
-                className="object-cover object-center hidden md:block"
+                // 2. Injeção das classes de filtro do Tailwind para "dodge and burn" via CSS.
+                // As classes contrast-125 e brightness-95 aprimoram a textura da imagem.
+                className="object-cover object-center contrast-125 brightness-95"
                 sizes="100vw"
               />
             </div>
