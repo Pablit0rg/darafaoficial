@@ -114,6 +114,22 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 
 ## Historico de Sprints (Changelog)
 
+### [2026-03-13] - Polimento de UX, Integração de Assets e Clean-up de Infraestrutura
+
+#### 1. Refatoração de UX e Navegação (Next.js App Router)
+* **Bug Fix (Cache de Rota):** Restaurado o método imperativo `onClick` com `e.preventDefault()` e `scrollIntoView` na âncora "Joias artesanais" (`Hero.tsx`). A implementação nativa do Next.js 15 apresentava falhas de hidratação e ignorava cliques subsequentes na mesma âncora devido ao cache agressivo do roteador.
+* **Feature (Scroll Offset Milimétrico):** Substituída a classe utilitária `scroll-mt` nativa do Tailwind por uma estratégia de "Sentinel Div" (`Showcase.tsx`). Implementada uma `<div absolute -top-[78px] invisible pointer-events-none>` atuando como âncora fantasma para isolar a responsabilidade do cálculo espacial do Box Model, garantindo que a linha dourada superior se alinhe perfeitamente à borda da viewport.
+
+#### 2. Assets e Componente Manifesto
+* **Integração Fotográfica:** Adição em lote de assets gerados via pipeline Gemini (rascunhos) e Grok (renderização 4K).
+  * Inserção de `logo-abelha-v1` e `v2-coroa`.
+  * Atualização da trilha `processo-criativo` (v1 a v4 e versões finais em HD Desktop).
+* **Refatoração UI:** Ajustes de estrutura e layout no componente `Manifesto.tsx` (28 linhas modificadas) para acomodar a nova esteira de imagens fotográficas e corrigir extensões duplicadas (`.jpg.jpg`).
+
+#### 3. Infraestrutura e Controle de Versão
+* **Clean-up Remoto:** O diretório de build `.next/` (aprox. 1.896 arquivos de cache e runtime do Turbopack) e o arquivo `firebase-debug.log` vazaram temporariamente para a árvore de trabalho. 
+* **Hotfix:** Purga completa executada no tracking do Git e arquivo `.gitignore` atualizado para bloquear novas injeções de artefatos de compilação e logs de servidor.
+
 ### [2026-03-10] - Correção de Responsividade Desktop e Reposicionamento InstagramCTA
 - [x] **Showcase (Bugfix Responsividade Desktop):** Remoção cirúrgica do `min-w-[280px]` no `DesktopCard`. A propriedade sobrescrevia o `w-[20vw]` em qualquer tela abaixo de 1400px, fixando os cards em 280px independente da viewport e quebrando a proporcionalidade entre monitor grande e Chromebook. Correção: uma palavra removida, zero impacto no restante do layout.
 - [x] **InstagramCTA (Reposicionamento Desktop):** Ajuste manual das coordenadas `md:translate-x` e `md:translate-y` do `h2` (@DARAFA_CWB) e do bloco do botão CTA para posicionamento artístico no desktop. Mobile intacto — todos os valores sem prefixo preservados.
@@ -212,13 +228,3 @@ Antes de iniciar o desenvolvimento e aplicar qualquer edição de layout, verifi
 
 - [ ] **Substituição da imagem Hero (Rafa):** Imagem atual apresenta artefato de geração no osso nasal (imperceptível ao público, porém identificado). Recriar no Grok com instrução explícita de osso nasal reto, sem curvatura.
 - [ ] **Hero — Asset já em P&B:** Gerar a nova imagem da Hero diretamente em preto e branco no Grok, eliminando a necessidade do filtro `grayscale` via CSS. Motivo: em ambientes de baixa iluminação no mobile, o filtro CSS sobre imagem colorida escurece demais, tornando o sujeito quase invisível. Asset nativo em P&B resolve na raiz sem hack de CSS.
-
----
-
-### Commit da sessão
-
-```bash
-git add src/components/sections/Manifesto.tsx
-git commit -m "feat(manifesto): arquitetura dual-image desktop/mobile com object-position calibrado"
-git push
-```
