@@ -163,8 +163,7 @@ export default function Showcase() {
 
   return (
     <section
-      id="showcase"
-      className="px-2 pt-[8px] pb-2 bg-black relative scroll-mt-[62px] overflow-hidden"
+      className="px-2 pt-[8px] pb-2 bg-black relative overflow-hidden"
     >
       <script
         type="application/ld+json"
@@ -172,6 +171,18 @@ export default function Showcase() {
       />
 
       <style dangerouslySetInnerHTML={{__html: ".hide-scroll::-webkit-scrollbar { display: none; } .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }"}} />
+
+      {/* Sentinel div: ancora de scroll de precisao.
+          Posicionado 62px acima da secao para compensar o header fixo.
+          O browser alinha o topo deste elemento com o topo do viewport,
+          fazendo a linha dourada pousar exatamente na borda do header. */}
+      <div
+        id="showcase"
+        className="absolute -top-[78px] left-0 w-full h-px invisible pointer-events-none"
+        aria-hidden="true"
+      />
+
+      {/* Linha dourada e restante do conteudo permanecem inalterados abaixo */}
 
       <div className="hidden md:flex flex-col gap-2">
 

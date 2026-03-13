@@ -58,10 +58,16 @@ export default function Hero() {
             Curitiba
           </Link> 
           {" "}•{" "}
-          <Link 
-            href="#showcase" 
+          <Link
+            href="#showcase"
             className="hover:text-white transition-colors cursor-pointer"
-            onClick={(e) => { e.preventDefault(); document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' }); }}
+            onClick={(e) => {
+              e.preventDefault();
+              // Forca o scroll sempre que clicado, contornando o cache de rota do Next.js.
+              // Sem isso, o link para de funcionar apos o primeiro clique pois a URL
+              // ja contem #showcase e o router nao detecta mudanca de rota.
+              document.getElementById("showcase")?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             Joias artesanais
           </Link>
