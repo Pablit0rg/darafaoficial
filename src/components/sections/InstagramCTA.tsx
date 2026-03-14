@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function InstagramCTA() {
   return (
     // Removido o border-t border-white/5 para zerar o gap visual.
-    <section id="instagram" className="min-h-[70vh] lg:min-h-[45vh] flex flex-col justify-center items-center bg-brand-dark relative px-6 overflow-hidden">
+    <section id="instagram" className="min-h-[70vh] lg:min-h-[45vh] flex flex-col justify-center items-center bg-brand-dark relative px-6 overflow-hidden pb-24 lg:pb-0">
       
       {/* Divisor Estrutural: Fio de Ouro fixado exatamente na junção com o Showcase */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-metal-gold z-20"></div>
@@ -49,23 +49,25 @@ export default function InstagramCTA() {
     <motion.div
       animate={{ y: [0, 8, 0] }}
       transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-      className="md:hidden absolute top-[100%] left-[75%] -translate-x-1/2 flex flex-col items-center opacity-60 mt-[2vw]"
+      className="md:hidden absolute top-[100%] left-[75%] -translate-x-1/2 flex flex-col items-center opacity-60 mt-4"
     >
-      <div className="w-[1px] h-[10vw] bg-gradient-to-b from-transparent to-gray-400"></div>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 w-[4vw] h-[4vw]">
+      <div className="w-[1px] h-[40px] bg-gradient-to-b from-transparent to-gray-400"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 w-[20px] h-[20px]">
         <path d="M12 5v14M19 12l-7 7-7-7"/>
       </svg>
     </motion.div>
     </span>
 
-    {/* SETA DESKTOP: Original, lateral, animada no eixo X */}
-    <motion.span
+    {/* SETA DESKTOP: Substituída por SVG e posicionada absolutamente */}
+    <motion.div
       animate={{ x: [0, 8, 0] }}
       transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-      className="hidden md:inline-block text-transparent bg-clip-text bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 font-medium"
+      className="hidden md:inline-block absolute left-full top-1/2 -translate-y-1/2 ml-4"
     >
-      -&gt;
-    </motion.span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 w-6 h-6">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+        </svg>
+    </motion.div>
     
     {/* SETA MOBILE: Mesma arquitetura da Hero */}
     <motion.div
@@ -73,8 +75,8 @@ export default function InstagramCTA() {
       transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
       className="md:hidden flex flex-col items-center opacity-60 ml-[2vw]"
     >
-      <div className="w-[1px] h-[10vw] bg-gradient-to-b from-gray-400 to-transparent"></div>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 w-[4vw] h-[4vw]">
+      <div className="w-[1px] h-[40px] bg-gradient-to-b from-gray-400 to-transparent"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 w-[20px] h-[20px]">
         <polyline points="19 14 12 21 5 14"></polyline>
       </svg>
     </motion.div>

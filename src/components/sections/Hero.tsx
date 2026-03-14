@@ -47,7 +47,7 @@ export default function Hero() {
         <motion.p 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
-          className="translate-x-[20vw] -translate-y-[32vw] md:translate-x-0 md:translate-y-0 text-brand-muted uppercase tracking-[0.3em] text-[2.54vw] md:text-sm"
+          className="translate-x-[clamp(40px,15vw,80px)] -translate-y-[clamp(80px,25vw,120px)] md:translate-x-0 md:translate-y-0 text-brand-muted uppercase tracking-[0.3em] text-[clamp(10px,2.5vw,14px)] md:text-sm"
         >
           <Link 
             href="https://www.google.com/maps/place/Coletivo+Brecho+das+Preta/@-25.4282157,-49.2687739,17z/data=!3m1!4b1!4m6!3m5!1s0x94dce5f4c8e3b451:0x9428bd98505e541!8m2!3d-25.4282157!4d-49.2687739!16s%2Fg%2F11wg2j39_p?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D" 
@@ -76,7 +76,7 @@ export default function Hero() {
         <motion.h1 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
-          className="translate-x-[20vw] -translate-y-[25vw] md:translate-x-0 md:translate-y-0 font-serif text-[9.16vw] md:text-6xl lg:text-7xl leading-tight font-medium text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-200 to-gray-600"
+          className="translate-x-[clamp(40px,15vw,80px)] -translate-y-[clamp(60px,20vw,100px)] md:translate-x-0 md:translate-y-0 font-serif text-[clamp(32px,8vw,56px)] md:text-6xl lg:text-7xl leading-tight font-medium text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-200 to-gray-600"
         >
           ONDE A ARTE <br /> 
           <span className="italic font-light text-gray-400">ENCONTRA</span>
@@ -85,13 +85,13 @@ export default function Hero() {
           <span className="hidden md:inline"> </span>
           
           {/* Painel OS */}
-          <span className="inline-block md:inline -ml-[25vw] md:ml-0">OS</span>
+          <span className="inline-block md:inline -ml-[clamp(60px,20vw,100px)] md:ml-0">OS</span>
           
           <br className="md:hidden" />
           <span className="hidden md:inline"> </span>
           
           {/* Painel METAIS */}
-          <span className="inline-block md:inline ml-[10vw] md:ml-0">METAIS</span>
+          <span className="inline-block md:inline ml-[clamp(24px,8vw,48px)] md:ml-0">METAIS</span>
         </motion.h1>
 
         <motion.div 
